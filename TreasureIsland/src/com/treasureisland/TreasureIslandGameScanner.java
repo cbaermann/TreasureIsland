@@ -10,7 +10,7 @@ public class TreasureIslandGameScanner{
 
 
     public void chosePlayerName(){
-        titleDecorator();
+        welcomeToTreasureIsland();
         System.out.println("Please enter your name");
         this.name = scanner.nextLine();
         System.out.println("Hello " + this.name);
@@ -20,7 +20,7 @@ public class TreasureIslandGameScanner{
 
 
 
-    public void titleDecorator(){
+    public void welcomeToTreasureIsland(){
         System.out.println("\n" +
                 " █     █░▓█████  ██▓     ▄████▄   ▒█████   ███▄ ▄███▓▓█████    ▄▄▄█████▓ ▒█████     ▄▄▄█████▓ ██▀███  ▓█████ ▄▄▄        ██████  █    ██  ██▀███  ▓█████     ██▓  ██████  ██▓    ▄▄▄       ███▄    █ ▓█████▄ \n" +
                 "▓█░ █ ░█░▓█   ▀ ▓██▒    ▒██▀ ▀█  ▒██▒  ██▒▓██▒▀█▀ ██▒▓█   ▀    ▓  ██▒ ▓▒▒██▒  ██▒   ▓  ██▒ ▓▒▓██ ▒ ██▒▓█   ▀▒████▄    ▒██    ▒  ██  ▓██▒▓██ ▒ ██▒▓█   ▀    ▓██▒▒██    ▒ ▓██▒   ▒████▄     ██ ▀█   █ ▒██▀ ██▌\n" +
