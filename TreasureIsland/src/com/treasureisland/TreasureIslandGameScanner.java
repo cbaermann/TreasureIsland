@@ -1,5 +1,7 @@
 package com.treasureisland;
-
+import java.io.File;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.Scanner;
 
 public class TreasureIslandGameScanner{
@@ -14,6 +16,13 @@ public class TreasureIslandGameScanner{
         System.out.println("Please enter your name");
         this.name = scanner.nextLine();
         System.out.println("Hello " + this.name);
+
+
+
+
+
+
+
     }
 
 
