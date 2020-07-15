@@ -16,7 +16,7 @@ public class TreasureIslandGameScanner{
         System.out.println("Please enter your name");
         this.name = scanner.nextLine();
         System.out.println("Hello " + this.name);
-
+to
 
 
 
