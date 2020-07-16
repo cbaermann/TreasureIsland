@@ -1,7 +1,8 @@
 package com.treasureisland;
-import java.io.File;
-import java.io.InputStream;
-import java.net.URL;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class TreasureIslandGameScanner{
@@ -11,14 +12,13 @@ public class TreasureIslandGameScanner{
 
 
 
-    public void chosePlayerName(){
+    public void chosePlayerName() throws IOException {
         welcomeToTreasureIsland();
         System.out.println("Please enter your name");
         this.name = scanner.nextLine();
-        System.out.println("Hello " + this.name);
-to
+        System.out.println("Hello " + this.name + "\n \n");
 
-
+        storylineProgression("test.txt");
 
 
 
@@ -26,7 +26,13 @@ to
     }
 
 
-
+    public void storylineProgression(String text) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + text));
+        String line;
+        while ((line = br.readLine()) != null) {
+            System.out.println(line);
+        }
+    }
 
 
     public void welcomeToTreasureIsland(){
