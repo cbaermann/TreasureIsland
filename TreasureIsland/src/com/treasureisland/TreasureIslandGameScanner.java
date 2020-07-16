@@ -16,10 +16,7 @@ public class TreasureIslandGameScanner{
             this.name = scanner.nextLine();
             System.out.println("Welcome, " + this.name + "\n \n");
             storylineProgression("test.txt");
-        }
-        catch(FileNotFoundException | InterruptedException e){
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch(InterruptedException | IOException e){
             e.printStackTrace();
         }
     }
