@@ -1,11 +1,21 @@
 package com.treasureisland;
+import com.treasureisland.rumrummersisle.Location;
+import com.treasureisland.world.Game;
+import com.treasureisland.world.Room;
+import com.treasureisland.rumrummersisle.RumDistillary;
+
+
 import java.io.*;
 import java.util.Scanner;
 
 public class TreasureIslandGameScanner{
+    Location location;
+    private Room room;
+    private Game game;
     private String name;
     Scanner scanner = new Scanner(System.in);
     private String input;
+    private boolean hasAmazingItem = false;
 
 
 
@@ -16,9 +26,22 @@ public class TreasureIslandGameScanner{
             this.name = scanner.nextLine();
             System.out.println("Welcome, " + this.name + "\n \n");
             storylineProgression("test.txt");
+            rumDistillary();
         } catch(InterruptedException | IOException e){
             e.printStackTrace();
         }
+
+    }
+
+    public void rumDistillary(){
+//        System.out.println("hi from rum distillary");
+        while(hasAmazingItem != true) {
+            System.out.println("Where would you like to go. n/s/e/w");
+            input = scanner.nextLine();
+            location = RumRunnerIsleFactory.islandLocationFactory(input);
+            System.out.println(location.getLocationName());
+        }
+
     }
 
 
@@ -35,6 +58,7 @@ public class TreasureIslandGameScanner{
             System.out.println(line);
             Thread.sleep(1000);
         }
+
     }
 
 
