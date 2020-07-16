@@ -1,8 +1,5 @@
 package com.treasureisland;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class TreasureIslandGameScanner{
@@ -12,25 +9,34 @@ public class TreasureIslandGameScanner{
 
 
 
-    public void chosePlayerName() throws IOException {
-        welcomeToTreasureIsland();
-        System.out.println("Please enter your name");
-        this.name = scanner.nextLine();
-        System.out.println("Hello " + this.name + "\n \n");
-
-        storylineProgression("test.txt");
-
-
-
-
+    public void chosePlayerName() {
+        try {
+            welcomeToTreasureIsland();
+            System.out.println("Please enter your name");
+            this.name = scanner.nextLine();
+            System.out.println("Welcome, " + this.name + "\n \n");
+            storylineProgression("test.txt");
+        }
+        catch(FileNotFoundException | InterruptedException e){
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
-    public void storylineProgression(String text) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + text));
+
+
+//HELPER METHODS BELLOW
+
+
+    //File reads txt file that it's passed and prints to terminal.
+    public void storylineProgression(String fileName) throws IOException, InterruptedException {
+        BufferedReader br = new BufferedReader(new FileReader("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + fileName));
         String line;
         while ((line = br.readLine()) != null) {
             System.out.println(line);
+            Thread.sleep(1000);
         }
     }
 
