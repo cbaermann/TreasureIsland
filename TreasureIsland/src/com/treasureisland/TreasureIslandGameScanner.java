@@ -3,6 +3,7 @@ package com.treasureisland;
 import com.treasureisland.rumrummersisle.Location;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TreasureIslandGameScanner{
@@ -11,6 +12,7 @@ public class TreasureIslandGameScanner{
     private Scanner scanner = new Scanner(System.in);
     private String input;
     public boolean haveAmazingItem = false;
+    public ArrayList<String> playerClues = new ArrayList<>();
     private static TreasureIslandGameScanner scan = new TreasureIslandGameScanner();
     private TreasureIslandGameScanner(){
         
@@ -59,10 +61,16 @@ public class TreasureIslandGameScanner{
 
 //HELPER METHODS BELLOW
 
+    public void iterateThroughPlayerClues(){
+        for(String clue : playerClues){
+            System.out.println(clue);
+        }
+    }
+
 
     public void playerInteractionOptions() throws IOException, InterruptedException {
         while(input != "e") {
-        System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Exit(e)");
+        System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Clues(c)/ Exit(e)");
         input = scanner.nextLine();
         if (input.equalsIgnoreCase("talk") || input.equalsIgnoreCase("t")) {
             location.talkToNPC();
@@ -72,6 +80,9 @@ public class TreasureIslandGameScanner{
         }
         if(input.equalsIgnoreCase("Investigate") || input.equalsIgnoreCase("i")){
             location.investigateArea();
+        }
+        if(input.equalsIgnoreCase("clues") || input.equalsIgnoreCase("c")){
+            iterateThroughPlayerClues();
         }
         if(input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e")){
             break;

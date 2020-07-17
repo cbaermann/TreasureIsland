@@ -17,6 +17,7 @@ public class RumDistillery implements Location{
     public void talkToNPC() throws IOException, InterruptedException {
         System.out.println("You're talking to npc in rum distillery");
         player.storylineProgression("MasterBrewer.txt");
+        player.playerClues.add("For the last occurance, look under drum that gives men courage");
     }
 
     @Override
