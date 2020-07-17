@@ -11,7 +11,7 @@ public class TreasureIslandGameScanner{
     private String name;
     Scanner scanner = new Scanner(System.in);
     private String input;
-    private boolean hasAmazingItem = false;
+    public boolean haveAmazingItem = false;
 
 
 
@@ -22,29 +22,26 @@ public class TreasureIslandGameScanner{
             this.name = scanner.nextLine();
             System.out.println("Welcome, " + this.name + "\n \n");
             storylineProgression("test.txt");
-            rumDistillary();
+            rumDistillery();
         } catch(InterruptedException | IOException e){
             e.printStackTrace();
         }
 
     }
 
-    public void rumDistillary(){
-//        System.out.println("hi from rum distillary");
-        while(hasAmazingItem != true) {
+    public void rumDistillery(){
+        while(!haveAmazingItem) {
             System.out.println("Where would you like to go. N/S/E/W");
             input = scanner.nextLine();
             location = RumRunnerIsleFactory.islandLocationFactory(input);
-            System.out.println(location.getLocationName());
-            System.out.println("What actions would you like to make?");
-            input = scanner.nextLine();
-            if(input.equalsIgnoreCase("talk")){
-                location.talkToNPC();
-            }
-
-
+            System.out.println("You are now at the " + location.getLocationName());
+            playerInteractionOptions();
         }
+        isleDeMuerta();
+    }
 
+    public void isleDeMuerta(){
+        System.out.println("You made it to the next island");
     }
 
 
@@ -52,6 +49,25 @@ public class TreasureIslandGameScanner{
 
 //HELPER METHODS BELLOW
 
+
+    public void playerInteractionOptions(){
+        while(input != "e") {
+        System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Exit(e)");
+        input = scanner.nextLine();
+        if (input.equalsIgnoreCase("talk") || input.equalsIgnoreCase("t")) {
+            location.talkToNPC();
+        }
+        if (input.equalsIgnoreCase("look") || input.equalsIgnoreCase("l")) {
+            location.lookAroundLocation();
+        }
+        if(input.equalsIgnoreCase("Investigate") || input.equalsIgnoreCase("i")){
+            location.investigateArea();
+        }
+        if(input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e")){
+            break;
+        }
+
+    }}
 
     //File reads txt file that it's passed and prints to terminal.
     public void storylineProgression(String fileName) throws IOException, InterruptedException {

@@ -11,6 +11,16 @@ public class RumDistillary implements Location{
         System.out.println("youre talking to npc in rum distillary");
     }
 
+    @Override
+    public void lookAroundLocation() {
+        System.out.println("making vodka, weird");
+    }
+
+    @Override
+    public void investigateArea() {
+        System.out.println("look, there is something here");
+    }
+
     //Rum Distillary
     //Master Brewers House
     //Cask Room

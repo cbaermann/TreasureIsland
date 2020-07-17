@@ -12,5 +12,15 @@ public class MasterBrewersHouse implements Location{
         System.out.println("you're talking to npc in master brewers house");
     }
 
+    @Override
+    public void lookAroundLocation() {
+        System.out.println("I see a strange crack in the wall");
+    }
+
+    @Override
+    public void investigateArea() {
+        System.out.println("there is a locked box on the porch");
+    }
+
 
 }

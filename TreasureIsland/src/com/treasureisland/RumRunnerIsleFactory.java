@@ -28,8 +28,6 @@ public class RumRunnerIsleFactory {
 
             default:
                 System.out.println("Error, please select correct input");
-
-
         }
         return location;
     }

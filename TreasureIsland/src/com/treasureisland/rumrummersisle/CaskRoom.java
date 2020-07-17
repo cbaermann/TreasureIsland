@@ -13,4 +13,14 @@ public class CaskRoom implements Location{
         System.out.println("youre talking to npc in cask room");
     }
 
+    @Override
+    public void lookAroundLocation() {
+        System.out.println("there is no rum here");
+    }
+
+    @Override
+    public void investigateArea() {
+        System.out.println("looking under cask");
+    }
+
 }
