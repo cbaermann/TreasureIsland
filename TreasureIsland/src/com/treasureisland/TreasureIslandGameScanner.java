@@ -79,7 +79,7 @@ public class TreasureIslandGameScanner{
 
     //File reads txt file that it's passed and prints to terminal.
     public void storylineProgression(String fileName) throws IOException, InterruptedException {
-        BufferedReader br = new BufferedReader(new FileReader(".\\TreasureIsland\\src\\com\\treasureisland\\text\\" + fileName));
+        BufferedReader br = new BufferedReader(new FileReader("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + fileName));
         String line;
         while ((line = br.readLine()) != null) {
             System.out.println(line);
