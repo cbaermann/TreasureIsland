@@ -10,7 +10,7 @@ public class RumRunnerIsleFactory {
 
     public static Location islandLocationFactory(String direction){
         Location location = null;
-        switch(direction){
+        switch(direction.toLowerCase()){
             case "n":
                 location = new RumDistillary();
                 break;
@@ -28,6 +28,7 @@ public class RumRunnerIsleFactory {
 
             default:
                 System.out.println("Error, please select correct input");
+
 
         }
         return location;
