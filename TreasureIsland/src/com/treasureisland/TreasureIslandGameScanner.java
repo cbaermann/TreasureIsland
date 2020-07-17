@@ -1,15 +1,19 @@
 package com.treasureisland;
+
 import com.treasureisland.rumrummersisle.Location;
 //import com.treasureisland.world.Game;
 //import com.treasureisland.world.Room;
 import com.treasureisland.rumrummersisle.RumDistillary;
 
 
+import com.treasureisland.rumrummersisle.Location;
+
 import java.io.*;
 import java.util.Scanner;
 
 public class TreasureIslandGameScanner{
     Location location;
+
 //    private Room room;
 //    private Game game;
     private String name;
@@ -36,10 +40,17 @@ public class TreasureIslandGameScanner{
     public void rumDistillary(){
 //        System.out.println("hi from rum distillary");
         while(hasAmazingItem != true) {
-            System.out.println("Where would you like to go. n/s/e/w");
+            System.out.println("Where would you like to go. N/S/E/W");
             input = scanner.nextLine();
             location = RumRunnerIsleFactory.islandLocationFactory(input);
             System.out.println(location.getLocationName());
+            System.out.println("What actions would you like to make?");
+            input = scanner.nextLine();
+            if(input.equalsIgnoreCase("talk")){
+                location.talkToNPC();
+            }
+
+
         }
 
     }
