@@ -12,7 +12,7 @@ public class RumRunnerIsleFactory {
         Location location = null;
         switch(direction.toLowerCase()){
             case "n":
-                location = new RumDistillary();
+                location = new RumDistillery();
                 break;
             case "s":
                 location = new CrimsonBeachBar();

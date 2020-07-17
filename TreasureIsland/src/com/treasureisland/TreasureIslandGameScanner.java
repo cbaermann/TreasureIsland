@@ -6,20 +6,31 @@ import java.io.*;
 import java.util.Scanner;
 
 public class TreasureIslandGameScanner{
-    Location location;
+    private Location location;
     private String name;
-    Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
     private String input;
-    public boolean haveAmazingItem = false;
+    private boolean haveAmazingItem = false;
+    private static TreasureIslandGameScanner scan = new TreasureIslandGameScanner();
+    private TreasureIslandGameScanner(){
+        
+    }
 
+    public static TreasureIslandGameScanner getInstance(){
+        return scan;
+    }
+
+    public String getName() {
+        return name;
+    }
 
 
     public void chosePlayerName() {
         try {
             welcomeToTreasureIsland();
             System.out.println("Please enter your name");
-            this.name = scanner.nextLine();
-            System.out.println("Welcome, " + this.name + "\n \n");
+            name = scanner.nextLine();
+            System.out.println("Welcome, " + name + "\n \n");
             storylineProgression("test.txt");
             rumDistillery();
         } catch(InterruptedException | IOException e){

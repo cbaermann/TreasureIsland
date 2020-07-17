@@ -4,7 +4,7 @@ import com.treasureisland.TreasureIslandGameScanner;
 
 
 public class CrimsonBeachBar implements Location{
-    TreasureIslandGameScanner treasureIslandGameScanner;
+    TreasureIslandGameScanner player;
     private String locationName = "Crimson Beach Bar";
 
     @Override
@@ -25,7 +25,7 @@ public class CrimsonBeachBar implements Location{
     @Override
     public void investigateArea(){
         System.out.println("being nosey in at bar");
-//        treasureIslandGameScanner.haveAmazingItem = true;
+//        player.haveAmazingItem = true;
 
     }
 

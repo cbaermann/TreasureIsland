@@ -1,11 +1,15 @@
 package com.treasureisland.rumrummersisle;
+import com.treasureisland.TreasureIslandGameScanner;
 
-public class RumDistillary implements Location{
-    private String locationName = "Rum Distillery";
+
+
+public class RumDistillery implements Location{
+    private TreasureIslandGameScanner player = TreasureIslandGameScanner.getInstance();
+
 
     @Override
     public String getLocationName() {
-        return locationName;
+        return "Rum Distillery";
     }
 
     @Override
@@ -16,14 +20,13 @@ public class RumDistillary implements Location{
     @Override
     public void lookAroundLocation() {
         System.out.println("making vodka, weird");
+        System.out.println(player.getName());
     }
 
     @Override
     public void investigateArea() {
         System.out.println("look, there is something here");
     }
-
-
 
 
 }
