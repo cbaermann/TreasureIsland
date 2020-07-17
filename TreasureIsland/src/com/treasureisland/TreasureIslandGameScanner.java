@@ -10,7 +10,7 @@ public class TreasureIslandGameScanner{
     private String name;
     private Scanner scanner = new Scanner(System.in);
     private String input;
-    private boolean haveAmazingItem = false;
+    public boolean haveAmazingItem = false;
     private static TreasureIslandGameScanner scan = new TreasureIslandGameScanner();
     private TreasureIslandGameScanner(){
         
@@ -39,7 +39,7 @@ public class TreasureIslandGameScanner{
 
     }
 
-    public void rumDistillery(){
+    public void rumDistillery() throws IOException, InterruptedException {
         while(!haveAmazingItem) {
             System.out.println("Where would you like to go. N/S/E/W");
             input = scanner.nextLine();
@@ -60,7 +60,7 @@ public class TreasureIslandGameScanner{
 //HELPER METHODS BELLOW
 
 
-    public void playerInteractionOptions(){
+    public void playerInteractionOptions() throws IOException, InterruptedException {
         while(input != "e") {
         System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Exit(e)");
         input = scanner.nextLine();

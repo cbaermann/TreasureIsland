@@ -8,8 +8,8 @@ public interface Location {
     public String locationName = null;
 
     public String getLocationName();
-    public void talkToNPC();
-    public void lookAroundLocation();
+    public void talkToNPC() throws IOException, InterruptedException;
+    public void lookAroundLocation() throws IOException, InterruptedException;
     public void investigateArea();
 
 
