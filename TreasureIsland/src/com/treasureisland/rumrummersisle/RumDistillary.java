@@ -1,6 +1,8 @@
 package com.treasureisland.rumrummersisle;
 
 public class RumDistillary implements Location{
+    private String locationName = "Rum Distillery";
+
     @Override
     public String getLocationName() {
         return locationName;
@@ -8,7 +10,7 @@ public class RumDistillary implements Location{
 
     @Override
     public void talkToNPC() {
-        System.out.println("youre talking to npc in rum distillary");
+        System.out.println("You're talking to npc in rum distillery");
     }
 
     @Override
@@ -21,16 +23,6 @@ public class RumDistillary implements Location{
         System.out.println("look, there is something here");
     }
 
-    //Rum Distillary
-    //Master Brewers House
-    //Cask Room
-    //Docks
-    private String locationName = "Rum Distillary";
-
-
-    public void rumDistillary(){
-        System.out.println("hello from rum distillary in .world");
-    }
 
 
 

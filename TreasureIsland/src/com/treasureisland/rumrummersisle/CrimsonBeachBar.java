@@ -3,9 +3,9 @@ package com.treasureisland.rumrummersisle;
 import com.treasureisland.TreasureIslandGameScanner;
 
 
-public class Docks implements Location{
+public class CrimsonBeachBar implements Location{
     TreasureIslandGameScanner treasureIslandGameScanner;
-    private String locationName = "Docks";
+    private String locationName = "Crimson Beach Bar";
 
     @Override
     public String getLocationName() {
@@ -14,7 +14,7 @@ public class Docks implements Location{
 
     @Override
     public void talkToNPC() {
-        System.out.println("youre talking to npc in docks");
+        System.out.println("youre talking to npc in the bar");
     }
 
     @Override
@@ -24,7 +24,7 @@ public class Docks implements Location{
 
     @Override
     public void investigateArea(){
-        System.out.println("being nosey in the Docks");
+        System.out.println("being nosey in at bar");
 //        treasureIslandGameScanner.haveAmazingItem = true;
 
     }

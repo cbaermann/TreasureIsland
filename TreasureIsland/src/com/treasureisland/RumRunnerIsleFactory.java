@@ -15,15 +15,15 @@ public class RumRunnerIsleFactory {
                 location = new RumDistillary();
                 break;
             case "s":
-                location = new Docks();
+                location = new CrimsonBeachBar();
                 break;
 
             case "e":
-                location = new CaskRoom();
+                location = new AbandonedDistillery();
                 break;
 
             case "w":
-                location = new MasterBrewersHouse();
+                location = new SugarCaneField();
                 break;
 
             default:

@@ -1,21 +1,12 @@
 package com.treasureisland;
 
 import com.treasureisland.rumrummersisle.Location;
-//import com.treasureisland.world.Game;
-//import com.treasureisland.world.Room;
-import com.treasureisland.rumrummersisle.RumDistillary;
-
-
-import com.treasureisland.rumrummersisle.Location;
 
 import java.io.*;
 import java.util.Scanner;
 
 public class TreasureIslandGameScanner{
     Location location;
-
-//    private Room room;
-//    private Game game;
     private String name;
     Scanner scanner = new Scanner(System.in);
     private String input;

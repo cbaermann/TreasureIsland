@@ -1,7 +1,7 @@
 package com.treasureisland.rumrummersisle;
 
-public class CaskRoom implements Location{
-    private String locationName = "Cask Room";
+public class AbandonedDistillery implements Location{
+    private String locationName = "Abandoned distillery";
 
     @Override
     public String getLocationName() {
@@ -10,7 +10,7 @@ public class CaskRoom implements Location{
 
     @Override
     public void talkToNPC() {
-        System.out.println("youre talking to npc in cask room");
+        System.out.println("youre talking to npc in the abandoned distillery");
     }
 
     @Override
