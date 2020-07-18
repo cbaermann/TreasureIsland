@@ -17,18 +17,23 @@ public class RumDistillery implements Location{
     public void talkToNPC() throws IOException, InterruptedException {
         System.out.println("You're talking to npc in rum distillery");
         player.storylineProgression("MasterBrewer.txt");
-        player.playerClues.add("For the last occurance, look under drum that gives men courage");
+        player.playerClues.add("For the last occurrence, look under drum that gives men courage");
     }
 
     @Override
     public void lookAroundLocation() throws IOException, InterruptedException {
         System.out.println("making vodka, weird");
         System.out.println("Hello " + player.getName());
+        player.storylineProgression("RumDistilleryOpenCask.txt");
     }
 
     @Override
     public void investigateArea() {
-        System.out.println("look, there is something here");
+        System.out.println("-- I am sure i will find something interesting here " +
+                "\n-- " + player.getName() + " looked under the cask and found ...."
+                + "\n-- 9999 etched on the bottom.....nothing of interest");
+        player.playerClues.add("9999");
+
 
     }
 
