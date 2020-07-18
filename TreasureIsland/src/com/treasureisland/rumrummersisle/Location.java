@@ -4,13 +4,13 @@ import com.treasureisland.TreasureIslandGameScanner;
 
 import java.io.IOException;
 
-public interface Location {
-    public String locationName = null;
+    public interface Location {
+    String locationName = null;
 
-    public String getLocationName();
-    public void talkToNPC() throws IOException, InterruptedException;
-    public void lookAroundLocation() throws IOException, InterruptedException;
-    public void investigateArea();
+    String getLocationName();
+    void talkToNPC() throws IOException, InterruptedException;
+    void lookAroundLocation() throws IOException, InterruptedException;
+    void investigateArea() throws IOException, InterruptedException;
 
 
 }

@@ -49,11 +49,12 @@ public class TreasureIslandGameScanner{
             System.out.println("You are now at the " + location.getLocationName());
             playerInteractionOptions();
         }
+        System.out.println("Leaving Rum Runners Isle");
         isleDeMuerta();
     }
 
     public void isleDeMuerta(){
-        System.out.println("You made it to the next island");
+        System.out.println("You made it to Isle De Muerta");
     }
 
 
