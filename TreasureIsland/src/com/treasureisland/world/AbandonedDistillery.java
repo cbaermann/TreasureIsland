@@ -1,11 +1,10 @@
-package com.treasureisland.rumrummersisle;
+package com.treasureisland.world;
 
 public class AbandonedDistillery implements Location{
-    private String locationName = "Abandoned distillery";
 
     @Override
     public String getLocationName() {
-        return locationName;
+        return "Abandoned distillery";
     }
 
     @Override

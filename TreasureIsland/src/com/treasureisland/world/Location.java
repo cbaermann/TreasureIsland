@@ -1,6 +1,4 @@
-package com.treasureisland.rumrummersisle;
-
-import com.treasureisland.TreasureIslandGameScanner;
+package com.treasureisland.world;
 
 import java.io.IOException;
 

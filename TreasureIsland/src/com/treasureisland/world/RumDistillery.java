@@ -1,11 +1,11 @@
-package com.treasureisland.rumrummersisle;
+package com.treasureisland.world;
 import com.treasureisland.TreasureIslandGameScanner;
 
 import java.io.IOException;
 
 
 public class RumDistillery implements Location{
-    private TreasureIslandGameScanner player = TreasureIslandGameScanner.getInstance();
+    private final TreasureIslandGameScanner player = TreasureIslandGameScanner.getInstance();
 
 
     @Override
@@ -23,14 +23,14 @@ public class RumDistillery implements Location{
     @Override
     public void lookAroundLocation() throws IOException, InterruptedException {
         System.out.println("making vodka, weird");
-        System.out.println("Hello " + player.getName());
+        System.out.println("Hello " + player.getPlayerName());
         player.storylineProgression("RumDistilleryOpenCask.txt");
     }
 
     @Override
     public void investigateArea() {
         System.out.println("-- I am sure i will find something interesting here " +
-                "\n-- " + player.getName() + " looked under the cask and found ...."
+                "\n-- " + player.getPlayerName() + " looked under the cask and found ...."
                 + "\n-- 9999 etched on the bottom.....nothing of interest");
         player.playerClues.add("9999");
 

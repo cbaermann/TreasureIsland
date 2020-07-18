@@ -1,15 +1,14 @@
-package com.treasureisland.rumrummersisle;
+package com.treasureisland.world;
 
 import com.treasureisland.TreasureIslandGameScanner;
 
 
 public class CrimsonBeachBar implements Location{
     TreasureIslandGameScanner player;
-    private String locationName = "Crimson Beach Bar";
 
     @Override
     public String getLocationName() {
-        return locationName;
+        return "Crimson Beach Bar";
     }
 
     @Override

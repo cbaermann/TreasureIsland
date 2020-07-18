@@ -1,6 +1,6 @@
 package com.treasureisland;
 
-import com.treasureisland.rumrummersisle.*;
+import com.treasureisland.world.*;
 
 public class RumRunnerIsleFactory {
     private RumRunnerIsleFactory(){

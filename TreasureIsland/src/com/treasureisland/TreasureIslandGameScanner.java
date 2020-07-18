@@ -1,6 +1,6 @@
 package com.treasureisland;
 
-import com.treasureisland.rumrummersisle.Location;
+import com.treasureisland.world.Location;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class TreasureIslandGameScanner{
     private Location location;
-    private String name;
+    private String playerName;
     private Scanner scanner = new Scanner(System.in);
     private String input;
     public boolean haveAmazingItem = false;
@@ -22,8 +22,8 @@ public class TreasureIslandGameScanner{
         return scan;
     }
 
-    public String getName() {
-        return name;
+    public String getPlayerName() {
+        return playerName;
     }
 
 
@@ -31,9 +31,9 @@ public class TreasureIslandGameScanner{
         try {
             welcomeToTreasureIsland();
             System.out.println("Please enter your name");
-            name = scanner.nextLine();
-            System.out.println("Welcome, " + name + "\n \n");
-            storylineProgression("test.txt");
+            playerName = scanner.nextLine();
+            System.out.println("\nWelcome, " + playerName + "\n \n");
+            storylineProgression("GameIntroText.txt");
             rumDistillery();
         } catch(InterruptedException | IOException e){
             e.printStackTrace();
@@ -56,6 +56,8 @@ public class TreasureIslandGameScanner{
     public void isleDeMuerta(){
         System.out.println("You made it to Isle De Muerta");
     }
+
+
 
 
 

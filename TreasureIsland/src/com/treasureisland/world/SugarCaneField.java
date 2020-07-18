@@ -1,4 +1,4 @@
-package com.treasureisland.rumrummersisle;
+package com.treasureisland.world;
 
 import com.treasureisland.TreasureIslandGameScanner;
 
@@ -6,14 +6,13 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class SugarCaneField implements Location{
-    private TreasureIslandGameScanner player = TreasureIslandGameScanner.getInstance();
+    private final TreasureIslandGameScanner player = TreasureIslandGameScanner.getInstance();
     Scanner scanner = new Scanner(System.in);
     String input;
 
     @Override
     public String getLocationName() {
-        String locationName = "Sugar cane field";
-        return locationName;
+        return "Sugar cane field";
     }
 
     @Override
