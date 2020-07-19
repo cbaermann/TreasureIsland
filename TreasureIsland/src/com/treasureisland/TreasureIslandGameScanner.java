@@ -119,4 +119,17 @@ public class TreasureIslandGameScanner{
                 "                        ░                                                                                                                                                                            ░      \n");
     }
 
+
+    public void leavingIslandShipPrint(){
+        //TODO finish boat design for added effect leaving island to new one.
+        System.out.println("\n" +
+                "                  /|                           " + "\n" +
+                "                 / |                           " + "\n" +
+                "                /__|                           " + "\n" +
+                "                   |                           " + "\n" +
+                "            [______|______]                    " + "\n" + "\n"
+                );
+
+    }
+
 }
