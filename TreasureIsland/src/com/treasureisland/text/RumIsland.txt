@@ -27,14 +27,14 @@ Rum Island
 				-- I asked him " Can I get a sample of the Sunshine Rum"
 				-- MB - "You need what!" he replied with little surprised look on his face.
 				-- I repeated, can have some Sunshine rum?
-				-- MB grumbled something under his breath and disappeared for 10- 15 minutes,leaving me confused.
+				-- MB grumbled something under his breath and disappeared for 10- 15             			minutes,leaving me confused.
 				-- Finally he came back, gave me a clear looking liquid in a shot glass and asked me to drink up!
 				-- I looked at the shot glass and then back at MB, he was still staring at me!
 				-- I thought, whatever and drank up. I glanced at MB after taking the shot and he was still straining at me.
 				-- I finally asked, "Is that it?"
 				-- He kept staring at me for little more.
 				-- Then he finally passed me a envelop and said "I don't know how you know Great Joe but he told me to give this to the person asking for Sunshine Rum."
-			    -- Received an envelop with a map inside. This is what we were looking for. Clues to the next island.
+					-- Received an envelop with a map inside. This is what we were looking for. Clues to the next island.
 
 
 	2) Sugar cane field
@@ -63,14 +63,46 @@ Rum Island
 			--  . . . section on a stick that can be pulled out. In it was . . .
 			-- A key!
 
-	3) Abandoned Distillery in North.
-		a) By the distilling sill
-		b) In the creepy manager's room
-		c) Summon the brewers' ghost
+	3) Abandoned Distillery in the North.
+		a) By the distilling stills.
+			-- There are four of the stills and I am not sure where to begin.
+			-- I started with exploring around the stills and within walking few meters or so I found . . .
+			-- a weak spot on floor and I crashed to basement right through it!
+				-- Health -50
+		b) In the manager's creepy old room.
+			-- The first thing I noticed is the big painting straight in front of the door.
+			-- Found a piece of paper with a title " Summon B" and instructions for summoning something!
+		c) Summon the brewers' ghost.
+			-- I guess that's what the paper I found was for.
+			-- I performed the instructions . . .
+			  -- Nothing happens.
 		d) Drink from rum crate by the big window to find the key.
+			-- All the bottles look like empty.
+			-- But there seems to be little bit rum of left in one of the bottle.
+			-- I took a sip from the bottle.
+			-- When I was about to put the bottle back I found . . .
+				-- Antique coin.
 
 	4) Crimson Beach bar
 		a) Ask bartender for the Darkest Storm cocktail.
+			-- It was early evening when I reached the bar.
+			-- I went straight to the bar and ordered "Darkest Storm cocktail"
+			-- I was hoping to get some sort of clue from the bartender after asking for the drink.
+			-- But instead I got a big glass of the tastiest drink ever.
+
 		b) Ask to speak with Jojo for info.
+			-- Jojo was an old friend and someone I can confide in.
+			-- I told him about my plans but the only information he had for me was . . .
+			-- To look out for a room somewhere on a different island and it has something to do with number 999.
 		c) Ask drunk Sam Jr.
+			-- I decided to have one more drink and started chatting with Sam Jr.
+			-- He a middle aged gentleman, who is a regular patron at the bar .
+			-- Talking with him was interesting but it revealed . . .
+				-- nothing.
 		d) Search near the pair of palm trees.
+			-- There were lot of trees around the bar.
+			-- But there were only three which were in pairs.
+			-- I examined all three and found . . .
+			-- the bushes near those trees weren't only thick and bushy but also hiding . . .
+			-- Poisonous spiders!
+				health -10
