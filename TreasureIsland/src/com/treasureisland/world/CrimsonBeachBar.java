@@ -2,9 +2,12 @@ package com.treasureisland.world;
 
 import com.treasureisland.TreasureIslandGameScanner;
 
+import java.io.IOException;
+
 
 public class CrimsonBeachBar implements Location{
-    TreasureIslandGameScanner player;
+    private final TreasureIslandGameScanner player = TreasureIslandGameScanner.getInstance();
+
 
     @Override
     public String getLocationName() {
@@ -12,19 +15,20 @@ public class CrimsonBeachBar implements Location{
     }
 
     @Override
-    public void talkToNPC() {
-        System.out.println("youre talking to npc in the bar");
+    public void talkToNPC() throws IOException, InterruptedException {
+        player.storylineProgression("CrimsonBeachBarJojo.txt");
+        //TODO another clue added 9999 in RumDistillery.java. hash out which clue added.
+        player.playerClues.add("999");
     }
 
     @Override
-    public void lookAroundLocation() {
-        System.out.println("I see a boat, who would think i'd see that here");
+    public void lookAroundLocation() throws IOException, InterruptedException {
+        player.storylineProgression("CrimsonBeachBarBartender.txt");
     }
 
     @Override
-    public void investigateArea(){
-        System.out.println("being nosey in at bar");
-//        player.haveAmazingItem = true;
+    public void investigateArea() throws IOException, InterruptedException {
+        player.storylineProgression("CrimsonBeachBarPalmTrees.txt");
 
     }
 

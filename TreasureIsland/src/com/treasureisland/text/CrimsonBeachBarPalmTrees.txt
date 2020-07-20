@@ -1,0 +1,7 @@
+Search near the pair of palm trees.
+	-- There were lot of trees around the bar.
+	-- But there were only three which were in pairs.
+	-- I examined all three and found . . .
+	-- the bushes near those trees weren't only thick and bushy but also hiding . . .
+	-- Poisonous spiders!
+	    --health -10
