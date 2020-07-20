@@ -42,16 +42,21 @@ public class TreasureIslandGameScanner{
 
     }
 
-    void rumDistillery() throws IOException, InterruptedException {
-        while(!haveAmazingItem) {
-            System.out.println("Where would you like to go. N/S/E/W");
-            input = scanner.nextLine();
-            location = RumRunnerIsleFactory.islandLocationFactory(input);
-            System.out.println("You are now at the " + location.getLocationName());
-            playerInteractionOptions();
+    void rumDistillery(){
+        try {
+            while (!haveAmazingItem) {
+                System.out.println("Where would you like to go. N/S/E/W");
+                input = scanner.nextLine();
+                location = RumRunnerIsleFactory.islandLocationFactory(input);
+                System.out.println("You are now at the " + location.getLocationName());
+                playerInteractionOptions();
+            }
+            System.out.println("Leaving Rum Runners Isle");
+            isleDeMuerta();
         }
-        System.out.println("Leaving Rum Runners Isle");
-        isleDeMuerta();
+        catch (IOException | InterruptedException e){
+            e.printStackTrace();
+        }
     }
 
     private void isleDeMuerta(){
