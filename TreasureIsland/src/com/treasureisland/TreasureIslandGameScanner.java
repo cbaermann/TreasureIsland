@@ -41,7 +41,7 @@ public class TreasureIslandGameScanner{
 
     }
 
-    public void rumDistillery() throws IOException, InterruptedException {
+    private void rumDistillery() throws IOException, InterruptedException {
         while(!haveAmazingItem) {
             System.out.println("Where would you like to go. N/S/E/W");
             input = scanner.nextLine();
@@ -53,7 +53,7 @@ public class TreasureIslandGameScanner{
         isleDeMuerta();
     }
 
-    public void isleDeMuerta(){
+    private void isleDeMuerta(){
         System.out.println("You made it to Isle De Muerta");
     }
 
@@ -64,7 +64,10 @@ public class TreasureIslandGameScanner{
 
 //HELPER METHODS BELLOW
 
-    public void iterateThroughPlayerClues(){
+    private void iterateThroughPlayerClues(){
+        if(playerClues.size() == 0){
+            System.out.println("You have found no clues");
+        }
         for(String clue : playerClues){
             System.out.println(clue);
         }
@@ -72,7 +75,7 @@ public class TreasureIslandGameScanner{
 
 
     public void playerInteractionOptions() throws IOException, InterruptedException {
-        while(input != "e") {
+        while(!input.equals("e")) {
         System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Clues(c)/ Exit(e)");
         input = scanner.nextLine();
         if (input.equalsIgnoreCase("talk") || input.equalsIgnoreCase("t")) {
@@ -118,7 +121,6 @@ public class TreasureIslandGameScanner{
                 "    ░       ░  ░    ░  ░░ ░          ░ ░         ░      ░  ░                ░ ░                 ░        ░  ░     ░  ░      ░     ░        ░        ░  ░    ░        ░      ░  ░     ░  ░         ░    ░    \n" +
                 "                        ░                                                                                                                                                                            ░      \n");
     }
-
 
     public void leavingIslandShipPrint(){
         //TODO finish boat design for added effect leaving island to new one.
