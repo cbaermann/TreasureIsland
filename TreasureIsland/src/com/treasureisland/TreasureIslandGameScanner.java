@@ -42,7 +42,7 @@ public class TreasureIslandGameScanner{
 
     }
 
-    private void rumDistillery() throws IOException, InterruptedException {
+    void rumDistillery() throws IOException, InterruptedException {
         while(!haveAmazingItem) {
             System.out.println("Where would you like to go. N/S/E/W");
             input = scanner.nextLine();

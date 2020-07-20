@@ -2,13 +2,19 @@ package com.treasureisland;
 
 import com.treasureisland.world.*;
 
+import java.io.IOException;
+
 public class RumRunnerIsleFactory {
+
+
     private RumRunnerIsleFactory(){
 
     }
+    private static final TreasureIslandGameScanner player = TreasureIslandGameScanner.getInstance();
 
 
-    public static Location islandLocationFactory(String direction){
+
+    public static Location islandLocationFactory(String direction) throws IOException, InterruptedException {
         Location location = null;
         switch(direction.toLowerCase()){
             case "n":
@@ -28,6 +34,8 @@ public class RumRunnerIsleFactory {
 
             default:
                 System.out.println("Error, please select correct input");
+                player.rumDistillery();
+                break;
         }
         return location;
     }
