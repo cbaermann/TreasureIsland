@@ -17,6 +17,7 @@ public class TreasureIslandGameScanner{
     private TreasureIslandGameScanner(){
         
     }
+    //TODO maybe create an input.isValid that accepts specific inputs. Would make validation easier and code cleaner.
 
     public static TreasureIslandGameScanner getInstance(){
         return scan;
@@ -75,7 +76,8 @@ public class TreasureIslandGameScanner{
 
 
     public void playerInteractionOptions() throws IOException, InterruptedException {
-        while(!input.equals("e")) {
+        //TODO great example for input.isValid implementation. current !input.equals(z) logically makes no sense.
+        while(!input.equals("z")) {
         System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Clues(c)/ Exit(e)");
         input = scanner.nextLine();
         if (input.equalsIgnoreCase("talk") || input.equalsIgnoreCase("t")) {
