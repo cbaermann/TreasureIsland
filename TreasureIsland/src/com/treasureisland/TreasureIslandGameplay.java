@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public class TreasureIslandGameplay {
     private final Player player =  Player.getInstance();
-
     private Location location;
     private final Scanner scanner = new Scanner(System.in);
     private String input;
@@ -39,24 +38,18 @@ public class TreasureIslandGameplay {
     //playerInteractionOptions allows for player to talk, look around, investigate or leave
     public void rumRunnerIsle(){
         try {
-            while (!player.haveIslandItem) {
-                System.out.println("Where would you like to go. N/S/E/W");
-                input = scanner.nextLine();
-                location = IsleFactory.rumRunnerIslandLocationFactory(input);
-                System.out.println("You are now at the " + location.getLocationName());
-                playerInteractionOptions();
-
-
-         }
+            //location = processmovement.movement()
+            player.processMovement();
             System.out.println("Leaving Rum Runners Isle \n \n");
             leavingIslandShipPrint();
             Thread.sleep(5000);
             player.haveIslandItem = false;
             portRoyal();
         }
-        catch (IOException | InterruptedException e){
+        catch (InterruptedException e){
             e.printStackTrace();
         }
+
     }
 
 
@@ -74,50 +67,8 @@ public class TreasureIslandGameplay {
 //HELPER METHODS BELLOW
 
 
-//    private void playerNavigationOptions(Location factoryName) throws IOException, InterruptedException {
-//        while (!haveIslandItem) {
-//            System.out.println("Where would you like to go. N/S/E/W");
-//            input = scanner.nextLine();
-//            location = IsleFactory.rumRunnerIslandLocationFactory(input);
-//            System.out.println("You are now at the " + location.getLocationName());
-//            playerInteractionOptions();
-//        }
-//    }
 
 
-
-   //TODO great example for input.isValid implementation. current !input.equals(z) logically makes no sense.
-    public void playerInteractionOptions() throws IOException, InterruptedException {
-        while(!input.equalsIgnoreCase("e")) {
-            System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Clues(c)/ Exit(e)");
-            input = scanner.nextLine();
-            switch (input.toLowerCase()) {
-                case "talk":
-                case "t":
-                    location.talkToNPC();
-                    break;
-                case "look":
-                case "l":
-                    location.lookAroundLocation();
-                    break;
-                case "investigate":
-                case "i":
-                    location.investigateArea();
-                    break;
-                case "clues":
-                case "c":
-                    player.iterateThroughPlayerClues();
-                    break;
-                case "exit":
-                case "e":
-                    break;
-                default:
-                    System.out.println("Invalid input, please try again.");
-                    playerInteractionOptions();
-                    break;
-            }
-        }
-    }
 
 
     //File reads txt file that it's passed and prints to terminal.
