@@ -14,7 +14,8 @@ public class TreasureIslandGameScanner{
     public boolean haveAmazingItem = false;
     public ArrayList<String> playerClues = new ArrayList<>();
     private static TreasureIslandGameScanner scan = new TreasureIslandGameScanner();
-    private TreasureIslandGameScanner(){
+
+    public TreasureIslandGameScanner(){
         
     }
     //TODO maybe create an input.isValid that accepts specific inputs. Would make validation easier and code cleaner.
@@ -100,7 +101,8 @@ public class TreasureIslandGameScanner{
 
     //File reads txt file that it's passed and prints to terminal.
     public void storylineProgression(String fileName) throws IOException, InterruptedException {
-        BufferedReader br = new BufferedReader(new FileReader("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + fileName));
+        BufferedReader br = new BufferedReader(new FileReader("C:\\StudentWork\\Capstone\\TreasureIsland\\TreasureIsland\\src\\com\\treasureisland\\text\\" + fileName));
+        System.out.println(br.lines().count());
         String line;
         while ((line = br.readLine()) != null) {
             System.out.println(line);
