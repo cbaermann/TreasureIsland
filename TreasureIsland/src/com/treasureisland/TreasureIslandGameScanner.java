@@ -9,11 +9,11 @@ import java.util.Scanner;
 public class TreasureIslandGameScanner{
     private Location location;
     private String playerName;
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
     private String input;
     public boolean haveAmazingItem = false;
     public ArrayList<String> playerClues = new ArrayList<>();
-    private static TreasureIslandGameScanner scan = new TreasureIslandGameScanner();
+    private static final TreasureIslandGameScanner scan = new TreasureIslandGameScanner();
     private TreasureIslandGameScanner(){
         
     }
@@ -77,29 +77,61 @@ public class TreasureIslandGameScanner{
     }
 
 
+//    public void playerInteractionOptions() throws IOException, InterruptedException {
+//        //TODO great example for input.isValid implementation. current !input.equals(z) logically makes no sense.
+//        //TODO make Switch, potential easier handeling of inputs.
+//        while(!input.equals("z")) {
+//        System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Clues(c)/ Exit(e)");
+//        input = scanner.nextLine();
+//        if (input.equalsIgnoreCase("talk") || input.equalsIgnoreCase("t")) {
+//            location.talkToNPC();
+//        }
+//        if (input.equalsIgnoreCase("look") || input.equalsIgnoreCase("l")) {
+//            location.lookAroundLocation();
+//        }
+//        if(input.equalsIgnoreCase("Investigate") || input.equalsIgnoreCase("i")){
+//            location.investigateArea();
+//        }
+//        if(input.equalsIgnoreCase("clues") || input.equalsIgnoreCase("c")){
+//            iterateThroughPlayerClues();
+//        }
+//        if(input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e")){
+//            break;
+//        }
+//
+//    }}
     public void playerInteractionOptions() throws IOException, InterruptedException {
-        //TODO great example for input.isValid implementation. current !input.equals(z) logically makes no sense.
-        //TODO make Switch, potential easier handeling of inputs.
         while(!input.equals("z")) {
         System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Clues(c)/ Exit(e)");
-        input = scanner.nextLine();
-        if (input.equalsIgnoreCase("talk") || input.equalsIgnoreCase("t")) {
-            location.talkToNPC();
+            input = scanner.nextLine();
+            switch (input.toLowerCase()) {
+                case "talk":
+                case "t":
+                    location.talkToNPC();
+                    break;
+                case "look":
+                case "l":
+                    location.lookAroundLocation();
+                    break;
+                case "investigate":
+                case "i":
+                    location.investigateArea();
+                    break;
+                case "clues":
+                case "c":
+                    iterateThroughPlayerClues();
+                    break;
+                case "exit":
+                case "e":
+                    break;
+                default:
+                    System.out.println("Invalid input, please try again.");
+                    playerInteractionOptions();
+                    break;
+            }
         }
-        if (input.equalsIgnoreCase("look") || input.equalsIgnoreCase("l")) {
-            location.lookAroundLocation();
-        }
-        if(input.equalsIgnoreCase("Investigate") || input.equalsIgnoreCase("i")){
-            location.investigateArea();
-        }
-        if(input.equalsIgnoreCase("clues") || input.equalsIgnoreCase("c")){
-            iterateThroughPlayerClues();
-        }
-        if(input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e")){
-            break;
-        }
+    }
 
-    }}
 
     //File reads txt file that it's passed and prints to terminal.
     public void storylineProgression(String fileName){
