@@ -101,7 +101,6 @@ public class TreasureIslandGameScanner{
 //
 //    }}
     public void playerInteractionOptions() throws IOException, InterruptedException {
-        while(!input.equals("z")) {
         System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Clues(c)/ Exit(e)");
             input = scanner.nextLine();
             switch (input.toLowerCase()) {
@@ -129,7 +128,6 @@ public class TreasureIslandGameScanner{
                     playerInteractionOptions();
                     break;
             }
-        }
     }
 
 
