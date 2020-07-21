@@ -8,9 +8,7 @@ import java.util.Scanner;
 
 public class TreasureIslandGameplay {
     private final Player player =  Player.getInstance();
-    private Location location;
     private final Scanner scanner = new Scanner(System.in);
-    private String input;
     private static final TreasureIslandGameplay scan = new TreasureIslandGameplay();
     private TreasureIslandGameplay(){
         
@@ -27,7 +25,7 @@ public class TreasureIslandGameplay {
     public void chosePlayerName() {
             welcomeToTreasureIsland();
             System.out.println("Please enter your name");
-            input = scanner.nextLine();
+        String input = scanner.nextLine();
             player.setPlayerName(input);
             System.out.println("\nWelcome, " + player.getPlayerName() + "\n \n");
             storylineProgression("GameIntroText.txt");
@@ -39,7 +37,7 @@ public class TreasureIslandGameplay {
     public void rumRunnerIsle(){
         try {
             //location = processmovement.movement()
-            player.processMovement();
+            player.processMovement("rumRunnerisle");
             System.out.println("Leaving Rum Runners Isle \n \n");
             leavingIslandShipPrint();
             Thread.sleep(5000);
@@ -53,20 +51,36 @@ public class TreasureIslandGameplay {
     }
 
 
-    public void portRoyal(){
+    public void portRoyal() throws InterruptedException {
         System.out.println("You made it to Port Royal");
+//        player.processMovement();
+//        System.out.println("Leaving Port Royal Isle \n \n");
+//        leavingIslandShipPrint();
+//        Thread.sleep(5000);
+//        player.haveIslandItem = false;
+//        islaCruces();
 
 
     }
-
-
+//
+//    public void islaCruces() throws InterruptedException {
+//        System.out.println("At Isla Cruces");
+//        player.processMovement();
+//        System.out.println("Leaving Isla Cruces \n \n");
+//        leavingIslandShipPrint();
+//        Thread.sleep(5000);
+//        player.haveIslandItem = false;
+//        islaDeMuerta();
+//    }
+//
+//    public void islaDeMuerta(){
+//        System.out.println("At Isla de Muerta");
+//    }
 
 
 
 
 //HELPER METHODS BELLOW
-
-
 
 
 

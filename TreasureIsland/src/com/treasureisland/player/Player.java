@@ -8,12 +8,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Player {
-    String playerName;
+    private String playerName;
     public ArrayList<String> playerClues = new ArrayList<>();
     public Location location;
-    Scanner scanner = new Scanner(System.in);
-    private String input;
     public boolean haveIslandItem = false;
+    Scanner scanner = new Scanner(System.in);
 
 
     private static final Player player = new Player();
@@ -37,12 +36,12 @@ public class Player {
 
     //Helper methods below
 
-    public void processMovement(){
+    public void processMovement(String islandDestination){
         try {
             while (!player.haveIslandItem) {
                 System.out.println("Where would you like to go. N/S/E/W");
-                input = scanner.nextLine();
-                player.location = IsleFactory.rumRunnerIslandLocationFactory(input);
+                String input = scanner.nextLine();
+                player.location = IsleFactory.islandLocationFactory(input, islandDestination);
                 System.out.println("You are now at the " + player.location.getLocationName());
                 playerInteractionOptions();
             }
