@@ -46,7 +46,9 @@ public class TreasureIslandGameScanner{
                 System.out.println("You are now at the " + location.getLocationName());
                 playerInteractionOptions();
             }
-            System.out.println("Leaving Rum Runners Isle");
+            System.out.println("Leaving Rum Runners Isle \n \n");
+            leavingIslandShipPrint();
+            Thread.sleep(5000);
             portRoyal();
         }
         catch (IOException | InterruptedException e){
@@ -131,14 +133,15 @@ public class TreasureIslandGameScanner{
     }
 
     public void leavingIslandShipPrint(){
-        //TODO finish boat design for added effect leaving island to new one.
-        System.out.println("\n" +
-                "                  /|                           " + "\n" +
-                "                 / |                           " + "\n" +
-                "                /__|                           " + "\n" +
-                "                   |                           " + "\n" +
-                "            [______|______]                    " + "\n" + "\n"
-                );
+
+        System.out.println(" " +
+                "               __|__ |___| |\\\n" +
+                "                |o__| |___| | \\\n" +
+                "                |___| |___| |o \\\n" +
+                "               _|___| |___| |__o\\\n" +
+                "              /...\\_____|___|____\\_/\n" +
+                "              \\   o * o * * o o  /\n" +
+                "            ~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
     }
 

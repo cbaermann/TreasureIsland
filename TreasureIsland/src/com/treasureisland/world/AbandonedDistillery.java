@@ -15,7 +15,6 @@ public class AbandonedDistillery implements Location{
 
     @Override
     public void talkToNPC(){
-//        System.out.println("youre talking to npc in the abandoned distillery");
         player.storylineProgression("AbandonedDistilleryGhost.txt");
     }
 
@@ -26,7 +25,6 @@ public class AbandonedDistillery implements Location{
 
     @Override
     public void investigateArea(){
-//        System.out.println("looking under cask");
         player.storylineProgression("AbandonedDistilleryRumCrate.txt");
     }
 
