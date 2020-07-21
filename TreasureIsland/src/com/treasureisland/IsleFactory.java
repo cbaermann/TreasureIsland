@@ -37,6 +37,7 @@ public class IsleFactory {
         return location;
     }
 
+
 //    public static Location portRoyalLocationFactory(String direction){
 //        Location location = null;
 //        switch(direction.toLowerCase()){
