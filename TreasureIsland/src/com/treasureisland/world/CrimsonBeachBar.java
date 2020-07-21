@@ -1,12 +1,12 @@
 package com.treasureisland.world;
 
-import com.treasureisland.TreasureIslandGameScanner;
+import com.treasureisland.TreasureIslandGameplay;
 
 
 
 public class CrimsonBeachBar implements Location{
 
-    private final TreasureIslandGameScanner player = TreasureIslandGameScanner.getInstance();
+    private final TreasureIslandGameplay player = TreasureIslandGameplay.getInstance();
 
 
     @Override

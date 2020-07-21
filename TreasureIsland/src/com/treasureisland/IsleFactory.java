@@ -1,17 +1,22 @@
 package com.treasureisland;
 import com.treasureisland.world.*;
 
+import java.io.IOException;
+import java.util.Scanner;
+
 public class IsleFactory {
+    private static Scanner scanner = new Scanner(System.in);
+
 
 
     private IsleFactory(){
 
     }
-    private static final TreasureIslandGameScanner player = TreasureIslandGameScanner.getInstance();
+    private static final TreasureIslandGameplay player = TreasureIslandGameplay.getInstance();
 
 
 
-    public static Location rumRunnerIslandLocationFactory(String direction){
+    public static Location rumRunnerIslandLocationFactory(String direction) throws IOException, InterruptedException {
         Location location = null;
         switch(direction.toLowerCase()){
             case "n":
@@ -31,11 +36,14 @@ public class IsleFactory {
 
             default:
                 System.out.println("Error, please select correct input");
-                player.rumDistillery();
+                player.rumRunnerIsle();
                 break;
         }
+
         return location;
     }
+
+
 
 //    public static Location portRoyalLocationFactory(String direction){
 //        Location location = null;

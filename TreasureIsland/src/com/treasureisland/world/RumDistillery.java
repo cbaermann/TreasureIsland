@@ -1,11 +1,11 @@
 package com.treasureisland.world;
-import com.treasureisland.TreasureIslandGameScanner;
+import com.treasureisland.TreasureIslandGameplay;
 
 import java.util.Scanner;
 
 
 public class RumDistillery implements Location{
-    private final TreasureIslandGameScanner player = TreasureIslandGameScanner.getInstance();
+    private final TreasureIslandGameplay player = TreasureIslandGameplay.getInstance();
     Scanner scanner = new Scanner(System.in);
     String input;
 

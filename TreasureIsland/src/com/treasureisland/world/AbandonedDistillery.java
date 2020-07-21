@@ -1,11 +1,11 @@
 package com.treasureisland.world;
 
-import com.treasureisland.TreasureIslandGameScanner;
+import com.treasureisland.TreasureIslandGameplay;
 
 
 
 public class AbandonedDistillery implements Location{
-    private final TreasureIslandGameScanner player = TreasureIslandGameScanner.getInstance();
+    private final TreasureIslandGameplay player = TreasureIslandGameplay.getInstance();
 
 
     @Override
