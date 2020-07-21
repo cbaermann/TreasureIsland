@@ -1,7 +1,7 @@
 package com.treasureisland.world;
 import com.treasureisland.TreasureIslandGameScanner;
 
-import java.io.IOException;
+
 
 
 public class RumDistillery implements Location{
@@ -14,14 +14,14 @@ public class RumDistillery implements Location{
     }
 
     @Override
-    public void talkToNPC() throws IOException, InterruptedException {
+    public void talkToNPC(){
         System.out.println("You're talking to npc in rum distillery");
         player.storylineProgression("MasterBrewer.txt");
         player.playerClues.add("For the last occurrence, look under drum that gives men courage");
     }
 
     @Override
-    public void lookAroundLocation() throws IOException, InterruptedException {
+    public void lookAroundLocation(){
         System.out.println("making vodka, weird");
         System.out.println("Hello " + player.getPlayerName());
         player.storylineProgression("RumDistilleryOpenCask.txt");

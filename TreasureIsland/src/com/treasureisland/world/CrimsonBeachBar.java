@@ -2,10 +2,10 @@ package com.treasureisland.world;
 
 import com.treasureisland.TreasureIslandGameScanner;
 
-import java.io.IOException;
 
 
 public class CrimsonBeachBar implements Location{
+
     private final TreasureIslandGameScanner player = TreasureIslandGameScanner.getInstance();
 
 
@@ -15,19 +15,19 @@ public class CrimsonBeachBar implements Location{
     }
 
     @Override
-    public void talkToNPC() throws IOException, InterruptedException {
+    public void talkToNPC(){
         player.storylineProgression("CrimsonBeachBarJojo.txt");
         //TODO another clue added 9999 in RumDistillery.java. hash out which clue added.
         player.playerClues.add("999");
     }
 
     @Override
-    public void lookAroundLocation() throws IOException, InterruptedException {
+    public void lookAroundLocation(){
         player.storylineProgression("CrimsonBeachBarBartender.txt");
     }
 
     @Override
-    public void investigateArea() throws IOException, InterruptedException {
+    public void investigateArea(){
         player.storylineProgression("CrimsonBeachBarPalmTrees.txt");
 
     }

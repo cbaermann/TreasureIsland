@@ -2,7 +2,6 @@ package com.treasureisland.world;
 
 import com.treasureisland.TreasureIslandGameScanner;
 
-import java.io.IOException;
 import java.util.Scanner;
 //TODO "complete" besides deciding if we need a key array, also potentialy adding coins
 //TODO decide if there is a vendor or something that coins can be spent. also potential health implementation
@@ -31,12 +30,12 @@ public class SugarCaneField implements Location{
     }
 
     @Override
-    public void lookAroundLocation() throws IOException, InterruptedException {
+    public void lookAroundLocation(){
         player.storylineProgression("RumIsleCaneFieldRock.txt");
     }
 
     @Override
-    public void investigateArea() throws IOException, InterruptedException {
+    public void investigateArea(){
         player.storylineProgression("RumIsleCaneField.txt");
         //TODO decide what we want to do for the key. Will we need an object ArrayList to hold items?
         player.playerClues.add("some placeholder for the key");

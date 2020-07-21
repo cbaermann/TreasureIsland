@@ -1,8 +1,5 @@
 package com.treasureisland;
-
 import com.treasureisland.world.*;
-
-import java.io.IOException;
 
 public class RumRunnerIsleFactory {
 
@@ -14,7 +11,7 @@ public class RumRunnerIsleFactory {
 
 
 
-    public static Location islandLocationFactory(String direction) throws IOException, InterruptedException {
+    public static Location islandLocationFactory(String direction){
         Location location = null;
         switch(direction.toLowerCase()){
             case "n":

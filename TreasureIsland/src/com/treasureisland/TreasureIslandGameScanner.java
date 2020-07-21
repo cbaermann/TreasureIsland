@@ -29,17 +29,12 @@ public class TreasureIslandGameScanner{
 
 
     public void chosePlayerName() {
-        try {
             welcomeToTreasureIsland();
             System.out.println("Please enter your name");
             playerName = scanner.nextLine();
             System.out.println("\nWelcome, " + playerName + "\n \n");
             storylineProgression("GameIntroText.txt");
             rumDistillery();
-        } catch(InterruptedException | IOException e){
-            e.printStackTrace();
-        }
-
     }
 
     void rumDistillery(){
@@ -82,6 +77,7 @@ public class TreasureIslandGameScanner{
 
     public void playerInteractionOptions() throws IOException, InterruptedException {
         //TODO great example for input.isValid implementation. current !input.equals(z) logically makes no sense.
+        //TODO make Switch, potential easier handeling of inputs.
         while(!input.equals("z")) {
         System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Clues(c)/ Exit(e)");
         input = scanner.nextLine();
@@ -104,12 +100,17 @@ public class TreasureIslandGameScanner{
     }}
 
     //File reads txt file that it's passed and prints to terminal.
-    public void storylineProgression(String fileName) throws IOException, InterruptedException {
-        BufferedReader br = new BufferedReader(new FileReader("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + fileName));
-        String line;
-        while ((line = br.readLine()) != null) {
-            System.out.println(line);
-            Thread.sleep(1000);
+    public void storylineProgression(String fileName){
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + fileName));
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+                Thread.sleep(1000);
+            }
+        }
+        catch(IOException | InterruptedException e){
+            e.printStackTrace();
         }
 
     }

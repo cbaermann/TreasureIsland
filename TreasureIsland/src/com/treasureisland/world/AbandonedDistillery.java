@@ -2,7 +2,7 @@ package com.treasureisland.world;
 
 import com.treasureisland.TreasureIslandGameScanner;
 
-import java.io.IOException;
+
 
 public class AbandonedDistillery implements Location{
     private final TreasureIslandGameScanner player = TreasureIslandGameScanner.getInstance();
@@ -14,18 +14,18 @@ public class AbandonedDistillery implements Location{
     }
 
     @Override
-    public void talkToNPC() throws IOException, InterruptedException {
+    public void talkToNPC(){
 //        System.out.println("youre talking to npc in the abandoned distillery");
         player.storylineProgression("AbandonedDistilleryGhost.txt");
     }
 
     @Override
-    public void lookAroundLocation() throws IOException, InterruptedException {
+    public void lookAroundLocation(){
         player.storylineProgression("AbandonedDistilleryStills.txt");
     }
 
     @Override
-    public void investigateArea() throws IOException, InterruptedException {
+    public void investigateArea(){
 //        System.out.println("looking under cask");
         player.storylineProgression("AbandonedDistilleryRumCrate.txt");
     }
