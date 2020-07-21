@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class IsleFactory {
-    private static Scanner scanner = new Scanner(System.in);
 
 
 
@@ -16,9 +15,10 @@ public class IsleFactory {
 
 
 
-    public static Location islandLocationFactory(String direction, String islandFactorySelection) throws IOException, InterruptedException {
+    public static Location islandLocationFactory(String direction, String islandFactorySelection){
         Location location = null;
-        if(islandFactorySelection.equalsIgnoreCase("rumRunnerIsle")) {
+        if("rumrunnerisle".equalsIgnoreCase(islandFactorySelection)) { //if("rumrunnerisle".equalsignorecase(islandfactorySelection))
+           //islandFactorySelection.equalsIgnoreCase("rumRunnerIsle") old implementation
             switch (direction.toLowerCase()) {
                 case "n":
                     location = new RumDistillery();

@@ -36,7 +36,7 @@ public class TreasureIslandGameplay {
     //playerInteractionOptions allows for player to talk, look around, investigate or leave
     public void rumRunnerIsle(){
         try {
-            //location = processmovement.movement()
+            //process player movement and takes in current island as parameter so factory knows where to delegate
             player.processMovement("rumRunnerisle");
             System.out.println("Leaving Rum Runners Isle \n \n");
             leavingIslandShipPrint();
