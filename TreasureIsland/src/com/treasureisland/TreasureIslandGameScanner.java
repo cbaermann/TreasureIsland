@@ -42,20 +42,20 @@ public class TreasureIslandGameScanner{
             while (!haveAmazingItem) {
                 System.out.println("Where would you like to go. N/S/E/W");
                 input = scanner.nextLine();
-                location = RumRunnerIsleFactory.islandLocationFactory(input);
+                location = IsleFactory.rumRunnerIslandLocationFactory(input);
                 System.out.println("You are now at the " + location.getLocationName());
                 playerInteractionOptions();
             }
             System.out.println("Leaving Rum Runners Isle");
-            isleDeMuerta();
+            portRoyal();
         }
         catch (IOException | InterruptedException e){
             e.printStackTrace();
         }
     }
 
-    private void isleDeMuerta(){
-        System.out.println("You made it to Isle De Muerta");
+    public void portRoyal(){
+        System.out.println("You made it to Port Royal");
     }
 
 
