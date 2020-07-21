@@ -37,7 +37,7 @@ public class TreasureIslandGameScanner{
             rumDistillery();
     }
 
-    void rumDistillery(){
+    public void rumDistillery(){
         try {
             while (!haveAmazingItem) {
                 System.out.println("Where would you like to go. N/S/E/W");
@@ -77,31 +77,11 @@ public class TreasureIslandGameScanner{
     }
 
 
-//    public void playerInteractionOptions() throws IOException, InterruptedException {
-//        //TODO great example for input.isValid implementation. current !input.equals(z) logically makes no sense.
-//        //TODO make Switch, potential easier handeling of inputs.
-//        while(!input.equals("z")) {
-//        System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Clues(c)/ Exit(e)");
-//        input = scanner.nextLine();
-//        if (input.equalsIgnoreCase("talk") || input.equalsIgnoreCase("t")) {
-//            location.talkToNPC();
-//        }
-//        if (input.equalsIgnoreCase("look") || input.equalsIgnoreCase("l")) {
-//            location.lookAroundLocation();
-//        }
-//        if(input.equalsIgnoreCase("Investigate") || input.equalsIgnoreCase("i")){
-//            location.investigateArea();
-//        }
-//        if(input.equalsIgnoreCase("clues") || input.equalsIgnoreCase("c")){
-//            iterateThroughPlayerClues();
-//        }
-//        if(input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e")){
-//            break;
-//        }
-//
-//    }}
+
+   //TODO great example for input.isValid implementation. current !input.equals(z) logically makes no sense.
     public void playerInteractionOptions() throws IOException, InterruptedException {
-        System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Clues(c)/ Exit(e)");
+        while(!input.equalsIgnoreCase("e")) {
+            System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Clues(c)/ Exit(e)");
             input = scanner.nextLine();
             switch (input.toLowerCase()) {
                 case "talk":
@@ -128,6 +108,7 @@ public class TreasureIslandGameScanner{
                     playerInteractionOptions();
                     break;
             }
+        }
     }
 
 

@@ -1,11 +1,13 @@
 package com.treasureisland.world;
 import com.treasureisland.TreasureIslandGameScanner;
 
-
+import java.util.Scanner;
 
 
 public class RumDistillery implements Location{
     private final TreasureIslandGameScanner player = TreasureIslandGameScanner.getInstance();
+    Scanner scanner = new Scanner(System.in);
+    String input;
 
 
     @Override
@@ -17,7 +19,8 @@ public class RumDistillery implements Location{
     public void talkToNPC(){
         System.out.println("You're talking to npc in rum distillery");
         player.storylineProgression("MasterBrewer.txt");
-        player.playerClues.add("For the last occurrence, look under drum that gives men courage");
+        player.playerClues.add("For the last occurrence, look under drum that gives men courage." + "\n"
+        + "Speak the pirates favorite letter, your reward shall be even better");
     }
 
     @Override
@@ -30,9 +33,16 @@ public class RumDistillery implements Location{
     @Override
     public void investigateArea() {
         System.out.println("-- I am sure i will find something interesting here " +
-                "\n-- " + player.getPlayerName() + " looked under the cask and found ...."
-                + "\n-- 9999 etched on the bottom.....nothing of interest");
-        player.playerClues.add("9999");
+                "\n-- " + player.getPlayerName() + " looked under the cask and found ....");
+        System.out.println("Speak the answer");
+        input = scanner.nextLine();
+        if(input.equalsIgnoreCase("sea")){
+            System.out.println("\n--- Numbers start to appear and........I see 9999 etched on the bottom.");
+            player.playerClues.add("9999");
+        }
+        else{
+            System.out.println("Nothing of interest here");
+        }
 
 
     }
