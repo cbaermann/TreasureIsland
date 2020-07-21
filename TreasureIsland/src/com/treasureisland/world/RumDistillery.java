@@ -1,11 +1,14 @@
 package com.treasureisland.world;
 import com.treasureisland.TreasureIslandGameplay;
+import com.treasureisland.player.Player;
+
 
 import java.util.Scanner;
 
 
 public class RumDistillery implements Location{
-    private final TreasureIslandGameplay player = TreasureIslandGameplay.getInstance();
+    private final TreasureIslandGameplay game = TreasureIslandGameplay.getInstance();
+    private final Player player = Player.getInstance();
     Scanner scanner = new Scanner(System.in);
     String input;
 
@@ -18,7 +21,7 @@ public class RumDistillery implements Location{
     @Override
     public void talkToNPC(){
         System.out.println("You're talking to npc in rum distillery");
-        player.storylineProgression("MasterBrewer.txt");
+        game.storylineProgression("MasterBrewer.txt");
         player.playerClues.add("For the last occurrence, look under drum that gives men courage." + "\n"
         + "Speak the pirates favorite letter, your reward shall be even better");
     }
@@ -27,7 +30,7 @@ public class RumDistillery implements Location{
     public void lookAroundLocation(){
         System.out.println("making vodka, weird");
         System.out.println("Hello " + player.getPlayerName());
-        player.storylineProgression("RumDistilleryOpenCask.txt");
+        game.storylineProgression("RumDistilleryOpenCask.txt");
     }
 
     @Override

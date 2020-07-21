@@ -1,20 +1,18 @@
 package com.treasureisland;
 
+import com.treasureisland.player.Player;
 import com.treasureisland.world.Location;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TreasureIslandGameplay {
+    private final Player player =  Player.getInstance();
+
     private Location location;
-    private String playerName;
     private final Scanner scanner = new Scanner(System.in);
     private String input;
-    public boolean haveIslandItem = false;
-    public ArrayList<String> playerClues = new ArrayList<>();
     private static final TreasureIslandGameplay scan = new TreasureIslandGameplay();
-
     private TreasureIslandGameplay(){
         
     }
@@ -24,17 +22,15 @@ public class TreasureIslandGameplay {
         return scan;
     }
 
-    public String getPlayerName() {
-        return playerName;
-    }
 
     //Player chooses name and is stored into playerName variable
     //calls first storyline txt file then puts player into rumDistillery()
     public void chosePlayerName() {
             welcomeToTreasureIsland();
             System.out.println("Please enter your name");
-            playerName = scanner.nextLine();
-            System.out.println("\nWelcome, " + playerName + "\n \n");
+            input = scanner.nextLine();
+            player.setPlayerName(input);
+            System.out.println("\nWelcome, " + player.getPlayerName() + "\n \n");
             storylineProgression("GameIntroText.txt");
             rumRunnerIsle();
     }
@@ -43,7 +39,7 @@ public class TreasureIslandGameplay {
     //playerInteractionOptions allows for player to talk, look around, investigate or leave
     public void rumRunnerIsle(){
         try {
-            while(!haveIslandItem){
+            while (!player.haveIslandItem) {
                 System.out.println("Where would you like to go. N/S/E/W");
                 input = scanner.nextLine();
                 location = IsleFactory.rumRunnerIslandLocationFactory(input);
@@ -55,7 +51,7 @@ public class TreasureIslandGameplay {
             System.out.println("Leaving Rum Runners Isle \n \n");
             leavingIslandShipPrint();
             Thread.sleep(5000);
-            haveIslandItem = false;
+            player.haveIslandItem = false;
             portRoyal();
         }
         catch (IOException | InterruptedException e){
@@ -77,14 +73,6 @@ public class TreasureIslandGameplay {
 
 //HELPER METHODS BELLOW
 
-    private void iterateThroughPlayerClues(){
-        if(playerClues.size() == 0){
-            System.out.println("You have found no clues");
-        }
-        for(String clue : playerClues){
-            System.out.println(clue);
-        }
-    }
 
 //    private void playerNavigationOptions(Location factoryName) throws IOException, InterruptedException {
 //        while (!haveIslandItem) {
@@ -118,7 +106,7 @@ public class TreasureIslandGameplay {
                     break;
                 case "clues":
                 case "c":
-                    iterateThroughPlayerClues();
+                    player.iterateThroughPlayerClues();
                     break;
                 case "exit":
                 case "e":

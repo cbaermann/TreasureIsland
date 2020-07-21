@@ -5,7 +5,8 @@ import com.treasureisland.TreasureIslandGameplay;
 
 
 public class AbandonedDistillery implements Location{
-    private final TreasureIslandGameplay player = TreasureIslandGameplay.getInstance();
+    private final TreasureIslandGameplay treasureIslandGameplay = TreasureIslandGameplay.getInstance();
+
 
 
     @Override
@@ -15,17 +16,17 @@ public class AbandonedDistillery implements Location{
 
     @Override
     public void talkToNPC(){
-        player.storylineProgression("AbandonedDistilleryGhost.txt");
+        treasureIslandGameplay.storylineProgression("AbandonedDistilleryGhost.txt");
     }
 
     @Override
     public void lookAroundLocation(){
-        player.storylineProgression("AbandonedDistilleryStills.txt");
+        treasureIslandGameplay.storylineProgression("AbandonedDistilleryStills.txt");
     }
 
     @Override
     public void investigateArea(){
-        player.storylineProgression("AbandonedDistilleryRumCrate.txt");
+        treasureIslandGameplay.storylineProgression("AbandonedDistilleryRumCrate.txt");
     }
 
 }
