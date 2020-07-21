@@ -1,45 +1,41 @@
 package com.treasureisland;
 
+import com.treasureisland.player.Player;
 import com.treasureisland.world.Location;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class TreasureIslandGameScanner{
+public class TreasureIslandGameplay {
+    private final Player player =  Player.getInstance();
     private Location location;
-    private String playerName;
     private final Scanner scanner = new Scanner(System.in);
     private String input;
-    public boolean haveAmazingItem = false;
-    public ArrayList<String> playerClues = new ArrayList<>();
-    private static final TreasureIslandGameScanner scan = new TreasureIslandGameScanner();
-    private TreasureIslandGameScanner(){
+    private static final TreasureIslandGameplay scan = new TreasureIslandGameplay();
+    private TreasureIslandGameplay(){
         
     }
     //TODO maybe create an input.isValid that accepts specific inputs. Would make validation easier and code cleaner.
 
-    public static TreasureIslandGameScanner getInstance(){
+    public static TreasureIslandGameplay getInstance(){
         return scan;
     }
 
-    public String getPlayerName() {
-        return playerName;
-    }
 
 
     public void chosePlayerName() {
             welcomeToTreasureIsland();
             System.out.println("Please enter your name");
-            playerName = scanner.nextLine();
-            System.out.println("\nWelcome, " + playerName + "\n \n");
+            input = scanner.nextLine();
+            player.setPlayerName(input);
+            System.out.println("\nWelcome, " + player.getPlayerName() + "\n \n");
             storylineProgression("GameIntroText.txt");
             rumDistillery();
     }
 
     public void rumDistillery(){
         try {
-            while (!haveAmazingItem) {
+            while (!player.haveIslandItem) {
                 System.out.println("Where would you like to go. N/S/E/W");
                 input = scanner.nextLine();
                 location = IsleFactory.rumRunnerIslandLocationFactory(input);
@@ -67,16 +63,6 @@ public class TreasureIslandGameScanner{
 
 //HELPER METHODS BELLOW
 
-    private void iterateThroughPlayerClues(){
-        if(playerClues.size() == 0){
-            System.out.println("You have found no clues");
-        }
-        for(String clue : playerClues){
-            System.out.println(clue);
-        }
-    }
-
-
 
    //TODO great example for input.isValid implementation. current !input.equals(z) logically makes no sense.
     public void playerInteractionOptions() throws IOException, InterruptedException {
@@ -98,7 +84,7 @@ public class TreasureIslandGameScanner{
                     break;
                 case "clues":
                 case "c":
-                    iterateThroughPlayerClues();
+                    player.iterateThroughPlayerClues();
                     break;
                 case "exit":
                 case "e":

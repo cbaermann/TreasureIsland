@@ -6,7 +6,7 @@ package com.treasureisland;
 
 public class Client {
     public static void main(String[] args) {
-        TreasureIslandGameScanner beginGame = TreasureIslandGameScanner.getInstance();
+        TreasureIslandGameplay beginGame = TreasureIslandGameplay.getInstance();
         beginGame.chosePlayerName();
 
 

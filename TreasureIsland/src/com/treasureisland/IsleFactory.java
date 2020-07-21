@@ -7,7 +7,7 @@ public class IsleFactory {
     private IsleFactory(){
 
     }
-    private static final TreasureIslandGameScanner player = TreasureIslandGameScanner.getInstance();
+    private static final TreasureIslandGameplay player = TreasureIslandGameplay.getInstance();
 
 
 

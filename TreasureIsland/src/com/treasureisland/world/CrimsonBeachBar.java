@@ -1,13 +1,13 @@
 package com.treasureisland.world;
 
-import com.treasureisland.TreasureIslandGameScanner;
-
+import com.treasureisland.TreasureIslandGameplay;
+import com.treasureisland.player.Player;
 
 
 public class CrimsonBeachBar implements Location{
 
-    private final TreasureIslandGameScanner player = TreasureIslandGameScanner.getInstance();
-
+    private final TreasureIslandGameplay game = TreasureIslandGameplay.getInstance();
+    private Player player = Player.getInstance();
 
     @Override
     public String getLocationName() {
@@ -16,19 +16,19 @@ public class CrimsonBeachBar implements Location{
 
     @Override
     public void talkToNPC(){
-        player.storylineProgression("CrimsonBeachBarJojo.txt");
+        game.storylineProgression("CrimsonBeachBarJojo.txt");
         //TODO another clue added 9999 in RumDistillery.java. hash out which clue added.
         player.playerClues.add("999");
     }
 
     @Override
     public void lookAroundLocation(){
-        player.storylineProgression("CrimsonBeachBarBartender.txt");
+        game.storylineProgression("CrimsonBeachBarBartender.txt");
     }
 
     @Override
     public void investigateArea(){
-        player.storylineProgression("CrimsonBeachBarPalmTrees.txt");
+        game.storylineProgression("CrimsonBeachBarPalmTrees.txt");
 
     }
 
