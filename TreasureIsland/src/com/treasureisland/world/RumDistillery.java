@@ -20,7 +20,7 @@ public class RumDistillery implements Location{
 
     @Override
     public void talkToNPC(){
-        System.out.println("You're talking to npc in rum distillery");
+        System.out.println("You're talking to a npc in rum distillery");
         game.storylineProgression("TI.txt", getLocationName(), "RDStart", "RDEnd");
         player.playerClues.add("For the last occurrence, look under drum that gives men courage." + "\n"
         + "Speak the pirates favorite letter, your reward shall be even better");

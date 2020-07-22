@@ -34,15 +34,17 @@ public class SugarCaneField implements Location{
 
     @Override
     public void lookAroundLocation(){
-        game.storylineProgression("RumIsleCaneFieldRock.txt");
+        game.storylineProgression("TI.txt", getLocationName(), "WWStart", "WWEnd");
     }
 
     @Override
     public void investigateArea(){
-        game.storylineProgression("RumIsleCaneField.txt");
+        game.storylineProgression("TI.txt", getLocationName(), "SStart", "SEnd");
         //TODO decide what we want to do for the key. Will we need an object ArrayList to hold items?
         player.playerClues.add("some placeholder for the key");
     }
+
+
 
 
 }
