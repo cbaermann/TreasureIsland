@@ -1,6 +1,7 @@
 Rum Island
 
-	1) Rum distillery
+	11) Rum distillery
+	RDStart
 		a) Left corner of the store house.
 				-- I applied for the position for store manager, to gain access to the property.
 				-- I checked the left corner of the store house as soon as I got a chance.
@@ -8,11 +9,14 @@ Rum Island
 				   like it was fixed.
 				-- I poked at the patch and it caved in a little bit. I looked inside and found . . .
 					-- Nothing!
+					RDEnd
 
 		b) Under the cask marked 9999.
 				-- I am sure I will find something interesting there. I am sure of it.
 				-- I looked under the cask as soon as I got the chance and I found . . .
 				  -- A snake!!
+				  UC End
+
 		c) At the bottom of the open cask by the main door.
 				-- I don't even remember as to how I got this clue!
 				-- But I can't ignore any clues. This treasure hunting is not easy.
@@ -22,6 +26,8 @@ Rum Island
 				-- I felt something at the bottom of cask, I pull it out . . .
 				-- It was a small sack of coins!
 					-- Coins + 20
+
+				OC End
 		d) Ask master brewer for the Sunshine Rum sample.
 				-- This is the first thing I did, went straight to the master brewer.
 				-- I asked him " Can I get a sample of the Sunshine Rum"
@@ -36,6 +42,7 @@ Rum Island
 				-- Then he finally passed me a envelop and said "I don't know how you know Great Joe but he told me to give this to the person asking for Sunshine Rum."
 			    -- Received an envelop with a map inside. This is what we were looking for. Clues to the next island.
 
+                MB End
 
 	2) Sugar cane field
 		a) By the water well.
@@ -74,3 +81,5 @@ Rum Island
 		b) Ask to speak with Jojo for info.
 		c) Ask drunk Sam Jr.
 		d) Search near the pair of palm trees.
+
+Rum Island end

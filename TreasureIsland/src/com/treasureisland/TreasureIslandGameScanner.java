@@ -136,11 +136,27 @@ public class TreasureIslandGameScanner{
     //File reads txt file that it's passed and prints to terminal.
     public void storylineProgression(String fileName){
         try {
-            BufferedReader br = new BufferedReader(new FileReader("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + fileName));
-            String line;
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
-                Thread.sleep(1000);
+            File myObj = new File(".\\TreasureIsland\\src\\com\\treasureisland\\text\\" + fileName);
+            System.out.println("Function works");
+            Scanner myReader = new Scanner(myObj);
+            boolean tokenFound = false;
+
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine().trim();
+                if (data.equals("RDStart")) //tag in the txt to locate position
+                {
+                    tokenFound = true;
+                } else if (data.equals("RDEnd")) { //tag to end reading he file.
+                    tokenFound = false;
+                }
+
+                if ((tokenFound) && (!data.equals("RDStart"))) {
+
+                    System.out.println(data);
+                    Thread.sleep(1000);
+
+
+                }
             }
         }
         catch(IOException | InterruptedException e){
