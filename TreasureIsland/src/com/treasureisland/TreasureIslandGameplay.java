@@ -53,11 +53,11 @@ public class TreasureIslandGameplay {
 
     public void portRoyal() throws InterruptedException {
         System.out.println("You made it to Port Royal");
-//        player.processMovement();
-//        System.out.println("Leaving Port Royal Isle \n \n");
-//        leavingIslandShipPrint();
-//        Thread.sleep(5000);
-//        player.haveIslandItem = false;
+        player.processMovement("portRoyal");
+        System.out.println("Leaving Port Royal Isle \n \n");
+        leavingIslandShipPrint();
+        Thread.sleep(5000);
+        player.haveIslandItem = false;
 //        islaCruces();
 
 

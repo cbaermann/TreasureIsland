@@ -1,8 +1,6 @@
 package com.treasureisland;
 import com.treasureisland.world.*;
 
-import java.io.IOException;
-import java.util.Scanner;
 
 public class IsleFactory {
 
@@ -15,9 +13,9 @@ public class IsleFactory {
 
 
 
-    public static Location islandLocationFactory(String direction, String islandFactorySelection){
+    public static Location islandLocationFactory(String direction, String islandFactorySelection) throws InterruptedException {
         Location location = null;
-        if("rumrunnerisle".equalsIgnoreCase(islandFactorySelection)) { //if("rumrunnerisle".equalsignorecase(islandfactorySelection))
+        if("rumrunnerisle".equalsIgnoreCase(islandFactorySelection)) {
            //islandFactorySelection.equalsIgnoreCase("rumRunnerIsle") old implementation
             switch (direction.toLowerCase()) {
                 case "n":
@@ -41,29 +39,29 @@ public class IsleFactory {
                     break;
             }
         }
-//        if(islandFactorySelection.equalsIgnoreCase("portRoyal")){
-//            switch(direction.toLowerCase()){
-//                case "n":
-//                    location = new RoyalLodge();
-//                    break;
-//                case "s":
-//                    location = new ShipGraveyard();
-//                    break;
-//
-//                case "e":
-//                    location = new SunsetRestaurant();
-//                    break;
-//
-//                case "w":
-//                    location = new TikkiLounge();
-//                    break;
-//
-//                default:
-//                    System.out.println("Error, please select correct input");
-//                    player.portRoyal();
-//                    break;
-//            }
-//        }
+        if(islandFactorySelection.equalsIgnoreCase("portRoyal")){
+            switch(direction.toLowerCase()){
+                case "n":
+                    location = new RoyalLodge();
+                    break;
+                case "s":
+                    location = new ShipGraveyard();
+                    break;
+
+                case "e":
+                    location = new SunsetRestaurant();
+                    break;
+
+                case "w":
+                    location = new TikkiLounge();
+                    break;
+
+                default:
+                    System.out.println("Error, please select correct input");
+                    player.portRoyal();
+                    break;
+            }
+        }
 
         return location;
     }
