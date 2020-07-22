@@ -31,6 +31,8 @@ public class RumDistillery implements Location{
         System.out.println("making vodka, weird");
         System.out.println("Hello " + player.getPlayerName());
         game.storylineProgression("TI.txt", getLocationName(), "UCStart", "UCEnd");
+        player.coinManager(20);
+
     }
 
     @Override
