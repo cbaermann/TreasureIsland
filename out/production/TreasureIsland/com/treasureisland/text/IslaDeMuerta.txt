@@ -1,0 +1,84 @@
+Isla DM
+
+	1) Abandoned house on the hill.
+		a) Room with flickering light.
+			-- This room is in the front of the house.
+			-- The first thing you notice about this house is the flickering light inside of the room.
+			-- Inside the house, I found that the flickering light was because of tons of broken mirrors in the house reflecting light into that particular room. Pretty weird!
+			-- Searched the room for few hours and found . . .
+				--Nothing, other than shimmering lights.
+		b) Upstairs room with red hand prints on the door.
+			-- Blood, these hand prints are of blood. What happened here?
+			-- I was right about hand prints, as there was more dried of blood on floor.
+			-- The room also hit you square in the jaw with its awful and foul smell.
+			-- But I persisted and searched the room. I found a shirt dirty and with dried blood all over it. . .
+			 -- but hidden underneath the collar was a small little key!
+		c) Bathroom with dripping water noise.
+			-- Mouldy, musty and slippery.
+			-- There is no way I am going in there.
+				-- Found nothing.
+		d) In the dark attic.
+			-- This is the last place I wanna be at.
+			-- I was able to find a candle in the kitchen and it came in real handy to search the attic.
+			-- Attic also had a very foul and decaying smell. I found . . .
+			-- A skeleton! For observation it seem like the person was crawling towards the north corner of the attic.
+			-- Examining the corner I found a key hole!
+			-- The curved key I found fit perfectly into the lock. Inside I  . . .
+				-- Found a gem!
+
+	2) Graveyard
+		a) Search near the grave with the biggest tombstone.
+			-- This Island keeps getting better and better.
+			-- The grave I was looking to find was pretty easy to find.
+			-- The dug the grave and found . . .
+			--Nothing!
+			-- In my frustration I pushed against the tombstone and it moved a little!
+			-- I pushed it a little more and it pushed out a small wooden box at the bottom of the tombstone.
+			-- I found . . .
+				-- coins +196
+		b) By the grave with the smallest tombstone.
+			-- This was little harder to find.
+			-- I searched both the grave and the tombstone. I found . . .
+			-- Nothing! Other than a creepy sound of a muffled sigh when I uprooted the tombstone.
+		c) Search the abandoned caretaker's quarters.
+			--
+		d) Dig up the grave of legendary pirate Tumtum.
+
+	3) Dusk till Dawn Saloon
+		a) Speak with drunk Sam Sr.
+			-- Talking with Sam Sr. didn't reveal much.
+			-- He was just talking about his son being a very good man and he is really proud of him.
+				-- Got nothing.
+		b) Check the wine cellar.
+			-- This was easy, their wine cellar is accessible to public. You pick you bottle and and pay at the counter. Futuristic!
+			-- But what could I possibly find here? after much observation and exploring around I found . . .
+				--  . . .out that the tip I received to check this place was a waste of time.
+				-- Got nothing.
+		c) Knock out John, to steal the key hanging from around his neck.
+			-- From the information I gathered, this is one of the keys that I need.
+			-- So I fought John and I got . . .
+				-- A key and health -50
+		d) Flirt with Isabella to find out more information.
+			-- Once again my charm came to the rescue. Flirting revealed . . .
+				-- a guy named John could have more information for me.
+
+	4) Pawpaw beach park
+		a) Look for a clue near Pawpaw's statue.
+			-- Pawpaw was a local legend. He was a merchant and adventurer. He was also believed to be a treasure hunter.
+			-- It is also believed that he also has more information/key or I need.
+			-- I explored around the statue area and found . .
+				-- Nothing
+		b) Win the top prize labelled "Key" at the balloon shooting carnival game.
+			-- This could be a total waste. Local legend Pawpaw is supposed to have provided with an odd, big ornate key to the Carnival which run every Saturday and Sunday.
+			-- That key is displayed as a first prize and a very tough shooting game.
+			-- No one has won it yet, or should I say that no one has been interested in winning an ornamental key. But I have a hunch.
+			-- After trying and failing to get the key for weeks. I got . . .
+				-- A key, I finally got the key and became a little bit of local legend myself.
+		c) Win the hot-dog eating competition to beat Slimjaw. Slimjaw has some useful information.
+			-- This was not easy!
+			-- I tried to out  eat him, I tried it few times over the days and . .
+			--  . . . I coudn't win. But we became friends and he provided me with . .
+				-- Info to search Pawpaw museum.
+		d) Pawpaw beach park museum.
+			--Interesting museum, Pawpaw donated lot of stuff for this museum.
+				-- But I found out nothing interesting here.

@@ -1,0 +1,4 @@
+-- There are four of the stills and I am not sure where to begin.
+-- I started with exploring around the stills and within walking few meters or so I found . . .
+-- a weak spot on floor and I crashed to basement right through it!
+	-- Health -50

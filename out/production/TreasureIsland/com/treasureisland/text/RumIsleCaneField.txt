@@ -1,0 +1,6 @@
+-- Check the scarecrow.
+	-- There are 5 scarecrows I counted across the fields and I looked way different than the others.
+	-- My pirate sense tells me that the different one holds a secret.
+	-- Upon the close examining of the scarecrow I found a . . .
+	--  . . . section on a stick that can be pulled out. In it was . . .
+		-- A key!

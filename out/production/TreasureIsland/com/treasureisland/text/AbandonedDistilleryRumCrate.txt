@@ -1,0 +1,6 @@
+Drink from rum crate by the big window to find the key.
+	-- All the bottles look like empty.
+	-- But there seems to be little bit rum of left in one of the bottle.
+	-- I took a sip from the bottle.
+	-- When I was about to put the bottle back I found . . .
+		-- Antique coin.
