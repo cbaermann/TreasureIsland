@@ -12,10 +12,11 @@ Rum Island
 					RDEnd
 
 		b) Under the cask marked 9999.
+		UCStart
 				-- I am sure I will find something interesting there. I am sure of it.
 				-- I looked under the cask as soon as I got the chance and I found . . .
 				  -- A snake!!
-				  UC End
+				  UCEnd
 
 		c) At the bottom of the open cask by the main door.
 				-- I don't even remember as to how I got this clue!

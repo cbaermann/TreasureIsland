@@ -16,7 +16,8 @@ public class RumDistillery implements Location{
     @Override
     public void talkToNPC(){
         System.out.println("You're talking to npc in rum distillery");
-        player.storylineProgression("MasterBrewer.txt");
+        //System.out.println(getLocationName());
+        player.storylineProgression("RumIsland.txt", getLocationName(), "RDStart", "RDEnd");
         player.playerClues.add("For the last occurrence, look under drum that gives men courage");
     }
 
@@ -24,7 +25,7 @@ public class RumDistillery implements Location{
     public void lookAroundLocation(){
         System.out.println("making vodka, weird");
         System.out.println("Hello " + player.getPlayerName());
-        player.storylineProgression("RumDistilleryOpenCask.txt");
+        player.storylineProgression("RumIsland.txt", getLocationName(), "UCStart", "UCEnd");
     }
 
     @Override

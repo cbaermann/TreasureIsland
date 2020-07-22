@@ -33,7 +33,7 @@ public class TreasureIslandGameScanner{
             System.out.println("Please enter your name");
             playerName = scanner.nextLine();
             System.out.println("\nWelcome, " + playerName + "\n \n");
-            storylineProgression("GameIntroText.txt");
+            storylineProgression("GameIntroText.txt", "", "", "");
             rumDistillery();
     }
 
@@ -134,23 +134,25 @@ public class TreasureIslandGameScanner{
 
 
     //File reads txt file that it's passed and prints to terminal.
-    public void storylineProgression(String fileName){
+    // Made changes to read text file partially based on the tag in the text file - Guru
+    public void storylineProgression(String fileName, String location, String start, String stop){
         try {
             File myObj = new File(".\\TreasureIsland\\src\\com\\treasureisland\\text\\" + fileName);
-            System.out.println("Function works");
+            System.out.println(location);
             Scanner myReader = new Scanner(myObj);
             boolean tokenFound = false;
-
+//
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine().trim();
-                if (data.equals("RDStart")) //tag in the txt to locate position
+                if (data.equals(start)) //tag in the txt to locate position
                 {
+                    System.out.println(start);
                     tokenFound = true;
-                } else if (data.equals("RDEnd")) { //tag to end reading he file.
+                } else if (data.equals(stop)) { //tag to end reading he file.
                     tokenFound = false;
                 }
 
-                if ((tokenFound) && (!data.equals("RDStart"))) {
+                if ((tokenFound) && (!data.equals(start))) {
 
                     System.out.println(data);
                     Thread.sleep(1000);
