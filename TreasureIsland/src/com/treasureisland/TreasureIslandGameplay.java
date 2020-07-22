@@ -109,7 +109,7 @@ public class TreasureIslandGameplay {
                 String data = myReader.nextLine().trim();
                 if (data.equals(start)) //tag in the txt to locate position
                 {
-                    System.out.println(start);
+                    //System.out.println(start);
                     tokenFound = true;
                 } else if (data.equals(stop)) { //tag to end reading he file.
                     tokenFound = false;
