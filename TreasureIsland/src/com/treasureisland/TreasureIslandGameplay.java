@@ -88,7 +88,7 @@ public class TreasureIslandGameplay {
     //File reads txt file that it's passed and prints to terminal.
     public void storylineProgression(String fileName){
         try {
-            BufferedReader br = new BufferedReader(new FileReader("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + fileName));
+            BufferedReader br = new BufferedReader(new FileReader("C:\\StudentWork\\Capstone\\TreasureIsland\\TreasureIsland\\src\\com\\treasureisland\\text\\" + fileName));
             String line;
             while ((line = br.readLine()) != null) {
                 System.out.println(line);
