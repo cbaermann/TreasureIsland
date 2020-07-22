@@ -58,20 +58,20 @@ public class TreasureIslandGameplay {
         leavingIslandShipPrint();
         Thread.sleep(5000);
         player.haveIslandItem = false;
-//        islaCruces();
+        islaCruces();
 
 
     }
-//
-//    public void islaCruces() throws InterruptedException {
-//        System.out.println("At Isla Cruces");
-//        player.processMovement();
-//        System.out.println("Leaving Isla Cruces \n \n");
-//        leavingIslandShipPrint();
-//        Thread.sleep(5000);
-//        player.haveIslandItem = false;
+
+    public void islaCruces() throws InterruptedException {
+        System.out.println("At Isla Cruces");
+        player.processMovement("islaCruces");
+        System.out.println("Leaving Isla Cruces \n \n");
+        leavingIslandShipPrint();
+        Thread.sleep(5000);
+        player.haveIslandItem = false;
 //        islaDeMuerta();
-//    }
+    }
 //
 //    public void islaDeMuerta(){
 //        System.out.println("At Isla de Muerta");
@@ -88,7 +88,7 @@ public class TreasureIslandGameplay {
     //File reads txt file that it's passed and prints to terminal.
     public void storylineProgression(String fileName){
         try {
-            BufferedReader br = new BufferedReader(new FileReader("C:\\StudentWork\\Capstone\\TreasureIsland\\TreasureIsland\\src\\com\\treasureisland\\text\\" + fileName));
+            BufferedReader br = new BufferedReader(new FileReader("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + fileName));
             String line;
             while ((line = br.readLine()) != null) {
                 System.out.println(line);
