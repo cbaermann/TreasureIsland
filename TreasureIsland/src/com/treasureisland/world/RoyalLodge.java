@@ -1,8 +1,13 @@
 package com.treasureisland.world;
+import com.treasureisland.TreasureIslandGameplay;
 
+import com.treasureisland.player.Player;
 
 
 public class RoyalLodge implements Location{
+    private final TreasureIslandGameplay game = TreasureIslandGameplay.getInstance();
+    private Player player = Player.getInstance();
+
     @Override
     public String getLocationName() {
         return "Royal Lodge";
@@ -10,16 +15,22 @@ public class RoyalLodge implements Location{
 
     @Override
     public void talkToNPC() {
-        System.out.println("talking to npc royal lodge");
+        System.out.println("Talking to a npc Royal lodge, I found out about room 101");
+        game.storylineProgression("TI.txt", getLocationName(), "R1Start", "R1Stop");
+
     }
 
     @Override
     public void lookAroundLocation(){
-        System.out.println("looking around royal lodge");
+        System.out.println("Looking around royal lodge");
+        game.storylineProgression("TI.txt", getLocationName(), "SRStart", "SRStop");
+
     }
 
     @Override
     public void investigateArea(){
-        System.out.println("investigating royal lodge");
+        System.out.println("Investigating royal lodge");
+        game.storylineProgression("TI.txt", getLocationName(), "BRStart", "BRStop");
+
     }
 }

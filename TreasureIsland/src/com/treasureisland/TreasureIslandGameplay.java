@@ -92,18 +92,6 @@ public class TreasureIslandGameplay {
             System.out.println(location);
             Scanner myReader = new Scanner(myObj);
             boolean tokenFound = false;
-//            String start = "";
-//            String stop = "";
-//
-//            if (location.equals("Rum Distillery")) {
-//                start = "RDStart";
-//                stop = "RDEnd";
-//            } else if (location.equals("Rum DistilleryNPC")) {
-//                start = "UCStart";
-//                stop = "UCEnd";
-//            }
-//
-//            System.out.println(start);
 
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine().trim();
