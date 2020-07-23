@@ -70,7 +70,7 @@ public class Player {
 
     public Integer coinManager(Integer coins) {
         if(coins.equals(0)){
-            System.out.println("Nothing was found");
+            System.out.println("Nothing was found CM");
         }
         if (coins > 0) {
             playerCoins += coins;
@@ -89,8 +89,9 @@ public class Player {
         Random rand = new Random();
         int upperBoundofCoins = 51;
         int coins = rand.nextInt(upperBoundofCoins);
-        if(coins >5){
-            System.out.println("Nothing was found");
+        //System.out.println(coins);
+        if(coins <0){
+            System.out.println("Nothing was found ");
             return 0;
         }
 
