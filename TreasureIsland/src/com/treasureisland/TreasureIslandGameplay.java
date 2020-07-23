@@ -1,12 +1,11 @@
 package com.treasureisland;
 
 import com.treasureisland.player.Player;
-import com.treasureisland.world.Location;
 
 import java.io.*;
 import java.util.Scanner;
 
-public class TreasureIslandGameplay {
+public class TreasureIslandGameplay{
     private final Player player =  Player.getInstance();
     private final Scanner scanner = new Scanner(System.in);
     private static final TreasureIslandGameplay scan = new TreasureIslandGameplay();
@@ -30,6 +29,10 @@ public class TreasureIslandGameplay {
             System.out.println("\nWelcome, " + player.getPlayerName() + "\n \n");
             storylineProgression("GameIntroText.txt");
             rumRunnerIsle();
+
+
+
+
     }
     //loop continues until they find the islands special item
     //allows user to chose N/S/E/W from IsleFactory
@@ -128,5 +131,18 @@ public class TreasureIslandGameplay {
                 "            ~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
     }
+
+
+//    public void playerInfoConsoleOutput(){
+//        System.out.println(
+//                "|-----------------------------------------------------------|" + "\n" +
+//                "|                 Treasure Island                           |" + "\n" +
+//                "|     Player: " + player.getPlayerName() + "                |" + "\n" +
+//                "|     Current Location: "  + player.location + "            |" + "\n" +
+//                "|     Coins: " + player.getPlayerCoins() + "                |" + "\n" +
+//                "|                                                           |" + "\n" +
+//                "|___________________________________________________________|"
+//        );
+//    }
 
 }
