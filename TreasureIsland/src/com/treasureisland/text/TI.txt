@@ -25,8 +25,8 @@ Rum Island
 				-- I checked the open cask and I could not see anything.
 				-- I put my hand into the cask to check the bottom of the cask with murky smelly liquid!
 				-- I felt something at the bottom of cask, I pull it out . . .
-				-- It was a small sack of coins!
-					-- Coins + 20
+				    -- It was a small sack of coins!
+
 	OCEnd
 	MBStart
 		d) Ask master brewer for the Sunshine Rum sample.
@@ -49,8 +49,8 @@ Rum Island
 		a) By the water well.
 			--Found a spot that looked like it had been dug sometime back.
 			--I dug around the same spot . . . .
-			-- and I found coins!
-			  -- Found 50 coins.
+			    -- and I found coins!
+
 	WWEnd
 	URStart
 		b) Under the big rock.
@@ -256,6 +256,7 @@ Port Royal
 			-- Returning the money proved it. We spent rest of the evening talking about everything but the key.
 			-- Towards the end of the night, we were saying our good byes and he mentioned " This is one of the keys!" and left.
     SAMStop
+
 Isla DM
 
 	1) Abandoned house on the hill.
