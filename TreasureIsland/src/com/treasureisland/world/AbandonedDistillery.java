@@ -16,17 +16,17 @@ public class AbandonedDistillery implements Location{
 
     @Override
     public void talkToNPC(){
-        treasureIslandGameplay.storylineProgression("AbandonedDistilleryGhost.txt");
+        treasureIslandGameplay.storylineProgression("TI.txt", getLocationName(), "BGStart", "BGEnd");
     }
 
     @Override
     public void lookAroundLocation(){
-        treasureIslandGameplay.storylineProgression("AbandonedDistilleryStills.txt");
+        treasureIslandGameplay.storylineProgression("TI.txt", getLocationName(), "DSStart", "DSEnd");
     }
 
     @Override
     public void investigateArea(){
-        treasureIslandGameplay.storylineProgression("AbandonedDistilleryRumCrate.txt");
+        treasureIslandGameplay.storylineProgression("TI.txt", getLocationName(), "DRStart", "DREnd");
     }
 
 }
