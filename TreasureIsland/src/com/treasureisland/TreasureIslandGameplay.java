@@ -27,7 +27,7 @@ public class TreasureIslandGameplay{
         String input = scanner.nextLine();
             player.setPlayerName(input);
             System.out.println("\nWelcome, " + player.getPlayerName() + "\n \n");
-            storylineProgression("GameIntroText.txt","","", "");
+//            storylineProgression("GameIntroText.txt","","", "");
             rumRunnerIsle();
 
 
