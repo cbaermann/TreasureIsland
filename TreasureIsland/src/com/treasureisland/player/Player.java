@@ -21,9 +21,9 @@ public class Player {
     private static final Player player = new Player();
     private final TreasureIslandGameplay treasureIslandGameplay = TreasureIslandGameplay.getInstance();
 
-//    private Player() {
-//
-//    }
+    private Player() {
+
+    }
 
 
     public static Player getInstance() {
@@ -70,6 +70,9 @@ public class Player {
     }
 
     public Integer coinManager(Integer coins) {
+        if(coins.equals(0)){
+            System.out.println("Nothing was found");
+        }
         if (coins > 0) {
             playerCoins += coins;
             System.out.println("You found " + coins + " coins. You now have a total of " + getPlayerCoins() + " coins");
@@ -87,6 +90,10 @@ public class Player {
         Random rand = new Random();
         int upperBoundofCoins = 51;
         int coins = rand.nextInt(upperBoundofCoins);
+        if(coins >5){
+            System.out.println("Nothing was found");
+            return 0;
+        }
 
         return coinManager(coins);
     }
