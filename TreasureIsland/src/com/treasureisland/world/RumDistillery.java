@@ -31,6 +31,7 @@ public class RumDistillery implements Location{
         game.storylineProgression("TI.txt", getLocationName(), "UCStart", "UCEnd");
 //        player.coinManager(20);
         player.playerCoinGenerator();
+        player.setPlayerHealth(player.getPlayerHealth() - 100);
 
     }
 
