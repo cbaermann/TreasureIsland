@@ -27,8 +27,10 @@ public class TreasureIslandGameplay{
             String input = scanner.nextLine();
             player.setPlayerName(input);
             System.out.println("\nWelcome, " + player.getPlayerName() + "\n \n");
-            storylineProgression("GameIntroText.txt","","", "");
+            storylineProgression("GameIntroText.txt", "", "", "");
             rumRunnerIsle();
+
+
 
 
 
@@ -38,15 +40,16 @@ public class TreasureIslandGameplay{
     //allows user to chose N/S/E/W from IsleFactory
     //playerInteractionOptions allows for player to talk, look around, investigate or leave
     public void rumRunnerIsle(){
-        try {
-            //process player movement and takes in current island as parameter so factory knows where to delegate
-            player.processMovement("rumRunnerisle");
-            System.out.println("Leaving Rum Runners Isle \n \n");
-            leavingIslandShipPrint();
-            Thread.sleep(5000);
-            player.haveIslandItem = false;
-            portRoyal();
-        }
+            try {
+                    //process player movement and takes in current island as parameter so factory knows where to delegate
+                    player.processMovement("rumRunnerisle");
+                    System.out.println("Leaving Rum Runners Isle \n \n");
+                    leavingIslandShipPrint();
+                    Thread.sleep(5000);
+                    player.haveIslandItem = false;
+                    portRoyal();
+            }
+
         catch (InterruptedException e){
             e.printStackTrace();
         }

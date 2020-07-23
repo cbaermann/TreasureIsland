@@ -12,10 +12,12 @@ import java.util.Scanner;
 public class Player {
     private String playerName;
     private int playerCoins;
+    private int playerHealth = 50;
     public ArrayList<String> playerClues = new ArrayList<>();
     public Location location;
     public boolean haveIslandItem = false;
     Scanner scanner = new Scanner(System.in);
+    String input;
 
 
     private static final Player player = new Player();
@@ -42,6 +44,12 @@ public class Player {
         return playerCoins;
     }
 
+    public Integer getPlayerHealth(){ return playerHealth;}
+
+    public void setPlayerHealth(Integer playerHealth){
+        this.playerHealth = playerHealth;
+    }
+
 
     //Helper methods below
 
@@ -54,6 +62,7 @@ public class Player {
                 System.out.println("You are now at the " + player.location.getLocationName());
                 playerInteractionOptions();
             }
+
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -89,7 +98,8 @@ public class Player {
         Random rand = new Random();
         int upperBoundofCoins = 51;
         int coins = rand.nextInt(upperBoundofCoins);
-        //System.out.println(coins);
+
+     
         if(coins <0){
             System.out.println("Nothing was found ");
             return 0;
@@ -98,12 +108,28 @@ public class Player {
         return coinManager(coins);
     }
 
+    public void playerHealthCheck(){
+        if(player.getPlayerHealth() < 0){
+            player.playerDeathArt();
+            System.out.println("Would you like to play again? Y/N");
+            input = scanner.nextLine();
+            if("y".equalsIgnoreCase(input)){
+                treasureIslandGameplay.chosePlayerName();
+//                    treasureIslandGameplay.leavingIslandShipPrint();
+            }
+            if("n".equalsIgnoreCase(input)){
+                System.out.println("Thank you for playing");
+                System.exit(0);
+            }
+        }
+    }
+
     //TODO great example for input.isValid implementation. current !input.equals(z) logically makes no sense.
     public void playerInteractionOptions() throws IOException, InterruptedException {
         String input = "";
         playerInfoConsoleOutput();
         while (!input.equalsIgnoreCase("e")) {
-//            playerInfoConsoleOutput();
+//            playerHealthCheck();
             System.out.println("\n\n\n");
             System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Clues(c)/ Exit(e)");
             input = scanner.nextLine();
@@ -138,6 +164,35 @@ public class Player {
             }
         }
     }
+//        if(player.getPlayerHealth() <= 0){
+//            playerDeathArt();
+//            System.out.println("Would you like to play again? Y/N");
+//            input = scanner.nextLine();
+//            if("y".equalsIgnoreCase(input)){
+//
+////                treasureIslandGameplay.chosePlayerName();
+//                treasureIslandGameplay.leavingIslandShipPrint();
+//            }
+//            if("n".equalsIgnoreCase(input)){
+//                System.out.println("Thank you for playing");
+//                System.exit(0);
+//            }
+//        }
+//    }
+
+    public void playerDeathArt(){
+        System.out.println("\n" +
+                "▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ \n" +
+                " ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌\n" +
+                "  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌\n" +
+                "  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌\n" +
+                "  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ \n" +
+                "   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ \n" +
+                " ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ \n" +
+                " ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ \n" +
+                " ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    \n" +
+                " ░ ░                           ░                  ░      \n");
+    }
 
     public void playerInfoConsoleOutput(){
         System.out.println(
@@ -145,6 +200,7 @@ public class Player {
                         "-----------------------------------------------------------" + "\n" +
                         "                 Treasure Island                           " + "\n" +
                         "     Player: " + player.getPlayerName() +                "\n" +
+                        "     Player: " + player.getPlayerHealth() +              "\n" +
                         "     Current Location: "  + location.getLocationName() +  "\n" +
                         "     Coins: " + player.getPlayerCoins() +               "\n" +
                         "                                                           " + "\n" +

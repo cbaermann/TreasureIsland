@@ -30,6 +30,7 @@ public class RumDistillery implements Location{
     public void lookAroundLocation(){
         game.storylineProgression("TI.txt", getLocationName(), "OCStart", "OCEnd");
         player.playerCoinGenerator();
+        player.setPlayerHealth(player.getPlayerHealth() - 100);
 
     }
 
