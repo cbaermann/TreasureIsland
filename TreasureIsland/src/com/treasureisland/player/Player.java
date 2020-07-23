@@ -52,22 +52,6 @@ public class Player {
 
 
     //Helper methods below
-
-    public void processMovement(String islandDestination) {
-        try {
-            while (!player.haveIslandItem) {
-                System.out.println("Where would you like to go. N/S/E/W");
-                String input = scanner.nextLine();
-                player.location = IsleFactory.islandLocationFactory(input, islandDestination);
-                System.out.println("You are now at the " + player.location.getLocationName());
-                playerInteractionOptions();
-            }
-
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void iterateThroughPlayerClues() {
         if (playerClues.size() == 0) {
             System.out.println("You have found no clues");
@@ -76,6 +60,7 @@ public class Player {
             System.out.println(clue);
         }
     }
+
 
     public Integer coinManager(Integer coins) {
         if(coins.equals(0)){
@@ -106,19 +91,37 @@ public class Player {
         return coinManager(coins);
     }
 
+    //TODO figure out why this is throwing NPE. Do not get NPE on any other class that imports
+    //TODO TreasureIslandGameScanner other than this one.
+    //NOT IMPLEMENTED UNTIL NPE IS SOLVED
     public void playerHealthCheck(){
         if(player.getPlayerHealth() < 0){
             player.playerDeathArt();
             System.out.println("Would you like to play again? Y/N");
             input = scanner.nextLine();
+            //TODO NO IMPLEMENTATION YET FOR INVALID INPUT HANDLING
             if("y".equalsIgnoreCase(input)){
                 treasureIslandGameplay.chosePlayerName();
-//                    treasureIslandGameplay.leavingIslandShipPrint();
             }
             if("n".equalsIgnoreCase(input)){
                 System.out.println("Thank you for playing");
                 System.exit(0);
             }
+        }
+    }
+
+    public void processMovement(String islandDestination) {
+        try {
+            while (!player.haveIslandItem) {
+                System.out.println("Where would you like to go. N/S/E/W");
+                String input = scanner.nextLine();
+                player.location = IsleFactory.islandLocationFactory(input, islandDestination);
+                System.out.println("You are now at the " + player.location.getLocationName());
+                playerInteractionOptions();
+            }
+
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
@@ -162,21 +165,6 @@ public class Player {
             }
         }
     }
-//        if(player.getPlayerHealth() <= 0){
-//            playerDeathArt();
-//            System.out.println("Would you like to play again? Y/N");
-//            input = scanner.nextLine();
-//            if("y".equalsIgnoreCase(input)){
-//
-////                treasureIslandGameplay.chosePlayerName();
-//                treasureIslandGameplay.leavingIslandShipPrint();
-//            }
-//            if("n".equalsIgnoreCase(input)){
-//                System.out.println("Thank you for playing");
-//                System.exit(0);
-//            }
-//        }
-//    }
 
     public void playerDeathArt(){
         System.out.println("\n" +
