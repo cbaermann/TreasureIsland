@@ -1,10 +1,12 @@
 package com.treasureisland.player;
 
 import com.treasureisland.IsleFactory;
+import com.treasureisland.TreasureIslandGameplay;
 import com.treasureisland.world.Location;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Player {
@@ -17,10 +19,11 @@ public class Player {
 
 
     private static final Player player = new Player();
+    private final TreasureIslandGameplay treasureIslandGameplay = TreasureIslandGameplay.getInstance();
 
-    private Player() {
-
-    }
+//    private Player() {
+//
+//    }
 
 
     public static Player getInstance() {
@@ -66,7 +69,7 @@ public class Player {
         }
     }
 
-    public void coinManager(Integer coins) {
+    public Integer coinManager(Integer coins) {
         if (coins > 0) {
             playerCoins += coins;
             System.out.println("You found " + coins + " coins. You now have a total of " + getPlayerCoins() + " coins");
@@ -76,29 +79,46 @@ public class Player {
             System.out.println("Oh no! You lost " + coins + " coins. You now have a total of " + getPlayerCoins() + " coins.");
         }
 
+        return coins;
+
+    }
+
+    public Integer playerCoinGenerator(){
+        Random rand = new Random();
+        int upperBoundofCoins = 51;
+        int coins = rand.nextInt(upperBoundofCoins);
+
+        return coinManager(coins);
     }
 
     //TODO great example for input.isValid implementation. current !input.equals(z) logically makes no sense.
     public void playerInteractionOptions() throws IOException, InterruptedException {
         String input = "";
+        playerInfoConsoleOutput();
         while (!input.equalsIgnoreCase("e")) {
+//            playerInfoConsoleOutput();
+            System.out.println("\n\n\n");
             System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Clues(c)/ Exit(e)");
             input = scanner.nextLine();
             switch (input.toLowerCase()) {
                 case "talk":
                 case "t":
+                    playerInfoConsoleOutput();
                     location.talkToNPC();
                     break;
                 case "look":
                 case "l":
+                    playerInfoConsoleOutput();
                     location.lookAroundLocation();
                     break;
                 case "investigate":
                 case "i":
+                    playerInfoConsoleOutput();
                     location.investigateArea();
                     break;
                 case "clues":
                 case "c":
+                    playerInfoConsoleOutput();
                     iterateThroughPlayerClues();
                     break;
                 case "exit":
@@ -110,5 +130,18 @@ public class Player {
                     break;
             }
         }
+    }
+
+    public void playerInfoConsoleOutput(){
+        System.out.println(
+                "\n\n"+
+                        "-----------------------------------------------------------" + "\n" +
+                        "                 Treasure Island                           " + "\n" +
+                        "     Player: " + player.getPlayerName() +                "\n" +
+                        "     Current Location: "  + location.getLocationName() +  "\n" +
+                        "     Coins: " + player.getPlayerCoins() +               "\n" +
+                        "                                                           " + "\n" +
+                        "___________________________________________________________"
+        );
     }
 }

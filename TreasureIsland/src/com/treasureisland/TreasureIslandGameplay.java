@@ -91,7 +91,7 @@ public class TreasureIslandGameplay{
     //File reads txt file that it's passed and prints to terminal.
     public void storylineProgression(String fileName, String location, String start, String stop){
         try {
-            File myObj = new File(".\\TreasureIsland\\src\\com\\treasureisland\\text\\" + fileName);
+            File myObj = new File("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + fileName);
             System.out.println(location);
             Scanner myReader = new Scanner(myObj);
             boolean tokenFound = false;
@@ -150,16 +150,5 @@ public class TreasureIslandGameplay{
     }
 
 
-//    public void playerInfoConsoleOutput(){
-//        System.out.println(
-//                "|-----------------------------------------------------------|" + "\n" +
-//                "|                 Treasure Island                           |" + "\n" +
-//                "|     Player: " + player.getPlayerName() + "                |" + "\n" +
-//                "|     Current Location: "  + player.location + "            |" + "\n" +
-//                "|     Coins: " + player.getPlayerCoins() + "                |" + "\n" +
-//                "|                                                           |" + "\n" +
-//                "|___________________________________________________________|"
-//        );
-//    }
 
 }
