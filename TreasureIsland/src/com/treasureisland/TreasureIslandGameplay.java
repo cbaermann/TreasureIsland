@@ -1,12 +1,11 @@
 package com.treasureisland;
 
 import com.treasureisland.player.Player;
-import com.treasureisland.world.Location;
 
 import java.io.*;
 import java.util.Scanner;
 
-public class TreasureIslandGameplay {
+public class TreasureIslandGameplay{
     private final Player player =  Player.getInstance();
     private final Scanner scanner = new Scanner(System.in);
     private static final TreasureIslandGameplay scan = new TreasureIslandGameplay();
@@ -28,8 +27,12 @@ public class TreasureIslandGameplay {
         String input = scanner.nextLine();
             player.setPlayerName(input);
             System.out.println("\nWelcome, " + player.getPlayerName() + "\n \n");
-            storylineProgression("GameIntroText.txt");
+//            storylineProgression("GameIntroText.txt","","", "");
             rumRunnerIsle();
+
+
+
+
     }
     //loop continues until they find the islands special item
     //allows user to chose N/S/E/W from IsleFactory
@@ -86,13 +89,30 @@ public class TreasureIslandGameplay {
 
 
     //File reads txt file that it's passed and prints to terminal.
-    public void storylineProgression(String fileName){
+    public void storylineProgression(String fileName, String location, String start, String stop){
         try {
-            BufferedReader br = new BufferedReader(new FileReader("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + fileName));
-            String line;
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
-                Thread.sleep(1000);
+            File myObj = new File(".\\TreasureIsland\\src\\com\\treasureisland\\text\\" + fileName);
+            System.out.println(location);
+            Scanner myReader = new Scanner(myObj);
+            boolean tokenFound = false;
+
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine().trim();
+                if (data.equals(start)) //tag in the txt to locate position
+                {
+                    //System.out.println(start);
+                    tokenFound = true;
+                } else if (data.equals(stop)) { //tag to end reading he file.
+                    tokenFound = false;
+                }
+
+                if ((tokenFound) && (!data.equals(start))) {
+
+                    System.out.println(data);
+                    Thread.sleep(1000);
+
+
+                }
             }
         }
         catch(IOException | InterruptedException e){
@@ -128,5 +148,18 @@ public class TreasureIslandGameplay {
                 "            ~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
     }
+
+
+//    public void playerInfoConsoleOutput(){
+//        System.out.println(
+//                "|-----------------------------------------------------------|" + "\n" +
+//                "|                 Treasure Island                           |" + "\n" +
+//                "|     Player: " + player.getPlayerName() + "                |" + "\n" +
+//                "|     Current Location: "  + player.location + "            |" + "\n" +
+//                "|     Coins: " + player.getPlayerCoins() + "                |" + "\n" +
+//                "|                                                           |" + "\n" +
+//                "|___________________________________________________________|"
+//        );
+//    }
 
 }
