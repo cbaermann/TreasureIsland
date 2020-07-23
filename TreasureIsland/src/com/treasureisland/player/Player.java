@@ -48,7 +48,6 @@ public class Player {
     public void processMovement(String islandDestination) {
         try {
             while (!player.haveIslandItem) {
-                System.out.println("\n" + getPlayerName() + " has " + getPlayerCoins() + " coins");
                 System.out.println("Where would you like to go. N/S/E/W");
                 String input = scanner.nextLine();
                 player.location = IsleFactory.islandLocationFactory(input, islandDestination);

@@ -24,10 +24,10 @@ public class TreasureIslandGameplay{
     public void chosePlayerName() {
             welcomeToTreasureIsland();
             System.out.println("Please enter your name");
-        String input = scanner.nextLine();
+            String input = scanner.nextLine();
             player.setPlayerName(input);
             System.out.println("\nWelcome, " + player.getPlayerName() + "\n \n");
-//            storylineProgression("GameIntroText.txt","","", "");
+            storylineProgression("GameIntroText.txt","","", "");
             rumRunnerIsle();
 
 
@@ -87,7 +87,8 @@ public class TreasureIslandGameplay{
 
 
 
-
+    //USER NEEDS TO INPUT THEIR SPECIFIC FILE PATH TO THE TEXT FOLDER
+    //STILL WORKING ON HOW TO GET A CONSISTENT PATH FOR EVERY USER
     //File reads txt file that it's passed and prints to terminal.
     public void storylineProgression(String fileName, String location, String start, String stop){
         try {
