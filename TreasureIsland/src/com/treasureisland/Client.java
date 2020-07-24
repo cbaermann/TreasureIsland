@@ -15,7 +15,7 @@ public class Client {
         TreasureIslandGameplay beginGame = TreasureIslandGameplay.getInstance();
         beginGame.chosePlayerName();
 
-//        Vendor item = new Vendor();
+//        Vendor item =  Vendor.getInstance();
 ////        item.getAll();
 //        System.out.println(item.findByName("Banana").healthValue);
 //        System.out.println(item.findByName("Banana").cost);

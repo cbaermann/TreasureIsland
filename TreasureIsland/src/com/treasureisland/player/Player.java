@@ -2,6 +2,7 @@ package com.treasureisland.player;
 
 import com.treasureisland.IsleFactory;
 import com.treasureisland.TreasureIslandGameplay;
+import com.treasureisland.items.Vendor;
 import com.treasureisland.world.Location;
 
 import java.io.IOException;
@@ -11,7 +12,7 @@ import java.util.Scanner;
 
 public class Player {
     private String playerName;
-    private int playerCoins;
+    private int playerCoins = 100;
     private int playerHealth = 50;
     public ArrayList<String> playerClues = new ArrayList<>();
     public Location location;
@@ -21,7 +22,7 @@ public class Player {
 
 
     private static final Player player = new Player();
-    private final TreasureIslandGameplay treasureIslandGameplay = TreasureIslandGameplay.getInstance();
+    private final Vendor vendorItems = Vendor.getInstance();
 
     private Player() {
 
@@ -50,6 +51,9 @@ public class Player {
         this.playerHealth = playerHealth;
     }
 
+    public void setPlayerCoins(int playerCoins) {
+        this.playerCoins = playerCoins;
+    }
 
     //Helper methods below
     public void iterateThroughPlayerClues() {
@@ -72,9 +76,81 @@ public class Player {
         }
         if (coins < 0) {
             playerCoins -= coins;
-            System.out.println("Oh no! You lost " + coins + " coins. You now have a total of " + getPlayerCoins() + " coins.");
+            System.out.println("You spent " + coins + " gold. You now have a total of " + getPlayerCoins() + " coins.");
         }
 
+    }
+
+    public void playerVisitsVendor(){
+        System.out.println("\nWelcome to my shop! Please browse my collection \n");
+        vendorItems.getAll();
+        System.out.println("\nWould you like to buy anything? y/n");
+        input = scanner.nextLine();
+        if("y".equalsIgnoreCase(input)){
+            player.playerPurchase();
+        }
+        if("n".equalsIgnoreCase(input)){
+            System.out.println("Bye");
+        }
+    }
+
+    public void playerPurchase(){
+        System.out.println("\nWhat would you like to buy?");
+        input = scanner.nextLine();
+        switch(input.toLowerCase()){
+            case"Banana":
+            case "b":
+                System.out.println("You bought a banana");
+                player.setPlayerHealth(player.getPlayerHealth() + vendorItems.findByName("Banana").healthValue);
+                player.itemManager(vendorItems.findByName("Banana").cost);
+                break;
+            case "Apple":
+            case "ap":
+                System.out.println("bought apple");
+                player.setPlayerHealth(player.getPlayerHealth() + vendorItems.findByName("Apple").healthValue);
+                player.itemManager(vendorItems.findByName("Apple").cost);
+                break;
+            case "Rum":
+            case "r":
+                System.out.println("bought rum");
+                player.setPlayerHealth(player.getPlayerHealth() + vendorItems.findByName("Rum").healthValue);
+                player.itemManager(vendorItems.findByName("Rum").cost);
+                break;
+            case "Salted meat":
+            case "sm":
+                System.out.println("bought salted meat");
+                player.setPlayerHealth(player.getPlayerHealth() + vendorItems.findByName("Salted meat").healthValue);
+                player.itemManager(vendorItems.findByName("Salted meat").cost);
+                break;
+            case "Sea biscuits":
+            case "sb":
+                System.out.println("bought sea biscuts");
+                player.setPlayerHealth(player.getPlayerHealth() + vendorItems.findByName("Sea biscuits").healthValue);
+                player.itemManager(vendorItems.findByName("Sea biscuits").cost);
+                break;
+            case "Ale":
+            case "al":
+                System.out.println("Bought ale");
+                player.setPlayerHealth(player.getPlayerHealth() + vendorItems.findByName("Ale").healthValue);
+                player.itemManager(vendorItems.findByName("Ale").cost);
+                break;
+            default:
+                System.out.println("Invalid input");
+                playerPurchase();
+                break;
+        }
+
+    }
+
+
+    public void itemManager(Integer coins){
+        if(getPlayerCoins() - coins < 0){
+            System.out.println("You can not afford this item");
+        }
+        else {
+            setPlayerCoins(getPlayerCoins() - coins);
+            System.out.println("You spent " + coins + " gold. You now have " + getPlayerCoins() + " gold.");
+        }
     }
 
     public void playerCoinGenerator(){
