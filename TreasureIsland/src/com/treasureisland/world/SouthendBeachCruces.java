@@ -1,26 +1,37 @@
 package com.treasureisland.world;
 
-import java.io.IOException;
+import com.treasureisland.TreasureIslandGameplay;
+import com.treasureisland.player.Player;
 
 public class SouthendBeachCruces implements Location{
+    private final TreasureIslandGameplay game = TreasureIslandGameplay.getInstance();
+    private final Player player = Player.getInstance();
+
+
     @Override
     public String getLocationName() {
         return "Southend Beach";
     }
 
     @Override
-    public void talkToNPC() throws IOException, InterruptedException {
-        System.out.println("talking to npc southend beach");
+    public void talkToNPC() {
+        System.out.println("Talking to a npc Southend Beach");
+        game.storylineProgression("TI.txt", getLocationName(), "FStart", "FStop");
+
     }
 
     @Override
-    public void lookAroundLocation() throws IOException, InterruptedException {
-        System.out.println("looking around southend beach");
+    public void lookAroundLocation()  {
+        System.out.println("Looking around Southend Beach");
+        game.storylineProgression("TI.txt", getLocationName(), "SHStart", "SHStop");
+
     }
 
     @Override
-    public void investigateArea() throws IOException, InterruptedException {
-        System.out.println("investigating southend beach");
+    public void investigateArea() {
+        System.out.println("Investigating Southend beach");
+        game.storylineProgression("TI.txt", getLocationName(), "GHStart", "GHStop");
+
     }
 
     @Override

@@ -3,7 +3,7 @@ Rum Island
 
 	1) Rum distillery
 	RDStart
-		a) Left corner of the store house.
+		a) Talked with the store house owner.
 				-- I applied for the position for store manager, to gain access to the property.
 				-- I checked the left corner of the store house as soon as I got a chance.
 				-- There was a nothing unusual about the place other than the small patch on the wall,
@@ -24,7 +24,7 @@ Rum Island
 				-- As soon as I got the chance, I inconspicuously got to the main the door.
 				-- I checked the open cask and I could not see anything.
 				-- I put my hand into the cask to check the bottom of the cask with murky smelly liquid!
-				-- I felt something at the bottom of cask, I pull it out . . .
+				-- I felt something at the bottom of cask, I pulled it out . . .
 				    -- It was a small sack of coins!
 
 	OCEnd
@@ -422,7 +422,7 @@ Isla c
 		PAStop
 		MRStart
 		c) Check my room
-		    -- Something smells fishy, i better go to my room and make sure that I am safe first.
+		    -- Something smells fishy, I better go to my room and make sure that I am safe first.
 		    -- I went to my room . .
 		        -- John took his revenge on me as he was waiting there to get his revenge!
 		            -- Lost Health
@@ -457,7 +457,24 @@ Isla c
 		d)
 
 	Southend Beach
-		a)
-		b)
-		c)
+        SHStart
+		a) Visit Sail High ship company.
+		    -- This is the place to get one of the best places to get a new ship
+		    -- They have one ship here that I am really interested in buying soon . . .
+		        -- Right now I don't have enough money. So nothing for me.
+		SHStop
+		FStart
+		b) Talk with Frank, he is famous pirate navigator.
+		    -- I am really interested in having Frank as my navigator.
+		    -- Informing him of all the information I have, he agreed to help me out for 10% cut.
+		        -- I have a navigator!
+		FStop
+		GHStart
+		c) Visit my grandma's house.
+		    -- I visited my grandma before I left for Treasure Island.
+		    -- I told her about my plan.
+		    -- She listened to what I have accomplished and planned.
+		    -- She told me she is really proud of me and that I may accomplish what my dad and granddad couldn't.
+		        -- But she told me that I just need to remember that sometimes the treasures are not what they seem to be.
+		GHStop
 		d)
