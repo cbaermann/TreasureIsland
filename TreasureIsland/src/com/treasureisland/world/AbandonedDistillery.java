@@ -29,4 +29,9 @@ public class AbandonedDistillery implements Location{
         treasureIslandGameplay.storylineProgression("TI.txt", getLocationName(), "DRStart", "DREnd");
     }
 
+    @Override
+    public void vendor() {
+
+    }
+
 }

@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class SugarCaneField implements Location{
     private final TreasureIslandGameplay game = TreasureIslandGameplay.getInstance();
     private final Player player = Player.getInstance();
-//    private final Vendor vendorItems = Vendor.getInstance();
+    private final Vendor vendorItems = Vendor.getInstance();
 
     Scanner scanner = new Scanner(System.in);
     String input;
@@ -39,8 +39,7 @@ public class SugarCaneField implements Location{
     public void lookAroundLocation(){
         game.storylineProgression("TI.txt", getLocationName(), "WWStart", "WWEnd");
         player.playerCoinGenerator();
-//        System.out.println("\nWelcome to my shop! Please browse my collection");
-//        vendorItems.getAll();
+
 
     }
 
@@ -51,6 +50,23 @@ public class SugarCaneField implements Location{
         player.playerClues.add("some placeholder for the key");
 
     }
+
+    @Override
+    public void vendor() {
+        System.out.println("\nWelcome to my shop! Please browse my collection \n");
+        vendorItems.getAll();
+    }
+
+    /*
+    public void vendor(){
+        sout welcome to my shop
+        vendorItems.getAll();
+        input selector for vendor items.
+        include method to grab item and increase health by amount
+        reduce player coins by amount
+        possibly include quantity that reduces by one every purchase
+    }
+     */
 
 
 

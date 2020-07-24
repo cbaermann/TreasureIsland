@@ -101,7 +101,6 @@ public class Player {
             input = scanner.nextLine();
             //TODO NO IMPLEMENTATION YET FOR INVALID INPUT HANDLING
             if("y".equalsIgnoreCase(input)){
-//                treasureIslandGameplay.chosePlayerName();
                 TreasureIslandGameplay.getInstance().chosePlayerName();            }
             if("n".equalsIgnoreCase(input)){
                 System.out.println("Thank you for playing");
@@ -117,7 +116,7 @@ public class Player {
                 String input = scanner.nextLine();
                 player.location = IsleFactory.islandLocationFactory(input, islandDestination);
                 System.out.println("You are now at the " + player.location.getLocationName());
-                playerInteractionOptions();
+                playerInteractionOptions(input);
             }
 
         } catch (IOException | InterruptedException e) {
@@ -126,14 +125,20 @@ public class Player {
     }
 
     //TODO great example for input.isValid implementation. current !input.equals(z) logically makes no sense.
-    public void playerInteractionOptions() throws IOException, InterruptedException {
+    public void playerInteractionOptions(String direction) throws IOException, InterruptedException {
         String input = "";
         playerInfoConsoleOutput();
         while (!input.equalsIgnoreCase("e")) {
             playerHealthCheck();
             System.out.println("\n\n\n");
-            System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Clues(c)/ Exit(e)");
+            if("w".equalsIgnoreCase(direction)){
+                System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Vendor(v)/ Clues(c)/ Exit(e)");
+            }
+            else {
+                System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Clues(c)/ Exit(e)");
+            }
             input = scanner.nextLine();
+
             switch (input.toLowerCase()) {
                 case "talk":
                 case "t":
@@ -155,12 +160,19 @@ public class Player {
                     playerInfoConsoleOutput();
                     iterateThroughPlayerClues();
                     break;
+                case "vemdpr":
+                case "v":
+                    playerInfoConsoleOutput();
+                    location.vendor();
+                    break;
+                    //TODO try if statement to catch w direction for vendor.
+                    //if player.direction is w then add vendor option as well (v)
                 case "exit":
                 case "e":
                     break;
                 default:
                     System.out.println("Invalid input, please try again.");
-                    playerInteractionOptions();
+                    playerInteractionOptions(input);
                     break;
             }
         }

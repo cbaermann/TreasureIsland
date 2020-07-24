@@ -28,4 +28,9 @@ public class AbandonedHouse implements Location {
     public void investigateArea() {
 
     }
+
+    @Override
+    public void vendor() {
+
+    }
 }

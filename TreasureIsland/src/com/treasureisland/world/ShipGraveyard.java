@@ -33,4 +33,9 @@ public class ShipGraveyard implements Location{
         game.storylineProgression("TI.txt", getLocationName(), "BBDtart", "BBDStop");
 
     }
+
+    @Override
+    public void vendor() {
+
+    }
 }

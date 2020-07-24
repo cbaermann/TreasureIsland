@@ -24,7 +24,6 @@ public class Vendor {
 
 
     public void getAll(){
-//        vendorItems.forEach(System.out::println);
         for(Items item : vendorItems){
             System.out.println(item.toString());
         }

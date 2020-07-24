@@ -29,4 +29,9 @@ public class DuskTillDawnSaloon implements Location {
     public void investigateArea() {
 
     }
+
+    @Override
+    public void vendor() {
+
+    }
 }

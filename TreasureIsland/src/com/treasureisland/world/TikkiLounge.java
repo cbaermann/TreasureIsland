@@ -6,7 +6,7 @@ import java.io.IOException;
 public class TikkiLounge implements Location{
 
     private final TreasureIslandGameplay game = TreasureIslandGameplay.getInstance();
-    private Player player = Player.getInstance();
+    private final Player player = Player.getInstance();
 
     @Override
     public String getLocationName() {
@@ -31,6 +31,11 @@ public class TikkiLounge implements Location{
     public void investigateArea()  {
         System.out.println("Investigating Tikki lounge, I ran into Sam.");
         game.storylineProgression("TI.txt", getLocationName(), "SAMStart", "SAMStop");
+
+    }
+
+    @Override
+    public void vendor() {
 
     }
 }

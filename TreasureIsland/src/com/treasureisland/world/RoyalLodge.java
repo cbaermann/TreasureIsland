@@ -33,4 +33,9 @@ public class RoyalLodge implements Location{
         game.storylineProgression("TI.txt", getLocationName(), "BRStart", "BRStop");
 
     }
+
+    @Override
+    public void vendor() {
+
+    }
 }

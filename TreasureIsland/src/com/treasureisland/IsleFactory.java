@@ -1,5 +1,8 @@
 package com.treasureisland;
+import com.treasureisland.player.Player;
 import com.treasureisland.world.*;
+
+import java.io.IOException;
 
 
 public class IsleFactory {
@@ -9,11 +12,11 @@ public class IsleFactory {
     private IsleFactory(){
 
     }
-    private static final TreasureIslandGameplay player = TreasureIslandGameplay.getInstance();
+    private static final TreasureIslandGameplay playerGoesTo = TreasureIslandGameplay.getInstance();
 
 
 
-    public static Location islandLocationFactory(String direction, String islandFactorySelection) throws InterruptedException {
+    public static Location islandLocationFactory(String direction, String islandFactorySelection) throws InterruptedException, IOException {
         Location location = null;
         if("rumrunnerisle".equalsIgnoreCase(islandFactorySelection)) {
            //islandFactorySelection.equalsIgnoreCase("rumRunnerIsle") old implementation
@@ -35,12 +38,12 @@ public class IsleFactory {
 
                 default:
                     System.out.println("Error, please select correct input");
-                    player.rumRunnerIsle();
+                    //TODO pass direction into rumRunnerIsle and see if i can have optional options for vendor
+                    playerGoesTo.rumRunnerIsle();
                     break;
             }
         }
         if("portRoyal".equalsIgnoreCase(islandFactorySelection)) {
-            //islandFactorySelection.equalsIgnoreCase("rumRunnerIsle") old implementation
             switch (direction.toLowerCase()) {
                 case "n":
                     location = new RoyalLodge();
@@ -59,7 +62,7 @@ public class IsleFactory {
 
                 default:
                     System.out.println("Error, please select correct input");
-                    player.rumRunnerIsle();
+                    playerGoesTo.rumRunnerIsle();
                     break;
             }
         }
@@ -83,11 +86,10 @@ public class IsleFactory {
 
                 default:
                     System.out.println("Error, please select correct input");
-                    player.portRoyal();
+                    playerGoesTo.portRoyal();
                     break;
             }
         }
-
         return location;
     }
 

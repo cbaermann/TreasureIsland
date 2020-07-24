@@ -22,4 +22,9 @@ public class SaintsLodgeCruces implements Location{
     public void investigateArea() throws IOException, InterruptedException {
         System.out.println("investigating saints lodge");
     }
+
+    @Override
+    public void vendor() {
+
+    }
 }

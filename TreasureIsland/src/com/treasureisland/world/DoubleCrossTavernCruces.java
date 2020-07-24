@@ -22,4 +22,9 @@ public class DoubleCrossTavernCruces implements Location {
     public void investigateArea() throws IOException, InterruptedException {
         System.out.println("investigating dct");
     }
+
+    @Override
+    public void vendor() {
+
+    }
 }

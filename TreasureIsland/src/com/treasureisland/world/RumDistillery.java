@@ -40,7 +40,7 @@ public class RumDistillery implements Location{
                 "\n-- " + player.getPlayerName() + " looked under the cask and found ....");
         System.out.println("Speak the answer");
         input = scanner.nextLine();
-        if(input.equalsIgnoreCase("sea")){
+        if("sea".equalsIgnoreCase(input)){
             System.out.println("\n--- Numbers start to appear and........I see 9999 etched on the bottom.");
             player.playerClues.add("9999");
         }
@@ -48,6 +48,11 @@ public class RumDistillery implements Location{
             System.out.println("Nothing of interest here");
         }
 
+
+    }
+
+    @Override
+    public void vendor() {
 
     }
 

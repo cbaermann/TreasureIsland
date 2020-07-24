@@ -9,6 +9,7 @@ import java.io.IOException;
     void talkToNPC() throws IOException, InterruptedException;
     void lookAroundLocation() throws IOException, InterruptedException;
     void investigateArea() throws IOException, InterruptedException;
+    void vendor();
 //    void dig();
 
 

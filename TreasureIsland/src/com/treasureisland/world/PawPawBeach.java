@@ -28,4 +28,9 @@ public class PawPawBeach implements Location{
     public void investigateArea() {
 
     }
+
+    @Override
+    public void vendor() {
+
+    }
 }

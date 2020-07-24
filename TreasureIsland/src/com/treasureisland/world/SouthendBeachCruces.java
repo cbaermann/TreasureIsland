@@ -22,4 +22,9 @@ public class SouthendBeachCruces implements Location{
     public void investigateArea() throws IOException, InterruptedException {
         System.out.println("investigating southend beach");
     }
+
+    @Override
+    public void vendor() {
+
+    }
 }

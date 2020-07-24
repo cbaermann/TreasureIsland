@@ -23,4 +23,9 @@ public class ChurchCruces implements Location{
     public void investigateArea() throws IOException, InterruptedException {
         System.out.println("Investigating church");
     }
+
+    @Override
+    public void vendor() {
+
+    }
 }

@@ -31,4 +31,9 @@ public class SunsetRestaurant implements Location{
         game.storylineProgression("TI.txt", getLocationName(), "SLStart", "SLStop");
 
     }
+
+    @Override
+    public void vendor() {
+
+    }
 }
