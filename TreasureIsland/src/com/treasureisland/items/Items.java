@@ -35,5 +35,11 @@ public class Items {
         this.cost = cost;
     }
 
+    @Override
+    public String toString() {
+        return " Item = " + itemName + ", Health Gained = " + healthValue + ", cost = " + cost + " gold " +
+                "";
+    }
+
 
 }

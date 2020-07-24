@@ -1,18 +1,55 @@
 package com.treasureisland.items;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
-public class Vendor{
+public class Vendor {
 
-    ArrayList<Items> vendorItems = new ArrayList(Arrays.asList(
+    private List<Items> vendorItems = new ArrayList(Arrays.asList(
             new Items("Banana", 5, 40),
             new Items("Apple", 3, 35),
             new Items("Rum", 0, 55),
             new Items("Salted meat", 10, 50),
             new Items("Sea biscuits", 2, 35),
             new Items("Ale", 1, 30)
-    )) ;
+    ));
+
+    public void iterateThroughItemsLIst() {
+        for (Items vend : vendorItems) {
+            System.out.println(vend);
+        }
+    }
+
+//    public Collection<Items> getAll() {
+//        return Collections.unmodifiableCollection(vendorItems);
+//    }
+
+    public void getAll(){
+//        vendorItems.forEach(System.out::println);
+        for(Items item : vendorItems){
+            System.out.println(item.toString());
+        }
+    }
+
+
+    public int size() {
+        return vendorItems.size();
+    }
+
+
+
+    public Items findByName(String name) {
+        Items result = null;
+        for (Items item : vendorItems) {
+            if (item.getItemName().equals(name)) {
+                result = item;
+                break;
+            }
+            else{
+                System.out.println("Nothing was found");
+            }
+        }
+        return result;
+    }
 
 
 
