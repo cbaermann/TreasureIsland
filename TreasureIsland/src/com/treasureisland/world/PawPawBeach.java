@@ -16,16 +16,22 @@ public class PawPawBeach implements Location{
 
     @Override
     public void talkToNPC() {
+        System.out.println("A guy called Slimjaw has some interesting information but he was more interested in having a hot-dog eating competition");
+        game.storylineProgression("TI.txt", getLocationName(), "SJStart", "SJStop");
 
     }
 
     @Override
     public void lookAroundLocation() {
+        game.storylineProgression("TI.txt", getLocationName(), "PMStart", "PMStop");
+
 
     }
 
     @Override
     public void investigateArea() {
+        game.storylineProgression("TI.txt", getLocationName(), "CGStart", "CGStop");
+
 
     }
 

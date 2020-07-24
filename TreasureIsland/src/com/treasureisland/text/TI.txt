@@ -303,7 +303,7 @@ Isla DM
 			-- In my frustration I pushed against the tombstone and it moved a little!
 			-- I pushed it a little more and it pushed out a small wooden box at the bottom of the tombstone.
 			-- I found . . .
-				-- coins +196
+				-- coins
 	BTStop
 	STStart
 		b) By the grave with the smallest tombstone.
@@ -311,9 +311,13 @@ Isla DM
 			-- I searched both the grave and the tombstone. I found . . .
 			-- Nothing! Other than a creepy sound of a muffled sigh when I uprooted the tombstone.
 	STStop
-	CQStop
+	CQStart
 		c) Search the abandoned caretaker's quarters.
-			--
+			-- My acquaintance left me near caretaker's quarters.
+			-- I could hear ruffling noises from inside.
+			-- I entered the room which was pitch dark. I took few steps forward and . . .
+			-- Someone pushed me from the right and took off running.
+			-- Lost health
 	CQStop
 	PTStart
 		d) Dig up the grave of legendary pirate Tumtum.
@@ -339,7 +343,8 @@ Isla DM
 		c) Knock out John, to steal the key hanging from around his neck.
 			-- From the information I gathered, this is one of the keys that I need.
 			-- So I fought John and I got . . .
-				-- A key and health -50
+				-- A key
+				-- Lost health
 	KJStop
 	FIStart
 		d) Flirt with Isabella to find out more information.
@@ -366,7 +371,7 @@ Isla DM
 		c) Win the hot-dog eating competition to beat Slimjaw. Slimjaw has some useful information.
 			-- This was not easy!
 			-- I tried to out  eat him, I tried it few times over the days and . .
-			--  . . . I coudn't win. But we became friends and he provided me with . .
+			--  . . . I couldn't win. But we became friends and he provided me with . .
 				-- Info to search Pawpaw museum.
 	SJStop
 	PMStart
@@ -379,7 +384,7 @@ Isla c
 
 	1) Church
 	CStart
-		a) There is valuable treasure in the confession chamber.
+		a) I got a hint that here is valuable treasure in the confession chamber.
 			-- I snuck in there to look for clues.
 			-- I searched but I found  . . .
 				-- . . . nothing!
@@ -403,15 +408,52 @@ Isla c
     MStop
 
 	2) Saint's Lodge
-		a)
-		b)
-		c)
+	    SLStart
+		a) Talk with manager
+		    -- This manager has worked at this hotel for 30 years and could have some useful information
+		    -- He told me to go talk to Joe. He hand out back by the patio.
+		    -- This was a setup, John caught up to me with his gang!
+		        --Lost health
+        SLStop
+        PAStart
+		b) Investigate the patio area.
+		    -- It was a setup and got wacked by John and his goonies.
+		        -- Lost health
+		PAStop
+		MRStart
+		c) Check my room
+		    -- Something smells fishy, i better go to my room and make sure that I am safe first.
+		    -- I went to my room . .
+		        -- John took his revenge on me as he was waiting there to get his revenge!
+		            -- Lost Health
+		MRStop
+
 		d)
 
 	3) Double Cross Tavern
-		a)
-		b)
-		c)
+	    TCStart
+		a)  Talk with Carlos
+		     -- This guys has been a bartender here for long time and a old friend.
+		     -- Talking to him yielded  . . .
+		        --Nothing! he wanted me to stop this stupid adventure.
+		TCStop
+		BAStart
+		b)  Explore the basement.
+		    --I know there is a hidden passage in the basement.
+		    -- I found a door hidden under the carpet.
+		    -- I had to pray it open as it was stuck.
+		    -- there were stairs leading downstairs, I grabbed a candle and went down.
+		    -- It lead to a room and I found . . .
+		        --Nothing
+		BAStop
+		DStart
+		c)  Investigate the roof deck.
+		    -- Lot of interesting characters hangout on the rooftop.
+		    -- on this particular day there were only few people hanging out up top.
+		    -- But I found . . .
+		    -- A small bag of coins on the floor!
+		        --Found coins!
+		DStop
 		d)
 
 	Southend Beach

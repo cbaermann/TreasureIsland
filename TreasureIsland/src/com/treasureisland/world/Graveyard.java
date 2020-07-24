@@ -16,16 +16,22 @@ public class Graveyard implements Location {
 
     @Override
     public void talkToNPC()  {
+        System.out.println("After some persuasion my acquaintance took me to the graveyard.");
+        game.storylineProgression("TI.txt", getLocationName(), "CQStart", "CQStop");
+        player.setPlayerHealth(player.getPlayerHealth() - 5);
 
     }
 
     @Override
     public void lookAroundLocation()  {
+        game.storylineProgression("TI.txt", getLocationName(),"STStart", "STStop");
 
     }
 
     @Override
     public void investigateArea()  {
+        game.storylineProgression("TI.txt", getLocationName(), "BTStart", "BTStop");
+        player.playerCoinGenerator();
 
     }
 

@@ -16,16 +16,22 @@ public class AbandonedHouse implements Location {
 
     @Override
     public void talkToNPC(){
+        System.out.println("After informing about the Abandoned house on the hill, my friend took me there and I searched . .");
+        game.storylineProgression("TI.txt", getLocationName(), "FLStart", "FLStop");
 
     }
 
     @Override
     public void lookAroundLocation(){
+        game.storylineProgression("TI.txt", getLocationName(), "DAStart", "DAStop");
+
 
     }
 
     @Override
     public void investigateArea() {
+        game.storylineProgression("TI.txt", getLocationName(), "HPStart", "HPStop");
+
 
     }
 

@@ -17,16 +17,25 @@ public class DuskTillDawnSaloon implements Location {
 
     @Override
     public void talkToNPC(){
+        System.out.println("You're talking to a npc at Dusk Till Dawn Saloon.");
+        game.storylineProgression("TI.txt", getLocationName(), "FIStart", "FIStop");
 
     }
 
     @Override
     public void lookAroundLocation(){
+        game.storylineProgression("TI.txt", getLocationName(), "WCStart", "WCStop");
+
 
     }
 
     @Override
     public void investigateArea() {
+        System.out.println(" Searching the saloon, I found out that John has a key I may need.");
+        game.storylineProgression("TI.txt", getLocationName(), "KJStart", "KJStop");
+        player.setPlayerHealth(player.getPlayerHealth() - 20);
+
+
 
     }
 
