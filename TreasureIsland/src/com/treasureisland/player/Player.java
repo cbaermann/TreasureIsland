@@ -103,8 +103,8 @@ public class Player {
             input = scanner.nextLine();
             //TODO NO IMPLEMENTATION YET FOR INVALID INPUT HANDLING
             if("y".equalsIgnoreCase(input)){
-                treasureIslandGameplay.chosePlayerName();
-            }
+//                treasureIslandGameplay.chosePlayerName();
+                TreasureIslandGameplay.getInstance().chosePlayerName();            }
             if("n".equalsIgnoreCase(input)){
                 System.out.println("Thank you for playing");
                 System.exit(0);
@@ -132,7 +132,7 @@ public class Player {
         String input = "";
         playerInfoConsoleOutput();
         while (!input.equalsIgnoreCase("e")) {
-//            playerHealthCheck();
+            playerHealthCheck();
             System.out.println("\n\n\n");
             System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Clues(c)/ Exit(e)");
             input = scanner.nextLine();
