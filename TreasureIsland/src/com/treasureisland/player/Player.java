@@ -12,10 +12,12 @@ import java.util.Scanner;
 public class Player {
     private String playerName;
     private int playerCoins;
+    private int playerHealth = 50;
     public ArrayList<String> playerClues = new ArrayList<>();
     public Location location;
     public boolean haveIslandItem = false;
     Scanner scanner = new Scanner(System.in);
+    String input;
 
 
     private static final Player player = new Player();
@@ -42,24 +44,14 @@ public class Player {
         return playerCoins;
     }
 
+    public Integer getPlayerHealth(){ return playerHealth;}
 
-    //Helper methods below
-
-    public void processMovement(String islandDestination) {
-        try {
-            while (!player.haveIslandItem) {
-                System.out.println("\n" + getPlayerName() + " has " + getPlayerCoins() + " coins");
-                System.out.println("Where would you like to go. N/S/E/W");
-                String input = scanner.nextLine();
-                player.location = IsleFactory.islandLocationFactory(input, islandDestination);
-                System.out.println("You are now at the " + player.location.getLocationName());
-                playerInteractionOptions();
-            }
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
+    public void setPlayerHealth(Integer playerHealth){
+        this.playerHealth = playerHealth;
     }
 
+
+    //Helper methods below
     public void iterateThroughPlayerClues() {
         if (playerClues.size() == 0) {
             System.out.println("You have found no clues");
@@ -69,9 +61,10 @@ public class Player {
         }
     }
 
+
     public Integer coinManager(Integer coins) {
         if(coins.equals(0)){
-            System.out.println("Nothing was found");
+            System.out.println("Nothing was found CM");
         }
         if (coins > 0) {
             playerCoins += coins;
@@ -90,12 +83,48 @@ public class Player {
         Random rand = new Random();
         int upperBoundofCoins = 51;
         int coins = rand.nextInt(upperBoundofCoins);
-        if(coins >5){
-            System.out.println("Nothing was found");
+
+     
+        if(coins <0){
+            System.out.println("Nothing was found ");
             return 0;
         }
 
         return coinManager(coins);
+    }
+
+    //TODO figure out why this is throwing NPE. Do not get NPE on any other class that imports
+    //TODO TreasureIslandGameScanner other than this one.
+    //NOT IMPLEMENTED UNTIL NPE IS SOLVED
+    public void playerHealthCheck(){
+        if(player.getPlayerHealth() < 0){
+            player.playerDeathArt();
+            System.out.println("Would you like to play again? Y/N");
+            input = scanner.nextLine();
+            //TODO NO IMPLEMENTATION YET FOR INVALID INPUT HANDLING
+            if("y".equalsIgnoreCase(input)){
+                treasureIslandGameplay.chosePlayerName();
+            }
+            if("n".equalsIgnoreCase(input)){
+                System.out.println("Thank you for playing");
+                System.exit(0);
+            }
+        }
+    }
+
+    public void processMovement(String islandDestination) {
+        try {
+            while (!player.haveIslandItem) {
+                System.out.println("Where would you like to go. N/S/E/W");
+                String input = scanner.nextLine();
+                player.location = IsleFactory.islandLocationFactory(input, islandDestination);
+                System.out.println("You are now at the " + player.location.getLocationName());
+                playerInteractionOptions();
+            }
+
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     //TODO great example for input.isValid implementation. current !input.equals(z) logically makes no sense.
@@ -103,7 +132,7 @@ public class Player {
         String input = "";
         playerInfoConsoleOutput();
         while (!input.equalsIgnoreCase("e")) {
-//            playerInfoConsoleOutput();
+//            playerHealthCheck();
             System.out.println("\n\n\n");
             System.out.println("What actions would you like to make? Talk(t)/ Look(l)/ Investigate(i)/ Clues(c)/ Exit(e)");
             input = scanner.nextLine();
@@ -139,12 +168,27 @@ public class Player {
         }
     }
 
+    public void playerDeathArt(){
+        System.out.println("\n" +
+                "▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ \n" +
+                " ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌\n" +
+                "  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌\n" +
+                "  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌\n" +
+                "  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ \n" +
+                "   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ \n" +
+                " ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ \n" +
+                " ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ \n" +
+                " ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    \n" +
+                " ░ ░                           ░                  ░      \n");
+    }
+
     public void playerInfoConsoleOutput(){
         System.out.println(
                 "\n\n"+
                         "-----------------------------------------------------------" + "\n" +
                         "                 Treasure Island                           " + "\n" +
                         "     Player: " + player.getPlayerName() +                "\n" +
+                        "     Player: " + player.getPlayerHealth() +              "\n" +
                         "     Current Location: "  + location.getLocationName() +  "\n" +
                         "     Coins: " + player.getPlayerCoins() +               "\n" +
                         "                                                           " + "\n" +
