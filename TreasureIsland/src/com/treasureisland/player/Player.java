@@ -62,7 +62,7 @@ public class Player {
     }
 
 
-    public Integer coinManager(Integer coins) {
+    public void coinManager(Integer coins) {
         if(coins.equals(0)){
             System.out.println("Nothing was found CM");
         }
@@ -75,11 +75,9 @@ public class Player {
             System.out.println("Oh no! You lost " + coins + " coins. You now have a total of " + getPlayerCoins() + " coins.");
         }
 
-        return coins;
-
     }
 
-    public Integer playerCoinGenerator(){
+    public void playerCoinGenerator(){
         Random rand = new Random();
         int upperBoundofCoins = 51;
         int coins = rand.nextInt(upperBoundofCoins);
@@ -87,10 +85,10 @@ public class Player {
      
         if(coins <0){
             System.out.println("Nothing was found ");
-            return 0;
+            return;
         }
 
-        return coinManager(coins);
+        coinManager(coins);
     }
 
     //TODO figure out why this is throwing NPE. Do not get NPE on any other class that imports
