@@ -1,6 +1,8 @@
 package com.treasureisland.world;
 
 import com.treasureisland.TreasureIslandGameplay;
+
+import com.treasureisland.items.Vendor;
 import com.treasureisland.player.Player;
 
 import java.util.Scanner;
@@ -9,6 +11,7 @@ import java.util.Scanner;
 public class SugarCaneField implements Location{
     private final TreasureIslandGameplay game = TreasureIslandGameplay.getInstance();
     private final Player player = Player.getInstance();
+//    private final Vendor vendorItems = Vendor.getInstance();
 
     Scanner scanner = new Scanner(System.in);
     String input;
@@ -36,6 +39,8 @@ public class SugarCaneField implements Location{
     public void lookAroundLocation(){
         game.storylineProgression("TI.txt", getLocationName(), "WWStart", "WWEnd");
         player.playerCoinGenerator();
+//        System.out.println("\nWelcome to my shop! Please browse my collection");
+//        vendorItems.getAll();
 
     }
 

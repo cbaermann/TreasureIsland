@@ -5,6 +5,14 @@ public class Items {
     public Integer healthValue;
     public Integer cost;
 
+    private static final Items item = new Items();
+
+    private Items(){
+
+    }
+
+    public static Items getInstance(){ return item;}
+
     public Items(String itemName, Integer healthValue, Integer cost){
         setItemName(itemName);
         setHealthValue(healthValue);

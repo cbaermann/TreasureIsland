@@ -4,6 +4,14 @@ import java.util.*;
 
 public class Vendor {
 
+    private static final Vendor item = new Vendor();
+
+    private Vendor(){
+
+    }
+
+    public static Vendor getInstance(){ return item;}
+
     private List<Items> vendorItems = new ArrayList(Arrays.asList(
             new Items("Banana", 5, 40),
             new Items("Apple", 3, 35),
@@ -13,15 +21,7 @@ public class Vendor {
             new Items("Ale", 1, 30)
     ));
 
-    public void iterateThroughItemsLIst() {
-        for (Items vend : vendorItems) {
-            System.out.println(vend);
-        }
-    }
 
-//    public Collection<Items> getAll() {
-//        return Collections.unmodifiableCollection(vendorItems);
-//    }
 
     public void getAll(){
 //        vendorItems.forEach(System.out::println);

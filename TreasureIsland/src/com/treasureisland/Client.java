@@ -16,8 +16,10 @@ public class Client {
         beginGame.chosePlayerName();
 
 //        Vendor item = new Vendor();
-//        item.getAll();
-
+////        item.getAll();
+//        System.out.println(item.findByName("Banana").healthValue);
+//        System.out.println(item.findByName("Banana").cost);
+//        System.out.println(item.findByName("Banana").itemName);
 
 
         
