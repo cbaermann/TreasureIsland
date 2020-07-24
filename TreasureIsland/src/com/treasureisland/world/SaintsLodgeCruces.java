@@ -1,25 +1,37 @@
 package com.treasureisland.world;
 
+import com.treasureisland.TreasureIslandGameplay;
+import com.treasureisland.player.Player;
+
 import java.io.IOException;
 
 public class SaintsLodgeCruces implements Location{
+    private final TreasureIslandGameplay game = TreasureIslandGameplay.getInstance();
+    private final Player player = Player.getInstance();
+
     @Override
     public String getLocationName() {
         return "Saints Lodge";
     }
 
     @Override
-    public void talkToNPC() throws IOException, InterruptedException {
-        System.out.println("talking to npc in saints lodge");
+    public void talkToNPC() {
+        System.out.println("Talking to npc at Saints Lodge");
+        player.setPlayerHealth(player.getPlayerHealth() - 50);
+
     }
 
     @Override
-    public void lookAroundLocation() throws IOException, InterruptedException {
-        System.out.println("looking around saints lodge");
+    public void lookAroundLocation()  {
+        System.out.println("Looking around Saints Lodge");
+        player.setPlayerHealth(player.getPlayerHealth() - 50);
+
     }
 
     @Override
-    public void investigateArea() throws IOException, InterruptedException {
-        System.out.println("investigating saints lodge");
+    public void investigateArea()  {
+        System.out.println("Investigating Saints Lodge");
+        player.setPlayerHealth(player.getPlayerHealth() - 50);
+
     }
 }
