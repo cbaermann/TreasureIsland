@@ -36,17 +36,19 @@ public class RumDistillery implements Location{
 
     @Override
     public void investigateArea() {
-        System.out.println("-- I am sure i will find something interesting here " +
-                "\n-- " + player.getPlayerName() + " looked under the cask and found ....");
-        System.out.println("Speak the answer");
-        input = scanner.nextLine();
-        if("sea".equalsIgnoreCase(input)){
-            System.out.println("\n--- Numbers start to appear and........I see 9999 etched on the bottom.");
-            player.playerClues.add("9999");
-        }
-        else{
-            System.out.println("Nothing of interest here");
-        }
+        game.storylineProgression("TI.txt", getLocationName(), "MBStart", "MBEnd");
+
+//        System.out.println("-- I am sure i will find something interesting here " +
+//                "\n-- " + player.getPlayerName() + " looked under the cask and found ....");
+//        System.out.println("Speak the answer");
+//        input = scanner.nextLine();
+//        if("sea".equalsIgnoreCase(input)){
+//            System.out.println("\n--- Numbers start to appear and........I see 9999 etched on the bottom.");
+//            player.playerClues.add("9999");
+//        }
+//        else{
+//            System.out.println("Nothing of interest here");
+//        }
 
 
     }
