@@ -6,16 +6,18 @@ import com.treasureisland.player.Player;
 
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
 
-public class TreasureIslandGameplay{
+public class TreasureIslandGameplay implements java.io.Serializable{
     private final Player player =  Player.getInstance();
     private IslandSelector island;
     private final Scanner scanner = new Scanner(System.in);
     String input;
     private static final TreasureIslandGameplay scan = new TreasureIslandGameplay();
+    private SaveLoadGame saveLoadGame;
 
 
     private TreasureIslandGameplay(){
@@ -89,7 +91,7 @@ public class TreasureIslandGameplay{
         leavingIslandShipPrint();
         Thread.sleep(5000);
         player.haveIslandItem = false;
-//        islaDeMuerta();
+        islaDeMuerta();
     }
 
     public void islaDeMuerta(){
@@ -212,16 +214,6 @@ public class TreasureIslandGameplay{
                     System.out.println("You Died");
                     player.playerDeathArt();
                     player.playerDeathOptions();
-//                    System.out.println("Would you like to play again? Y/N");
-//                    input = scanner.nextLine();
-//
-//                    if("y".equalsIgnoreCase(input)){
-//                        TreasureIslandGameplay.getInstance().chosePlayerName();            }
-//                    if("n".equalsIgnoreCase(input)){
-//                        System.out.println("Thank you for playing");
-//                        System.exit(0);
-//                    }
-
 
                 }
             }
@@ -257,8 +249,11 @@ public class TreasureIslandGameplay{
     }
 
     public void customGameplayOptions() throws InterruptedException {
-        System.out.println("Would you like to play the full game, or play on a sample island? F/S");
+        System.out.println("Would you like to Load existing game, play the full game, or play on a sample island? L/F/S");
             input = scanner.nextLine();
+            if("l".equalsIgnoreCase(input)){
+                saveLoadGame.loadGame();
+            }
             if("f".equalsIgnoreCase(input)){
                 chosePlayerName();
             }
@@ -298,6 +293,8 @@ public class TreasureIslandGameplay{
         }
 
     }
+
+
 
 
 }
