@@ -26,10 +26,14 @@ public class SugarCaneField implements Location{
         if(input.equalsIgnoreCase("9999")){
             System.out.println("DING DING DING \n You have unlocked your first treasure piece. \n awarded the cane shard");
             player.haveIslandItem = true;
+            return;
 
             //Testing ship battle.
+
             TreasureIslandGameplay.getInstance().shipBattle();
+
         }
+
         else {
             System.out.println("Go away");
         }

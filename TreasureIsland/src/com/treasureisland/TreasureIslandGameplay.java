@@ -55,7 +55,9 @@ public class TreasureIslandGameplay implements java.io.Serializable{
                     System.out.println("Leaving Rum Runners Isle \n \n");
                     leavingIslandShipPrint();
                     Thread.sleep(5000);
-                    player.haveIslandItem = false;
+                TreasureIslandGameplay.getInstance().sBattle();
+
+                player.haveIslandItem = false;
                     /*
                     wrapped in If/while
                         battle sequence
@@ -137,7 +139,9 @@ public class TreasureIslandGameplay implements java.io.Serializable{
     }
 
     // Need to add exception handling - Guru
-    public void shipBattle() throws InterruptedException {
+
+    public void sBattle() throws InterruptedException {
+        System.out.println("You have been attacked!\n");
         int enemyShip = 100;
         int playerShip = 100;
         System.out.println("Where would you like attack (a) or defend (d)");
@@ -165,15 +169,20 @@ public class TreasureIslandGameplay implements java.io.Serializable{
                 }
                 if (enemyShip <= 0) {
                     //System.out.println("phealth"+ playerShip +"\n eHealth" + enemyShip);
-                    System.out.println("You killed the enemy ");
+                    Thread.sleep(1000);
+                    System.out.println("You killed the enemy \n");
+                    Thread.sleep(1000);
                     break;
                 } else if (playerShip <= 0) {
-                    System.out.println("You Died");
+                    Thread.sleep(1000);
+                    System.out.println("You Died \n");
+                    Thread.sleep(1000);
                     player.playerDeathArt();
-                    System.out.println("Would you like to play again? Y/N");
+                    System.out.println("Would you like to play again? Y/N \n");
                     input = scanner.nextLine();
 
                     if("y".equalsIgnoreCase(input)){
+                        player.haveIslandItem = false;
                         TreasureIslandGameplay.getInstance().chosePlayerName();            }
                     if("n".equalsIgnoreCase(input)){
                         System.out.println("Thank you for playing");
@@ -185,7 +194,6 @@ public class TreasureIslandGameplay implements java.io.Serializable{
 
         } else if ("d".equalsIgnoreCase(input)) {
             while (playerShip >= 0 || enemyShip >= 0) {
-                //System.out.println("phealth"+ playerShip +"\n eHealth" + enemyShip);
                 int attackEnemy = new Random().nextInt(100);
                 int enemyAttack = new Random().nextInt(100);
                 int playerDefence = new Random().nextInt(20);
@@ -207,13 +215,29 @@ public class TreasureIslandGameplay implements java.io.Serializable{
                     System.out.println("Enemy health " + enemyShip);
                 }
                 if (enemyShip <= 0) {
-                    //System.out.println("phealth"+ playerShip +"\n eHealth" + enemyShip);
+                    Thread.sleep(1000);
                     System.out.println("You killed the enemy ");
+                    Thread.sleep(1000);
+
                     break;
                 } else if (playerShip <= 0) {
                     System.out.println("You Died");
                     player.playerDeathArt();
+
+                    System.out.println("Would you like to play again? Y/N");
+                    input = scanner.nextLine();
+
+                    if("y".equalsIgnoreCase(input)){
+                        player.haveIslandItem = false;
+                        TreasureIslandGameplay.getInstance().chosePlayerName();            }
+                    if("n".equalsIgnoreCase(input)){
+                        System.out.println("Thank you for playing");
+                        System.exit(0);
+                    }
+
+
                     player.playerDeathOptions();
+
 
                 }
             }
