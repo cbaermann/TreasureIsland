@@ -1,8 +1,7 @@
 package com.treasureisland;
-import com.treasureisland.player.Player;
+import com.treasureisland.island.DirectionEnum;
+import com.treasureisland.island.IslandSelector;
 import com.treasureisland.world.*;
-
-import java.io.IOException;
 
 
 public class IsleFactory {
@@ -14,9 +13,25 @@ public class IsleFactory {
     }
     private static final TreasureIslandGameplay playerGoesTo = TreasureIslandGameplay.getInstance();
 
-
-
-    public static Location islandLocationFactory(String direction, String islandFactorySelection) throws InterruptedException, IOException {
+//    public static Location islandSelectorFactory(IslandSelector island, String direction){
+//        Location location = null;
+//        switch(direction.toLowerCase()){
+//            case "n":
+//                location = island.islandLocationSelector(DirectionEnum.N);
+//                break;
+//            case "s":
+//                location = island.islandLocationSelector(DirectionEnum.S);
+//                break;
+//            case "e":
+//                location = island.islandLocationSelector(DirectionEnum.E);
+//                break;
+//            case "w":
+//                location = island.islandLocationSelector(DirectionEnum.W);
+//        }
+//        return location;
+//    }
+//
+    public static Location islandLocationFactory(String direction, String islandFactorySelection) throws InterruptedException {
         Location location = null;
         if("rumrunnerisle".equalsIgnoreCase(islandFactorySelection)) {
            //islandFactorySelection.equalsIgnoreCase("rumRunnerIsle") old implementation

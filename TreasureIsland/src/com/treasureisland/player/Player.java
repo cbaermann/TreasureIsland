@@ -2,6 +2,7 @@ package com.treasureisland.player;
 
 import com.treasureisland.IsleFactory;
 import com.treasureisland.TreasureIslandGameplay;
+import com.treasureisland.island.IslandSelector;
 import com.treasureisland.items.Vendor;
 import com.treasureisland.world.Location;
 
@@ -12,7 +13,7 @@ import java.util.Scanner;
 
 public class Player {
     private String playerName;
-    private int playerCoins = 100;
+    private int playerCoins;
     private int playerHealth = 50;
     public ArrayList<String> playerClues = new ArrayList<>();
     public Location location;
@@ -21,13 +22,14 @@ public class Player {
     String input;
 
 
+
     private static final Player player = new Player();
     private final Vendor vendorItems = Vendor.getInstance();
+    private IslandSelector island;
 
     private Player() {
 
     }
-
 
     public static Player getInstance() {
         return player;
@@ -144,12 +146,14 @@ public class Player {
 
 
     public void itemManager(Integer coins){
+
         if(getPlayerCoins() - coins < 0){
             System.out.println("You can not afford this item");
         }
         else {
             setPlayerCoins(getPlayerCoins() - coins);
             System.out.println("You spent " + coins + " gold. You now have " + getPlayerCoins() + " gold.");
+            playerInfoConsoleOutput();
         }
     }
 
@@ -188,7 +192,7 @@ public class Player {
     public void processMovement(String islandDestination) {
         try {
             while (!player.haveIslandItem) {
-                System.out.println("Where would you like to go. N/S/E/W");
+                System.out.println("Where would you like to go. N/S/E/W"); //Quit => SOUT("THANKS FOR PLAYING) => System.exit(0)
                 String input = scanner.nextLine();
                 player.location = IsleFactory.islandLocationFactory(input, islandDestination);
                 System.out.println("You are now at the " + player.location.getLocationName());
@@ -274,7 +278,7 @@ public class Player {
                         "-----------------------------------------------------------" + "\n" +
                         "                 Treasure Island                           " + "\n" +
                         "     Player: " + player.getPlayerName() +                "\n" +
-                        "     Player: " + player.getPlayerHealth() +              "\n" +
+                        "     Health: " + player.getPlayerHealth() +              "\n" +
                         "     Current Location: "  + location.getLocationName() +  "\n" +
                         "     Coins: " + player.getPlayerCoins() +               "\n" +
                         "                                                           " + "\n" +

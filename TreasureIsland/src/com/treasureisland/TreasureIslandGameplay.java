@@ -1,14 +1,22 @@
 package com.treasureisland;
 
+import com.treasureisland.island.DirectionEnum;
+import com.treasureisland.island.IslandSelector;
+import com.treasureisland.island.RumRunnerIsle;
 import com.treasureisland.player.Player;
+import com.treasureisland.world.Location;
+import com.treasureisland.world.RumDistillery;
+
 
 import java.io.*;
 import java.util.Scanner;
 
 public class TreasureIslandGameplay{
     private final Player player =  Player.getInstance();
+    private IslandSelector island;
     private final Scanner scanner = new Scanner(System.in);
     private static final TreasureIslandGameplay scan = new TreasureIslandGameplay();
+
     private TreasureIslandGameplay(){
         
     }
@@ -47,6 +55,12 @@ public class TreasureIslandGameplay{
                     leavingIslandShipPrint();
                     Thread.sleep(5000);
                     player.haveIslandItem = false;
+                    /*
+                    wrapped in If/while
+                        battle sequence
+                        if battle is won, move to port Royal;
+                        if lost, death text, start game over options.
+                     */
                     portRoyal();
             }
 
@@ -78,10 +92,10 @@ public class TreasureIslandGameplay{
         player.haveIslandItem = false;
 //        islaDeMuerta();
     }
-//
-//    public void islaDeMuerta(){
-//        System.out.println("At Isla de Muerta");
-//    }
+
+    public void islaDeMuerta(){
+        System.out.println("At Isla de Muerta");
+    }
 
 
 
