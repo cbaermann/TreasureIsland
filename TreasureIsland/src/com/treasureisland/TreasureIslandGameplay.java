@@ -105,7 +105,7 @@ public class TreasureIslandGameplay{
     //File reads txt file that it's passed and prints to terminal.
     public void storylineProgression(String fileName, String location, String start, String stop) {
         try {
-            File myObj = new File(".\\TreasureIsland\\src\\com\\treasureisland\\text\\" + fileName);
+            File myObj = new File("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + fileName);
             System.out.println(location);
             Scanner myReader = new Scanner(myObj);
             boolean tokenFound = false;
@@ -135,7 +135,7 @@ public class TreasureIslandGameplay{
     }
 
     // Need to add exception handling - Guru
-    public void sBattle() throws InterruptedException {
+    public void shipBattle() throws InterruptedException {
         int enemyShip = 100;
         int playerShip = 100;
         System.out.println("Where would you like attack (a) or defend (d)");
@@ -211,15 +211,16 @@ public class TreasureIslandGameplay{
                 } else if (playerShip <= 0) {
                     System.out.println("You Died");
                     player.playerDeathArt();
-                    System.out.println("Would you like to play again? Y/N");
-                    input = scanner.nextLine();
-
-                    if("y".equalsIgnoreCase(input)){
-                        TreasureIslandGameplay.getInstance().chosePlayerName();            }
-                    if("n".equalsIgnoreCase(input)){
-                        System.out.println("Thank you for playing");
-                        System.exit(0);
-                    }
+                    player.playerDeathOptions();
+//                    System.out.println("Would you like to play again? Y/N");
+//                    input = scanner.nextLine();
+//
+//                    if("y".equalsIgnoreCase(input)){
+//                        TreasureIslandGameplay.getInstance().chosePlayerName();            }
+//                    if("n".equalsIgnoreCase(input)){
+//                        System.out.println("Thank you for playing");
+//                        System.exit(0);
+//                    }
 
 
                 }

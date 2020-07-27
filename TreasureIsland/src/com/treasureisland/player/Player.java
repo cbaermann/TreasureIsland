@@ -177,15 +177,19 @@ public class Player {
     public void playerHealthCheck(){
         if(player.getPlayerHealth() < 0){
             player.playerDeathArt();
-            System.out.println("Would you like to play again? Y/N");
-            input = scanner.nextLine();
-            //TODO NO IMPLEMENTATION YET FOR INVALID INPUT HANDLING
-            if("y".equalsIgnoreCase(input)){
-                TreasureIslandGameplay.getInstance().chosePlayerName();            }
-            if("n".equalsIgnoreCase(input)){
-                System.out.println("Thank you for playing");
-                System.exit(0);
-            }
+            playerDeathOptions();
+        }
+    }
+
+    public void playerDeathOptions(){
+        System.out.println("Would you like to play again? Y/N");
+        input = scanner.nextLine();
+        //TODO NO IMPLEMENTATION YET FOR INVALID INPUT HANDLING
+        if("y".equalsIgnoreCase(input)){
+            TreasureIslandGameplay.getInstance().chosePlayerName();            }
+        if("n".equalsIgnoreCase(input)){
+            System.out.println("Thank you for playing");
+            System.exit(0);
         }
     }
 
