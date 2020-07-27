@@ -16,6 +16,9 @@ public class Player {
     private int playerCoins;
     private int playerHealth = 50;
     public ArrayList<String> playerClues = new ArrayList<>();
+    public String[] clues = { "Go "+Color.ANSI_YELLOW.getValue()+"South"+Color.ANSI_RESET.getValue(), "Go North", "Go "+
+            Color.ANSI_GREEN.getValue()+"West"+Color.ANSI_RESET.getValue(), "Go " +
+            Color.ANSI_BLUE.getValue()+"East"+Color.ANSI_RESET.getValue()};
     public Location location;
     public boolean haveIslandItem = false;
     Scanner scanner = new Scanner(System.in);
@@ -59,12 +62,36 @@ public class Player {
 
     //Helper methods below
     public void iterateThroughPlayerClues() {
-        if (playerClues.size() == 0) {
-            System.out.println("You have found no clues");
+//        if (playerClues.size() == 0) {
+//            System.out.println("You have found no clues");
+//        }
+//        for (String clue : playerClues) {
+//            System.out.println(clue);
+//        }
+
+        if (player.location.getLocationName().equals("Rum Distillery")) {
+
+
+            System.out.println("\napply wha' ye got" + Color.ANSI_YELLOW.getValue() + "\nClue#1 " + Color.ANSI_RESET.getValue() + clues[0] +
+                    "\n" + Color.ANSI_BLUE.getValue() + "Clue#2 " + Color.ANSI_RESET.getValue() + clues[3]);
+            System.out.println(Color.ANSI_GREEN.getValue() + "Clue#3" + Color.ANSI_RESET.getValue() + " = " +
+                    Color.ANSI_YELLOW.getValue() + "Clue#1" + Color.ANSI_RESET.getValue() + " + " +
+                    Color.ANSI_BLUE.getValue() + "Clue#2" + Color.ANSI_RESET.getValue() + " .... " + "\n" + "\nwill reveal th' island t' kick off...");
+
         }
-        for (String clue : playerClues) {
-            System.out.println(clue);
+        else if (player.location.getLocationName().equals("Crimson Beach Bar")) {
+            System.out.println(Color.ANSI_YELLOW.getValue() + "Clue#1" + Color.ANSI_RESET.getValue()+" How's th' cabin number Jojo said t' look aft?");
+//                System.out.println(clues[1]);
+
         }
+        else if (player.location.getLocationName().equals("Abandoned distillery")) {
+            System.out.println(Color.ANSI_BLUE.getValue() + "Clue#2" + Color.ANSI_RESET.getValue() +" How many Antique coins are thar?");
+//            System.out.println(clues[0]);
+
+        } else if (player.location.getLocationName().equals("Sugar cane field")) {
+            System.out.println(Color.ANSI_RED.getValue()+"\nSecret Code: "+Color.ANSI_GREEN.getValue()+"Clue#3"+Color.ANSI_RESET.getValue()+" - lastOneDigitOff"+Color.ANSI_RESET.getValue());
+        }
+
     }
 
 
