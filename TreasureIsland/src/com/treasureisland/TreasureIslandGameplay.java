@@ -1,6 +1,7 @@
 package com.treasureisland;
 
 import com.treasureisland.island.IslandSelector;
+import com.treasureisland.player.Color;
 import com.treasureisland.player.Player;
 
 
@@ -109,7 +110,7 @@ public class TreasureIslandGameplay implements java.io.Serializable{
     //File reads txt file that it's passed and prints to terminal.
     public void storylineProgression(String fileName, String location, String start, String stop) {
         try {
-            File myObj = new File("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + fileName);
+            File myObj = new File("C:\\StudentWork\\TreasureIsland\\TreasureIsland\\src\\com\\treasureisland\\text\\" + fileName);
             System.out.println(location);
             Scanner myReader = new Scanner(myObj);
             boolean tokenFound = false;
@@ -246,7 +247,7 @@ public class TreasureIslandGameplay implements java.io.Serializable{
     }
 
     public void welcomeToTreasureIsland() {
-        System.out.println("\n" +
+        System.out.println("\n" + Color.ANSI_RED.getValue()+
                 " █     █░▓█████  ██▓     ▄████▄   ▒█████   ███▄ ▄███▓▓█████    ▄▄▄█████▓ ▒█████     ▄▄▄█████▓ ██▀███  ▓█████ ▄▄▄        ██████  █    ██  ██▀███  ▓█████     ██▓  ██████  ██▓    ▄▄▄       ███▄    █ ▓█████▄ \n" +
                 "▓█░ █ ░█░▓█   ▀ ▓██▒    ▒██▀ ▀█  ▒██▒  ██▒▓██▒▀█▀ ██▒▓█   ▀    ▓  ██▒ ▓▒▒██▒  ██▒   ▓  ██▒ ▓▒▓██ ▒ ██▒▓█   ▀▒████▄    ▒██    ▒  ██  ▓██▒▓██ ▒ ██▒▓█   ▀    ▓██▒▒██    ▒ ▓██▒   ▒████▄     ██ ▀█   █ ▒██▀ ██▌\n" +
                 "▒█░ █ ░█ ▒███   ▒██░    ▒▓█    ▄ ▒██░  ██▒▓██    ▓██░▒███      ▒ ▓██░ ▒░▒██░  ██▒   ▒ ▓██░ ▒░▓██ ░▄█ ▒▒███  ▒██  ▀█▄  ░ ▓██▄   ▓██  ▒██░▓██ ░▄█ ▒▒███      ▒██▒░ ▓██▄   ▒██░   ▒██  ▀█▄  ▓██  ▀█ ██▒░██   █▌\n" +
@@ -256,7 +257,8 @@ public class TreasureIslandGameplay implements java.io.Serializable{
                 "  ▒ ░ ░   ░ ░  ░░ ░ ▒  ░  ░  ▒     ░ ▒ ▒░ ░  ░      ░ ░ ░  ░       ░      ░ ▒ ▒░        ░      ░▒ ░ ▒░ ░ ░  ░ ▒   ▒▒ ░░ ░▒  ░ ░░░▒░ ░ ░   ░▒ ░ ▒░ ░ ░  ░    ▒ ░░ ░▒  ░ ░░ ░ ▒  ░ ▒   ▒▒ ░░ ░░   ░ ▒░ ░ ▒  ▒ \n" +
                 "  ░   ░     ░     ░ ░   ░        ░ ░ ░ ▒  ░      ░      ░        ░      ░ ░ ░ ▒       ░        ░░   ░    ░    ░   ▒   ░  ░  ░   ░░░ ░ ░   ░░   ░    ░       ▒ ░░  ░  ░    ░ ░    ░   ▒      ░   ░ ░  ░ ░  ░ \n" +
                 "    ░       ░  ░    ░  ░░ ░          ░ ░         ░      ░  ░                ░ ░                 ░        ░  ░     ░  ░      ░     ░        ░        ░  ░    ░        ░      ░  ░     ░  ░         ░    ░    \n" +
-                "                        ░                                                                                                                                                                            ░      \n");
+                "                        ░                                                                                                                                                                            ░      \n"+
+                Color.ANSI_RESET.getValue());
     }
 
     public void leavingIslandShipPrint() {
