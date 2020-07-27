@@ -15,6 +15,7 @@ public class TreasureIslandGameplay{
     private final Player player =  Player.getInstance();
     private IslandSelector island;
     private final Scanner scanner = new Scanner(System.in);
+    String input;
     private static final TreasureIslandGameplay scan = new TreasureIslandGameplay();
 
     private TreasureIslandGameplay(){
@@ -167,6 +168,47 @@ public class TreasureIslandGameplay{
 
     }
 
+    public void customGameplayOptions() throws InterruptedException {
+        System.out.println("Would you like to play the full game, or play on a sample island? F/S");
+            input = scanner.nextLine();
+            if("f".equalsIgnoreCase(input)){
+                chosePlayerName();
+            }
+            if("s".equalsIgnoreCase(input)){
+                player.setPlayerName("Test Player");
+                testIslandSelector();
+                }
+    }
+
+    public void testIslandSelector() throws InterruptedException {
+        System.out.println("Which island would you like to play?\n" +
+                "1) Rum Runner Isle \n" +
+                "2) Port Royal \n" +
+                "3) Isla Cruces \n" +
+                "4) Isla de Muerta \n" +
+                "5) Back to main");
+        input = scanner.nextLine();
+        if ("1".equals(input)) {
+            rumRunnerIsle();
+        }
+        if ("2".equals(input)) {
+            portRoyal();
+        }
+        if ("3".equals(input)) {
+            islaCruces();
+        }
+        if ("4".equals(input)) {
+            islaDeMuerta();
+        }
+        if ("5".equals(input)) {
+            customGameplayOptions();
+        } else {
+            testIslandSelector();
+        }
+
+    }
+
 
 
 }
+

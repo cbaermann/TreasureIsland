@@ -1,9 +1,0 @@
--- At the bottom of the open cask by the main door.
--- I don't even remember as to how I got this clue!
--- But I can't ignore any clues. This treasure hunting is not easy.
--- As soon as I got the chance, I inconspicuously got to the main the door.
--- I checked the open cask and I could not see anything.
--- I put my hand into the cask to check the bottom of the cask with murky smelly liquid!
--- I felt something at the bottom of cask, I pull it out . . .
--- It was a small sack of coins!
-	-- Coins + 20

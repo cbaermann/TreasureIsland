@@ -12,9 +12,9 @@ import java.util.Arrays;
 import java.util.logging.ConsoleHandler;
 
 public class Client {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         TreasureIslandGameplay beginGame = TreasureIslandGameplay.getInstance();
-        beginGame.chosePlayerName();
+        beginGame.customGameplayOptions();
 //        ConsoleController console;
 
 //        Vendor item =  Vendor.getInstance();
