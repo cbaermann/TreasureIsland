@@ -36,6 +36,6 @@ public class TikkiLounge implements Location{
 
     @Override
     public void vendor() {
-
+        player.playerVisitsVendor();
     }
 }

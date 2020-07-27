@@ -11,7 +11,6 @@ import java.util.Scanner;
 public class SugarCaneField implements Location{
     private final TreasureIslandGameplay game = TreasureIslandGameplay.getInstance();
     private final Player player = Player.getInstance();
-    private final Vendor vendorItems = Vendor.getInstance();
 
     Scanner scanner = new Scanner(System.in);
     String input;
@@ -56,9 +55,9 @@ public class SugarCaneField implements Location{
 
     @Override
     public void vendor() {
-        System.out.println("\nWelcome to my shop! Please browse my collection \n");
-        vendorItems.getAll();
+        player.playerVisitsVendor();
     }
+
 
     /*
     public void vendor(){

@@ -6,7 +6,7 @@ public class Vendor {
 
     private static final Vendor item = new Vendor();
 
-    private Vendor(){
+    public Vendor(){
 
     }
 
@@ -42,9 +42,6 @@ public class Vendor {
             if (item.getItemName().equals(name)) {
                 result = item;
                 break;
-            }
-            else{
-                System.out.println("Nothing was found");
             }
         }
         return result;

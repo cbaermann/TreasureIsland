@@ -1,18 +1,28 @@
 package com.treasureisland;
 
+import com.treasureisland.island.DirectionEnum;
+import com.treasureisland.island.IslandSelector;
+import com.treasureisland.island.RumRunnerIsle;
 import com.treasureisland.player.Player;
+import com.treasureisland.world.Location;
+import com.treasureisland.world.RumDistillery;
+
 
 import java.io.*;
 import java.util.Random;
 import java.util.Scanner;
 
-public class TreasureIslandGameplay {
-    private final Player player = Player.getInstance();
+
+public class TreasureIslandGameplay{
+    private final Player player =  Player.getInstance();
+    private IslandSelector island;
     private final Scanner scanner = new Scanner(System.in);
+    String input;
     private static final TreasureIslandGameplay scan = new TreasureIslandGameplay();
 
-    private TreasureIslandGameplay() {
 
+    private TreasureIslandGameplay(){
+        
     }
     //TODO maybe create an input.isValid that accepts specific inputs. Would make validation easier and code cleaner.
 
@@ -38,17 +48,25 @@ public class TreasureIslandGameplay {
     //loop continues until they find the islands special item
     //allows user to chose N/S/E/W from IsleFactory
     //playerInteractionOptions allows for player to talk, look around, investigate or leave
-    public void rumRunnerIsle() {
-        try {
-            //process player movement and takes in current island as parameter so factory knows where to delegate
-            player.processMovement("rumRunnerisle");
-            System.out.println("Leaving Rum Runners Isle \n \n");
-            leavingIslandShipPrint();
-            Thread.sleep(5000);
-            sBattle();
-            player.haveIslandItem = false;
-            portRoyal();
-        } catch (InterruptedException e) {
+
+    public void rumRunnerIsle(){
+            try {
+                    //process player movement and takes in current island as parameter so factory knows where to delegate
+                    player.processMovement("rumRunnerisle");
+                    System.out.println("Leaving Rum Runners Isle \n \n");
+                    leavingIslandShipPrint();
+                    Thread.sleep(5000);
+                    player.haveIslandItem = false;
+                    /*
+                    wrapped in If/while
+                        battle sequence
+                        if battle is won, move to port Royal;
+                        if lost, death text, start game over options.
+                     */
+                    portRoyal();
+            }
+
+        catch (InterruptedException e){
             e.printStackTrace();
         }
 
@@ -76,10 +94,10 @@ public class TreasureIslandGameplay {
         player.haveIslandItem = false;
 //        islaDeMuerta();
     }
-//
-//    public void islaDeMuerta(){
-//        System.out.println("At Isla de Muerta");
-//    }
+
+    public void islaDeMuerta(){
+        System.out.println("At Isla de Muerta");
+    }
 
 
 //HELPER METHODS BELLOW
@@ -240,5 +258,46 @@ public class TreasureIslandGameplay {
 
     }
 
+    public void customGameplayOptions() throws InterruptedException {
+        System.out.println("Would you like to play the full game, or play on a sample island? F/S");
+            input = scanner.nextLine();
+            if("f".equalsIgnoreCase(input)){
+                chosePlayerName();
+            }
+            if("s".equalsIgnoreCase(input)){
+                player.setPlayerName("Test Player");
+                testIslandSelector();
+                }
+    }
+
+    public void testIslandSelector() throws InterruptedException {
+        System.out.println("Which island would you like to play?\n" +
+                "1) Rum Runner Isle \n" +
+                "2) Port Royal \n" +
+                "3) Isla Cruces \n" +
+                "4) Isla de Muerta \n" +
+                "5) Back to main");
+        input = scanner.nextLine();
+        if ("1".equals(input)) {
+            rumRunnerIsle();
+        }
+        if ("2".equals(input)) {
+            portRoyal();
+        }
+        if ("3".equals(input)) {
+            islaCruces();
+        }
+        if ("4".equals(input)) {
+            islaDeMuerta();
+        }
+        if ("5".equals(input)) {
+            customGameplayOptions();
+        } else {
+            testIslandSelector();
+        }
+
+    }
+
 
 }
+
