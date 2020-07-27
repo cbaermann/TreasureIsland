@@ -1,6 +1,7 @@
 package com.treasureisland.player;
 
 import com.treasureisland.IsleFactory;
+import com.treasureisland.SaveLoadGame;
 import com.treasureisland.TreasureIslandGameplay;
 import com.treasureisland.island.IslandSelector;
 import com.treasureisland.items.Vendor;
@@ -22,7 +23,7 @@ public class Player {
     String input;
 
 
-
+    private SaveLoadGame saveLoadGame;
     private static final Player player = new Player();
     private final Vendor vendorItems = Vendor.getInstance();
     private IslandSelector island;
@@ -177,23 +178,31 @@ public class Player {
     public void playerHealthCheck(){
         if(player.getPlayerHealth() < 0){
             player.playerDeathArt();
-            System.out.println("Would you like to play again? Y/N");
-            input = scanner.nextLine();
-            //TODO NO IMPLEMENTATION YET FOR INVALID INPUT HANDLING
-            if("y".equalsIgnoreCase(input)){
-                TreasureIslandGameplay.getInstance().chosePlayerName();            }
-            if("n".equalsIgnoreCase(input)){
-                System.out.println("Thank you for playing");
-                System.exit(0);
-            }
+            playerDeathOptions();
+        }
+    }
+
+    public void playerDeathOptions(){
+        System.out.println("Would you like to play again? Y/N");
+        input = scanner.nextLine();
+        //TODO NO IMPLEMENTATION YET FOR INVALID INPUT HANDLING
+        if("y".equalsIgnoreCase(input)){
+            TreasureIslandGameplay.getInstance().chosePlayerName();            }
+        if("n".equalsIgnoreCase(input)){
+            System.out.println("Thank you for playing");
+            System.exit(0);
         }
     }
 
     public void processMovement(String islandDestination) {
         try {
             while (!player.haveIslandItem) {
-                System.out.println("Where would you like to go. N/S/E/W"); //Quit => SOUT("THANKS FOR PLAYING) => System.exit(0)
+                System.out.println("Where would you like to go. N/S/E/W/SaveGame"); //Quit => SOUT("THANKS FOR PLAYING) => System.exit(0)
                 String input = scanner.nextLine();
+                if("savegame".equalsIgnoreCase(input)){
+                    saveLoadGame.saveGame();
+                    System.exit(0);
+                }
                 player.location = IsleFactory.islandLocationFactory(input, islandDestination);
                 System.out.println("You are now at the " + player.location.getLocationName());
                 playerInteractionOptions(input);

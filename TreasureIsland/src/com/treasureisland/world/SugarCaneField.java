@@ -2,7 +2,6 @@ package com.treasureisland.world;
 
 import com.treasureisland.TreasureIslandGameplay;
 
-import com.treasureisland.items.Vendor;
 import com.treasureisland.player.Player;
 
 import java.util.Scanner;
@@ -30,7 +29,9 @@ public class SugarCaneField implements Location{
             return;
 
             //Testing ship battle.
-            //TreasureIslandGameplay.getInstance().sBattle();
+
+            TreasureIslandGameplay.getInstance().shipBattle();
+
         }
 
         else {
