@@ -1,11 +1,8 @@
 package com.treasureisland;
 
-import com.treasureisland.island.DirectionEnum;
 import com.treasureisland.island.IslandSelector;
-import com.treasureisland.island.RumRunnerIsle;
 import com.treasureisland.player.Player;
-import com.treasureisland.world.Location;
-import com.treasureisland.world.RumDistillery;
+
 
 
 import java.io.*;
@@ -178,6 +175,9 @@ public class TreasureIslandGameplay{
                 player.setPlayerName("Test Player");
                 testIslandSelector();
                 }
+            else{
+                customGameplayOptions();
+            }
     }
 
     public void testIslandSelector() throws InterruptedException {
