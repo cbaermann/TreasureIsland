@@ -20,6 +20,10 @@ public class ChurchCruces implements Location{
         System.out.println("Talking to a npc in church");
         game.storylineProgression("TI.txt", getLocationName(), "FJStart", "FJStop");
 
+        System.out.println(" You found one of the treasures needed to access the Island ");
+        player.haveIslandItem = true;
+
+
 
     }
 

@@ -1,6 +1,7 @@
 package com.treasureisland.player;
 
 import com.treasureisland.IsleFactory;
+import com.treasureisland.SaveLoadGame;
 import com.treasureisland.TreasureIslandGameplay;
 import com.treasureisland.island.IslandSelector;
 import com.treasureisland.items.Vendor;
@@ -25,7 +26,7 @@ public class Player {
     String input;
 
 
-
+    private SaveLoadGame saveLoadGame;
     private static final Player player = new Player();
     private final Vendor vendorItems = Vendor.getInstance();
     private IslandSelector island;
@@ -233,8 +234,12 @@ public class Player {
     public void processMovement(String islandDestination) {
         try {
             while (!player.haveIslandItem) {
-                System.out.println("Where would you like to go. N/S/E/W"); //Quit => SOUT("THANKS FOR PLAYING) => System.exit(0)
+                System.out.println("Where would you like to go. N/S/E/W/SaveGame"); //Quit => SOUT("THANKS FOR PLAYING) => System.exit(0)
                 String input = scanner.nextLine();
+                if("savegame".equalsIgnoreCase(input)){
+                    saveLoadGame.saveGame();
+                    System.exit(0);
+                }
                 player.location = IsleFactory.islandLocationFactory(input, islandDestination);
                 System.out.println("You are now at the " + player.location.getLocationName());
                 playerInteractionOptions(input);

@@ -105,6 +105,29 @@ public class IsleFactory {
                     break;
             }
         }
+        if("islademuerta".equalsIgnoreCase(islandFactorySelection)){
+            switch(direction.toLowerCase()){
+                case "n":
+                    location = new AbandonedHouse();
+                    break;
+                case "s":
+                    location = new Graveyard();
+                    break;
+
+                case "e":
+                    location = new DuskTillDawnSaloon();
+                    break;
+
+                case "w":
+                    location = new PawPawBeach();
+                    break;
+
+                default:
+                    System.out.println("Error, please select correct input");
+                    playerGoesTo.portRoyal();
+                    break;
+            }
+        }
         return location;
     }
 

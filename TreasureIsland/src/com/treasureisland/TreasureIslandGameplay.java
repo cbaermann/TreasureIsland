@@ -3,24 +3,27 @@ package com.treasureisland;
 import com.treasureisland.island.IslandSelector;
 import com.treasureisland.player.Color;
 import com.treasureisland.player.Player;
-
+import com.treasureisland.ship.ShipBattleSequence;
 
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
 
-public class TreasureIslandGameplay{
-    private final Player player =  Player.getInstance();
+public class TreasureIslandGameplay implements java.io.Serializable {
+    private final Player player = Player.getInstance();
+    private ShipBattleSequence shipBattleSequence = ShipBattleSequence.getInstance();
     private IslandSelector island;
     private final Scanner scanner = new Scanner(System.in);
     String input;
     private static final TreasureIslandGameplay scan = new TreasureIslandGameplay();
+    private SaveLoadGame saveLoadGame;
 
 
-    private TreasureIslandGameplay(){
-        
+    private TreasureIslandGameplay() {
+
     }
     //TODO maybe create an input.isValid that accepts specific inputs. Would make validation easier and code cleaner.
 
@@ -47,24 +50,18 @@ public class TreasureIslandGameplay{
     //allows user to chose N/S/E/W from IsleFactory
     //playerInteractionOptions allows for player to talk, look around, investigate or leave
 
-    public void rumRunnerIsle(){
-            try {
-                    //process player movement and takes in current island as parameter so factory knows where to delegate
-                    player.processMovement("rumRunnerisle");
-                    System.out.println("Leaving Rum Runners Isle \n \n");
-                    leavingIslandShipPrint();
-                    Thread.sleep(5000);
-                    player.haveIslandItem = false;
-                    /*
-                    wrapped in If/while
-                        battle sequence
-                        if battle is won, move to port Royal;
-                        if lost, death text, start game over options.
-                     */
-                    portRoyal();
-            }
-
-        catch (InterruptedException e){
+    public void rumRunnerIsle() {
+        try {
+            //process player movement and takes in current island as parameter so factory knows where to delegate
+            player.processMovement("rumRunnerisle");
+            System.out.println("Leaving Rum Runners Isle \n \n");
+            leavingIslandShipPrint();
+            Thread.sleep(5000);
+//            TreasureIslandGameplay.getInstance().shipBattle();
+            player.haveIslandItem = false;
+            ShipBattleSequence.getInstance().shipBattleafterLeavingIsland();
+            portRoyal();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
@@ -78,6 +75,7 @@ public class TreasureIslandGameplay{
         leavingIslandShipPrint();
         Thread.sleep(5000);
         player.haveIslandItem = false;
+//        TreasureIslandGameplay.getInstance().shipBattle();
         islaCruces();
 
 
@@ -90,11 +88,21 @@ public class TreasureIslandGameplay{
         leavingIslandShipPrint();
         Thread.sleep(5000);
         player.haveIslandItem = false;
-//        islaDeMuerta();
+//        TreasureIslandGameplay.getInstance().shipBattle();
+
+        islaDeMuerta();
     }
 
-    public void islaDeMuerta(){
+    public void islaDeMuerta() throws InterruptedException {
         System.out.println("At Isla de Muerta");
+        player.processMovement("islademuerta");
+        System.out.println("Leaving Isla De Muerta \n \n");
+        leavingIslandShipPrint();
+        Thread.sleep(5000);
+    }
+
+    public void treasureIsland(){
+        System.out.println("hey you made it");
     }
 
 
@@ -106,7 +114,7 @@ public class TreasureIslandGameplay{
     //File reads txt file that it's passed and prints to terminal.
     public void storylineProgression(String fileName, String location, String start, String stop) {
         try {
-            File myObj = new File("C:\\StudentWork\\TreasureIsland\\TreasureIsland\\src\\com\\treasureisland\\text\\" + fileName);
+            File myObj = new File("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + fileName);
             System.out.println(location);
             Scanner myReader = new Scanner(myObj);
             boolean tokenFound = false;
@@ -135,103 +143,11 @@ public class TreasureIslandGameplay{
 
     }
 
-    // Need to add exception handling - Guru
-    public void shipBattle() throws InterruptedException {
-        int enemyShip = 100;
-        int playerShip = 100;
-        System.out.println("Where would you like attack (a) or defend (d)");
-        String input = scanner.nextLine();
-        if ("a".equalsIgnoreCase(input)) {
-            while (playerShip >= 0 || enemyShip >= 0) {
-                //System.out.println("phealth"+ playerShip +"\n eHealth" + enemyShip);
-                int attackEnemy = new Random().nextInt(100);
-                int enemyAttack = new Random().nextInt(100);
-
-                if (enemyShip > 0 && playerShip > 0) {
-                    System.out.println("You attacked enemy for damage " + attackEnemy);
-                    Thread.sleep(1000);
-                    int remainingEnemyShealth = enemyShip - attackEnemy;
-                    enemyShip = remainingEnemyShealth;
-                    System.out.println(" Enemy health " + enemyShip);
-                }
-
-                if (enemyShip > 0 && playerShip > 0) {
-                    System.out.println("Enemy attacked you for " + enemyAttack);
-                    Thread.sleep(1000);
-                    int remainingPlayerShealth = playerShip - enemyAttack;
-                    playerShip = remainingPlayerShealth;
-                    System.out.println("Player Health " + playerShip);
-                }
-                if (enemyShip <= 0) {
-                    //System.out.println("phealth"+ playerShip +"\n eHealth" + enemyShip);
-                    System.out.println("You killed the enemy ");
-                    break;
-                } else if (playerShip <= 0) {
-                    System.out.println("You Died");
-                    player.playerDeathArt();
-                    System.out.println("Would you like to play again? Y/N");
-                    input = scanner.nextLine();
-
-                    if("y".equalsIgnoreCase(input)){
-                        TreasureIslandGameplay.getInstance().chosePlayerName();            }
-                    if("n".equalsIgnoreCase(input)){
-                        System.out.println("Thank you for playing");
-                        System.exit(0);
-                    }
-
-                }
-            }
-
-        } else if ("d".equalsIgnoreCase(input)) {
-            while (playerShip >= 0 || enemyShip >= 0) {
-                //System.out.println("phealth"+ playerShip +"\n eHealth" + enemyShip);
-                int attackEnemy = new Random().nextInt(100);
-                int enemyAttack = new Random().nextInt(100);
-                int playerDefence = new Random().nextInt(20);
-
-                if (enemyShip > 0 && playerShip > 0) {
-                    System.out.println("Enemy attacked you " + enemyAttack + " You defended " + playerDefence);
-                    System.out.println("Total damage " + ((playerShip + playerDefence)- enemyAttack));
-                    Thread.sleep(1000);
-                    int remainingPlayerShealth = playerShip - enemyAttack;
-                    playerShip = remainingPlayerShealth;
-                    System.out.println("Player Health " + playerShip);
-                }
-
-                if (enemyShip > 0 && playerShip > 0) {
-                    System.out.println("You attacked enemy for " + attackEnemy);
-                    Thread.sleep(1000);
-                    int remainingEnemyShealth = enemyShip - attackEnemy;
-                    enemyShip = remainingEnemyShealth;
-                    System.out.println("Enemy health " + enemyShip);
-                }
-                if (enemyShip <= 0) {
-                    //System.out.println("phealth"+ playerShip +"\n eHealth" + enemyShip);
-                    System.out.println("You killed the enemy ");
-                    break;
-                } else if (playerShip <= 0) {
-                    System.out.println("You Died");
-                    player.playerDeathArt();
-                    player.playerDeathOptions();
-//                    System.out.println("Would you like to play again? Y/N");
-//                    input = scanner.nextLine();
-//
-//                    if("y".equalsIgnoreCase(input)){
-//                        TreasureIslandGameplay.getInstance().chosePlayerName();            }
-//                    if("n".equalsIgnoreCase(input)){
-//                        System.out.println("Thank you for playing");
-//                        System.exit(0);
-//                    }
-
-
-                }
-            }
-        }
-
-    }
 
     public void welcomeToTreasureIsland() {
+
         System.out.println("\n" + Color.ANSI_BLUE.getValue()+
+
                 " █     █░▓█████  ██▓     ▄████▄   ▒█████   ███▄ ▄███▓▓█████    ▄▄▄█████▓ ▒█████     ▄▄▄█████▓ ██▀███  ▓█████ ▄▄▄        ██████  █    ██  ██▀███  ▓█████     ██▓  ██████  ██▓    ▄▄▄       ███▄    █ ▓█████▄ \n" +
                 "▓█░ █ ░█░▓█   ▀ ▓██▒    ▒██▀ ▀█  ▒██▒  ██▒▓██▒▀█▀ ██▒▓█   ▀    ▓  ██▒ ▓▒▒██▒  ██▒   ▓  ██▒ ▓▒▓██ ▒ ██▒▓█   ▀▒████▄    ▒██    ▒  ██  ▓██▒▓██ ▒ ██▒▓█   ▀    ▓██▒▒██    ▒ ▓██▒   ▒████▄     ██ ▀█   █ ▒██▀ ██▌\n" +
                 "▒█░ █ ░█ ▒███   ▒██░    ▒▓█    ▄ ▒██░  ██▒▓██    ▓██░▒███      ▒ ▓██░ ▒░▒██░  ██▒   ▒ ▓██░ ▒░▓██ ░▄█ ▒▒███  ▒██  ▀█▄  ░ ▓██▄   ▓██  ▒██░▓██ ░▄█ ▒▒███      ▒██▒░ ▓██▄   ▒██░   ▒██  ▀█▄  ▓██  ▀█ ██▒░██   █▌\n" +
@@ -241,7 +157,7 @@ public class TreasureIslandGameplay{
                 "  ▒ ░ ░   ░ ░  ░░ ░ ▒  ░  ░  ▒     ░ ▒ ▒░ ░  ░      ░ ░ ░  ░       ░      ░ ▒ ▒░        ░      ░▒ ░ ▒░ ░ ░  ░ ▒   ▒▒ ░░ ░▒  ░ ░░░▒░ ░ ░   ░▒ ░ ▒░ ░ ░  ░    ▒ ░░ ░▒  ░ ░░ ░ ▒  ░ ▒   ▒▒ ░░ ░░   ░ ▒░ ░ ▒  ▒ \n" +
                 "  ░   ░     ░     ░ ░   ░        ░ ░ ░ ▒  ░      ░      ░        ░      ░ ░ ░ ▒       ░        ░░   ░    ░    ░   ▒   ░  ░  ░   ░░░ ░ ░   ░░   ░    ░       ▒ ░░  ░  ░    ░ ░    ░   ▒      ░   ░ ░  ░ ░  ░ \n" +
                 "    ░       ░  ░    ░  ░░ ░          ░ ░         ░      ░  ░                ░ ░                 ░        ░  ░     ░  ░      ░     ░        ░        ░  ░    ░        ░      ░  ░     ░  ░         ░    ░    \n" +
-                "                        ░                                                                                                                                                                            ░      \n"+
+                "                        ░                                                                                                                                                                            ░      \n" +
                 Color.ANSI_RESET.getValue());
     }
 
@@ -259,18 +175,20 @@ public class TreasureIslandGameplay{
     }
 
     public void customGameplayOptions() throws InterruptedException {
-        System.out.println("Would you like to play the full game, or play on a sample island? F/S");
-            input = scanner.nextLine();
-            if("f".equalsIgnoreCase(input)){
-                chosePlayerName();
-            }
-            if("s".equalsIgnoreCase(input)){
-                player.setPlayerName("Test Player");
-                testIslandSelector();
-                }
-            else{
-                customGameplayOptions();
-            }
+        System.out.println("Would you like to Load existing game, play the full game, or play on a sample island? L/F/S");
+        input = scanner.nextLine();
+        if ("l".equalsIgnoreCase(input)) {
+            saveLoadGame.loadGame();
+        }
+        if ("f".equalsIgnoreCase(input)) {
+            chosePlayerName();
+        }
+        if ("s".equalsIgnoreCase(input)) {
+            player.setPlayerName("Test Player");
+            testIslandSelector();
+        } else {
+            customGameplayOptions();
+        }
     }
 
     public void testIslandSelector() throws InterruptedException {
