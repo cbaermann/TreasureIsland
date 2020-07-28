@@ -17,22 +17,22 @@ public class SaintsLodgeCruces implements Location{
     @Override
     public void talkToNPC() {
         System.out.println("Talking to npc at Saints Lodge");
-        player.setPlayerHealth(player.getPlayerHealth() - 50);
-
+        game.storylineProgression("TI.txt", getLocationName(), "SLStart", "SLStop");
+        player.setPlayerHealth(player.getPlayerHealth() - 30);
     }
 
     @Override
     public void lookAroundLocation()  {
         System.out.println("Looking around Saints Lodge");
-        player.setPlayerHealth(player.getPlayerHealth() - 50);
-
+        game.storylineProgression("TI.txt", getLocationName(), "MRStart", "MRStop");
+        player.setPlayerHealth(player.getPlayerHealth() - 20);
     }
 
     @Override
     public void investigateArea()  {
         System.out.println("Investigating Saints Lodge");
-        player.setPlayerHealth(player.getPlayerHealth() - 50);
-
+        game.storylineProgression("TI.txt", getLocationName(), "PAStart", "PAStop");
+        player.setPlayerHealth(player.getPlayerHealth() - 15);
     }
 
     @Override
