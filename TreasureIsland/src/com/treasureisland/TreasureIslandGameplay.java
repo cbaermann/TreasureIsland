@@ -56,7 +56,7 @@ public class TreasureIslandGameplay implements java.io.Serializable{
                     System.out.println("Leaving Rum Runners Isle \n \n");
                     leavingIslandShipPrint();
                     Thread.sleep(5000);
-                TreasureIslandGameplay.getInstance().sBattle();
+                TreasureIslandGameplay.getInstance().shipBattle();
 
                 player.haveIslandItem = false;
                     /*
@@ -110,7 +110,7 @@ public class TreasureIslandGameplay implements java.io.Serializable{
     //File reads txt file that it's passed and prints to terminal.
     public void storylineProgression(String fileName, String location, String start, String stop) {
         try {
-            File myObj = new File("C:\\StudentWork\\TreasureIsland\\TreasureIsland\\src\\com\\treasureisland\\text\\" + fileName);
+            File myObj = new File(".\\TreasureIsland\\src\\com\\treasureisland\\text\\" + fileName);
             System.out.println(location);
             Scanner myReader = new Scanner(myObj);
             boolean tokenFound = false;
@@ -141,7 +141,7 @@ public class TreasureIslandGameplay implements java.io.Serializable{
 
     // Need to add exception handling - Guru
 
-    public void sBattle() throws InterruptedException {
+    public void shipBattle() throws InterruptedException {
         System.out.println("You have been attacked!\n");
         int enemyShip = 100;
         int playerShip = 100;
