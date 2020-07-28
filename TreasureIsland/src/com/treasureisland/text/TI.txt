@@ -247,8 +247,8 @@ Port Royal
 			-- But he was still able to hold conversation even though most of his words were slurred.
 			-- Good thing is that I am good at understanding slur.
 			-- We ended up playing some poker.
-				-- I ended up getting coins +35.
-			-- But, somehow my pirate a** felt bad and I retuned the money to Sam.
+				-- I ended up getting coins.
+			-- But, somehow my pirate a** felt bad and I retuned the money to Sam. But he insisted that I keep it.
 			-- As I was about to leave, Sam grabbed my hand and passed me . . .
 				-- a Key!
 			-- He then told me sit down and informed me that he appreciate my kindness and also that he knew who I was!
@@ -478,3 +478,31 @@ Isla c
 		        -- But she told me that I just need to remember that sometimes the treasures are not what they seem to be.
 		GHStop
 		d)
+
+    Treasure Island
+    TIStart
+        -- What! I have been to this island before, there are people inhibiting this island!!
+        -- How can treasure be on this island? It is supposed to be the biggest treasure in the world.
+        -- This is confusing, I have to figure out a way to make some sense of this situation.
+        -- Or else all this situation will be for nothing.
+    TIStop
+
+    ETIStaRT
+        -- After revisiting the clues, I think I figured it out.
+        -- I need to get to this hidden monastery and I will find more info there.
+
+        -- Talking with the monks there, I found out that they had a very sacred jewel stolen from them years back.
+        -- Now that sounds interesting, the description they provided matched with the jewel I posses.
+
+        -- Should I give this jewel back to the monastery?
+
+        -- I gave the jewel to monastery and in return they provided me with a medium size box which had . . .
+            -- Three keyholes in it!
+            -- I took the box with me to open it privately.
+            -- Upon opening it I found . . .
+            -- Jewels, coins and the most treasured 5o carat diamond!
+
+
+
+
+    ETIStop
