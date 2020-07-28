@@ -18,7 +18,7 @@ public class ChurchCruces implements Location{
     @Override
     public void talkToNPC() {
         System.out.println("Talking to a npc in church");
-        game.storylineProgression("TI.txt", getLocationName(), "JStart", "JStop");
+        game.storylineProgression("TI.txt", getLocationName(), "FJStart", "FJStop");
 
 
     }

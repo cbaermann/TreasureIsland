@@ -92,6 +92,16 @@ public class Player {
             System.out.println(Color.ANSI_RED.getValue()+"\nSecret Code: "+Color.ANSI_GREEN.getValue()+"Clue#3"+Color.ANSI_RESET.getValue()+" - lastOneDigitOff"+Color.ANSI_RESET.getValue());
         }
 
+        else if (player.location.getLocationName().equals("Tikki Lounge")) {
+            System.out.println(Color.ANSI_RED.getValue()+"\nSecret Code: "+Color.ANSI_GREEN.getValue()+"What is the name of old and abandoned legendary ship you found in Ship Graveyard?"+Color.ANSI_RESET.getValue());
+        }
+
+        else if (player.location.getLocationName().equals("Southend Beach")) {
+            System.out.println(Color.ANSI_RED.getValue()+"\nSecret Code: "+Color.ANSI_GREEN.getValue()+"To get the lockpin you must surrender the item you stole in \"Church\""+Color.ANSI_RESET.getValue());
+        }
+
+
+
     }
 
 
@@ -290,7 +300,7 @@ public class Player {
     }
 
     public void playerDeathArt(){
-        System.out.println("\n" +
+        System.out.println("\n" +Color.ANSI_RED.getValue()+
                 "▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ \n" +
                 " ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌\n" +
                 "  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌\n" +
@@ -300,18 +310,18 @@ public class Player {
                 " ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ \n" +
                 " ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ \n" +
                 " ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    \n" +
-                " ░ ░                           ░                  ░      \n");
+                " ░ ░                           ░                  ░      \n"+Color.ANSI_RESET.getValue());
     }
 
     public void playerInfoConsoleOutput(){
         System.out.println(
                 "\n\n"+
                         "-----------------------------------------------------------" + "\n" +
-                        "                 Treasure Island                           " + "\n" +
-                        "     Player: " + player.getPlayerName() +                "\n" +
-                        "     Health: " + player.getPlayerHealth() +              "\n" +
-                        "     Current Location: "  + location.getLocationName() +  "\n" +
-                        "     Coins: " + player.getPlayerCoins() +               "\n" +
+                        "                 "+Color.ANSI_BLUE.getValue()+"Treasure Island"+Color.ANSI_RESET.getValue()+"                           " + "\n" +
+                        "     "+Color.ANSI_WHITE_BOLD.getValue()+"Player"+Color.ANSI_RESET.getValue()+": " + player.getPlayerName() +                "\n" +
+                        "     "+Color.ANSI_PURPLE.getValue()+"Health"+Color.ANSI_RESET.getValue()+": "+ + player.getPlayerHealth() +              "\n" +
+                        "     "+Color.ANSI_GREEN.getValue()+"Current Location"+Color.ANSI_RESET.getValue()+": "  + location.getLocationName() +  "\n" +
+                        "     "+Color.ANSI_YELLOW.getValue()+"Coins"+Color.ANSI_RESET.getValue()+": " + player.getPlayerCoins() +               "\n" +
                         "                                                           " + "\n" +
                         "___________________________________________________________"
         );

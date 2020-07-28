@@ -4,6 +4,7 @@ import com.treasureisland.TreasureIslandGameplay;
 import com.treasureisland.player.Player;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 public class SaintsLodgeCruces implements Location{
     private final TreasureIslandGameplay game = TreasureIslandGameplay.getInstance();
@@ -17,6 +18,7 @@ public class SaintsLodgeCruces implements Location{
     @Override
     public void talkToNPC() {
         System.out.println("Talking to npc at Saints Lodge");
+
         player.setPlayerHealth(player.getPlayerHealth() - 50);
 
     }

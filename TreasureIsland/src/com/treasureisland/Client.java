@@ -21,7 +21,8 @@ public class Client {
 ////        item.getAll();
 //        System.out.println(item.findByName("Banana").healthValue);
 //        System.out.println(item.findByName("Banana").cost);
-//        System.out.println(item.findByName("Banana").itemName);
+//        System.out.println(item.findByName("Banana").itemName);f
+
 
 
         
