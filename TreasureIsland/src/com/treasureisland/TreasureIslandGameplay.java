@@ -5,15 +5,14 @@ import com.treasureisland.player.Color;
 import com.treasureisland.player.Player;
 
 
-
 import java.io.*;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
 
-public class TreasureIslandGameplay implements java.io.Serializable{
-    private final Player player =  Player.getInstance();
+public class TreasureIslandGameplay implements java.io.Serializable {
+    private final Player player = Player.getInstance();
     private IslandSelector island;
     private final Scanner scanner = new Scanner(System.in);
     String input;
@@ -21,8 +20,8 @@ public class TreasureIslandGameplay implements java.io.Serializable{
     private SaveLoadGame saveLoadGame;
 
 
-    private TreasureIslandGameplay(){
-        
+    private TreasureIslandGameplay() {
+
     }
     //TODO maybe create an input.isValid that accepts specific inputs. Would make validation easier and code cleaner.
 
@@ -49,26 +48,24 @@ public class TreasureIslandGameplay implements java.io.Serializable{
     //allows user to chose N/S/E/W from IsleFactory
     //playerInteractionOptions allows for player to talk, look around, investigate or leave
 
-    public void rumRunnerIsle(){
-            try {
-                    //process player movement and takes in current island as parameter so factory knows where to delegate
-                    player.processMovement("rumRunnerisle");
-                    System.out.println("Leaving Rum Runners Isle \n \n");
-                    leavingIslandShipPrint();
-                    Thread.sleep(5000);
-                TreasureIslandGameplay.getInstance().shipBattle();
+    public void rumRunnerIsle() {
+        try {
+            //process player movement and takes in current island as parameter so factory knows where to delegate
+            player.processMovement("rumRunnerisle");
+            System.out.println("Leaving Rum Runners Isle \n \n");
+            leavingIslandShipPrint();
+            Thread.sleep(5000);
+            TreasureIslandGameplay.getInstance().shipBattle();
 
-                player.haveIslandItem = false;
+            player.haveIslandItem = false;
                     /*
                     wrapped in If/while
                         battle sequence
                         if battle is won, move to port Royal;
                         if lost, death text, start game over options.
                      */
-                    portRoyal();
-            }
-
-        catch (InterruptedException e){
+            portRoyal();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
@@ -82,6 +79,7 @@ public class TreasureIslandGameplay implements java.io.Serializable{
         leavingIslandShipPrint();
         Thread.sleep(5000);
         player.haveIslandItem = false;
+        TreasureIslandGameplay.getInstance().shipBattle();
         islaCruces();
 
 
@@ -94,11 +92,16 @@ public class TreasureIslandGameplay implements java.io.Serializable{
         leavingIslandShipPrint();
         Thread.sleep(5000);
         player.haveIslandItem = false;
+        TreasureIslandGameplay.getInstance().shipBattle();
         islaDeMuerta();
     }
 
-    public void islaDeMuerta(){
+    public void islaDeMuerta() throws InterruptedException {
         System.out.println("At Isla de Muerta");
+        player.processMovement("islademuerta");
+        System.out.println("Leaving Isla De Muerta \n \n");
+        leavingIslandShipPrint();
+        Thread.sleep(5000);
     }
 
 
@@ -182,10 +185,11 @@ public class TreasureIslandGameplay implements java.io.Serializable{
                     System.out.println("Would you like to play again? Y/N \n");
                     input = scanner.nextLine();
 
-                    if("y".equalsIgnoreCase(input)){
+                    if ("y".equalsIgnoreCase(input)) {
                         player.haveIslandItem = false;
-                        TreasureIslandGameplay.getInstance().chosePlayerName();            }
-                    if("n".equalsIgnoreCase(input)){
+                        TreasureIslandGameplay.getInstance().chosePlayerName();
+                    }
+                    if ("n".equalsIgnoreCase(input)) {
                         System.out.println("Thank you for playing");
                         System.exit(0);
                     }
@@ -201,7 +205,7 @@ public class TreasureIslandGameplay implements java.io.Serializable{
 
                 if (enemyShip > 0 && playerShip > 0) {
                     System.out.println("Enemy attacked you " + enemyAttack + " You defended " + playerDefence);
-                    System.out.println("Total damage " + ((playerShip + playerDefence)- enemyAttack));
+                    System.out.println("Total damage " + ((playerShip + playerDefence) - enemyAttack));
                     Thread.sleep(1000);
                     int remainingPlayerShealth = playerShip - enemyAttack;
                     playerShip = remainingPlayerShealth;
@@ -228,10 +232,11 @@ public class TreasureIslandGameplay implements java.io.Serializable{
                     System.out.println("Would you like to play again? Y/N");
                     input = scanner.nextLine();
 
-                    if("y".equalsIgnoreCase(input)){
+                    if ("y".equalsIgnoreCase(input)) {
                         player.haveIslandItem = false;
-                        TreasureIslandGameplay.getInstance().chosePlayerName();            }
-                    if("n".equalsIgnoreCase(input)){
+                        TreasureIslandGameplay.getInstance().chosePlayerName();
+                    }
+                    if ("n".equalsIgnoreCase(input)) {
                         System.out.println("Thank you for playing");
                         System.exit(0);
                     }
@@ -247,7 +252,7 @@ public class TreasureIslandGameplay implements java.io.Serializable{
     }
 
     public void welcomeToTreasureIsland() {
-        System.out.println("\n" + Color.ANSI_RED.getValue()+
+        System.out.println("\n" + Color.ANSI_RED.getValue() +
                 " █     █░▓█████  ██▓     ▄████▄   ▒█████   ███▄ ▄███▓▓█████    ▄▄▄█████▓ ▒█████     ▄▄▄█████▓ ██▀███  ▓█████ ▄▄▄        ██████  █    ██  ██▀███  ▓█████     ██▓  ██████  ██▓    ▄▄▄       ███▄    █ ▓█████▄ \n" +
                 "▓█░ █ ░█░▓█   ▀ ▓██▒    ▒██▀ ▀█  ▒██▒  ██▒▓██▒▀█▀ ██▒▓█   ▀    ▓  ██▒ ▓▒▒██▒  ██▒   ▓  ██▒ ▓▒▓██ ▒ ██▒▓█   ▀▒████▄    ▒██    ▒  ██  ▓██▒▓██ ▒ ██▒▓█   ▀    ▓██▒▒██    ▒ ▓██▒   ▒████▄     ██ ▀█   █ ▒██▀ ██▌\n" +
                 "▒█░ █ ░█ ▒███   ▒██░    ▒▓█    ▄ ▒██░  ██▒▓██    ▓██░▒███      ▒ ▓██░ ▒░▒██░  ██▒   ▒ ▓██░ ▒░▓██ ░▄█ ▒▒███  ▒██  ▀█▄  ░ ▓██▄   ▓██  ▒██░▓██ ░▄█ ▒▒███      ▒██▒░ ▓██▄   ▒██░   ▒██  ▀█▄  ▓██  ▀█ ██▒░██   █▌\n" +
@@ -257,7 +262,7 @@ public class TreasureIslandGameplay implements java.io.Serializable{
                 "  ▒ ░ ░   ░ ░  ░░ ░ ▒  ░  ░  ▒     ░ ▒ ▒░ ░  ░      ░ ░ ░  ░       ░      ░ ▒ ▒░        ░      ░▒ ░ ▒░ ░ ░  ░ ▒   ▒▒ ░░ ░▒  ░ ░░░▒░ ░ ░   ░▒ ░ ▒░ ░ ░  ░    ▒ ░░ ░▒  ░ ░░ ░ ▒  ░ ▒   ▒▒ ░░ ░░   ░ ▒░ ░ ▒  ▒ \n" +
                 "  ░   ░     ░     ░ ░   ░        ░ ░ ░ ▒  ░      ░      ░        ░      ░ ░ ░ ▒       ░        ░░   ░    ░    ░   ▒   ░  ░  ░   ░░░ ░ ░   ░░   ░    ░       ▒ ░░  ░  ░    ░ ░    ░   ▒      ░   ░ ░  ░ ░  ░ \n" +
                 "    ░       ░  ░    ░  ░░ ░          ░ ░         ░      ░  ░                ░ ░                 ░        ░  ░     ░  ░      ░     ░        ░        ░  ░    ░        ░      ░  ░     ░  ░         ░    ░    \n" +
-                "                        ░                                                                                                                                                                            ░      \n"+
+                "                        ░                                                                                                                                                                            ░      \n" +
                 Color.ANSI_RESET.getValue());
     }
 
@@ -276,20 +281,19 @@ public class TreasureIslandGameplay implements java.io.Serializable{
 
     public void customGameplayOptions() throws InterruptedException {
         System.out.println("Would you like to Load existing game, play the full game, or play on a sample island? L/F/S");
-            input = scanner.nextLine();
-            if("l".equalsIgnoreCase(input)){
-                saveLoadGame.loadGame();
-            }
-            if("f".equalsIgnoreCase(input)){
-                chosePlayerName();
-            }
-            if("s".equalsIgnoreCase(input)){
-                player.setPlayerName("Test Player");
-                testIslandSelector();
-                }
-            else{
-                customGameplayOptions();
-            }
+        input = scanner.nextLine();
+        if ("l".equalsIgnoreCase(input)) {
+            saveLoadGame.loadGame();
+        }
+        if ("f".equalsIgnoreCase(input)) {
+            chosePlayerName();
+        }
+        if ("s".equalsIgnoreCase(input)) {
+            player.setPlayerName("Test Player");
+            testIslandSelector();
+        } else {
+            customGameplayOptions();
+        }
     }
 
     public void testIslandSelector() throws InterruptedException {
@@ -319,8 +323,6 @@ public class TreasureIslandGameplay implements java.io.Serializable{
         }
 
     }
-
-
 
 
 }
