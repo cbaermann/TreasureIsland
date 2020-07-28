@@ -75,7 +75,7 @@ public class TreasureIslandGameplay implements java.io.Serializable {
         leavingIslandShipPrint();
         Thread.sleep(5000);
         player.haveIslandItem = false;
-//        TreasureIslandGameplay.getInstance().shipBattle();
+        ShipBattleSequence.getInstance().shipBattleafterLeavingIsland();
         islaCruces();
 
 
@@ -88,7 +88,7 @@ public class TreasureIslandGameplay implements java.io.Serializable {
         leavingIslandShipPrint();
         Thread.sleep(5000);
         player.haveIslandItem = false;
-//        TreasureIslandGameplay.getInstance().shipBattle();
+        ShipBattleSequence.getInstance().shipBattleafterLeavingIsland();
 
         islaDeMuerta();
     }
