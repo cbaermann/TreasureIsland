@@ -3,6 +3,7 @@ package com.treasureisland;
 import com.treasureisland.island.IslandSelector;
 import com.treasureisland.player.Color;
 import com.treasureisland.player.Player;
+import com.treasureisland.ship.ShipBattleSequence;
 
 
 import java.io.*;
@@ -13,6 +14,7 @@ import java.util.Scanner;
 
 public class TreasureIslandGameplay implements java.io.Serializable {
     private final Player player = Player.getInstance();
+    private ShipBattleSequence shipBattleSequence = ShipBattleSequence.getInstance();
     private IslandSelector island;
     private final Scanner scanner = new Scanner(System.in);
     String input;
@@ -55,15 +57,9 @@ public class TreasureIslandGameplay implements java.io.Serializable {
             System.out.println("Leaving Rum Runners Isle \n \n");
             leavingIslandShipPrint();
             Thread.sleep(5000);
-            TreasureIslandGameplay.getInstance().shipBattle();
-
+//            TreasureIslandGameplay.getInstance().shipBattle();
             player.haveIslandItem = false;
-                    /*
-                    wrapped in If/while
-                        battle sequence
-                        if battle is won, move to port Royal;
-                        if lost, death text, start game over options.
-                     */
+            ShipBattleSequence.getInstance().shipBattleafterLeavingIsland();
             portRoyal();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -79,7 +75,7 @@ public class TreasureIslandGameplay implements java.io.Serializable {
         leavingIslandShipPrint();
         Thread.sleep(5000);
         player.haveIslandItem = false;
-        TreasureIslandGameplay.getInstance().shipBattle();
+//        TreasureIslandGameplay.getInstance().shipBattle();
         islaCruces();
 
 
@@ -92,7 +88,8 @@ public class TreasureIslandGameplay implements java.io.Serializable {
         leavingIslandShipPrint();
         Thread.sleep(5000);
         player.haveIslandItem = false;
-        TreasureIslandGameplay.getInstance().shipBattle();
+//        TreasureIslandGameplay.getInstance().shipBattle();
+
         islaDeMuerta();
     }
 
@@ -104,6 +101,10 @@ public class TreasureIslandGameplay implements java.io.Serializable {
         Thread.sleep(5000);
     }
 
+    public void treasureIsland(){
+        System.out.println("hey you made it");
+    }
+
 
 //HELPER METHODS BELLOW
 
@@ -113,7 +114,7 @@ public class TreasureIslandGameplay implements java.io.Serializable {
     //File reads txt file that it's passed and prints to terminal.
     public void storylineProgression(String fileName, String location, String start, String stop) {
         try {
-            File myObj = new File(".\\TreasureIsland\\src\\com\\treasureisland\\text\\" + fileName);
+            File myObj = new File("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + fileName);
             System.out.println(location);
             Scanner myReader = new Scanner(myObj);
             boolean tokenFound = false;
@@ -142,114 +143,6 @@ public class TreasureIslandGameplay implements java.io.Serializable {
 
     }
 
-    // Need to add exception handling - Guru
-
-    public void shipBattle() throws InterruptedException {
-        System.out.println("You have been attacked!\n");
-        int enemyShip = 100;
-        int playerShip = 100;
-        System.out.println("Where would you like attack (a) or defend (d)");
-        String input = scanner.nextLine();
-        if ("a".equalsIgnoreCase(input)) {
-            while (playerShip >= 0 || enemyShip >= 0) {
-                //System.out.println("phealth"+ playerShip +"\n eHealth" + enemyShip);
-                int attackEnemy = new Random().nextInt(100);
-                int enemyAttack = new Random().nextInt(100);
-
-                if (enemyShip > 0 && playerShip > 0) {
-                    System.out.println("You attacked enemy for damage " + attackEnemy);
-                    Thread.sleep(1000);
-                    int remainingEnemyShealth = enemyShip - attackEnemy;
-                    enemyShip = remainingEnemyShealth;
-                    System.out.println(" Enemy health " + enemyShip);
-                }
-
-                if (enemyShip > 0 && playerShip > 0) {
-                    System.out.println("Enemy attacked you for " + enemyAttack);
-                    Thread.sleep(1000);
-                    int remainingPlayerShealth = playerShip - enemyAttack;
-                    playerShip = remainingPlayerShealth;
-                    System.out.println("Player Health " + playerShip);
-                }
-                if (enemyShip <= 0) {
-                    //System.out.println("phealth"+ playerShip +"\n eHealth" + enemyShip);
-                    Thread.sleep(1000);
-                    System.out.println("You killed the enemy \n");
-                    Thread.sleep(1000);
-                    break;
-                } else if (playerShip <= 0) {
-                    Thread.sleep(1000);
-                    System.out.println("You Died \n");
-                    Thread.sleep(1000);
-                    player.playerDeathArt();
-                    System.out.println("Would you like to play again? Y/N \n");
-                    input = scanner.nextLine();
-
-                    if ("y".equalsIgnoreCase(input)) {
-                        player.haveIslandItem = false;
-                        TreasureIslandGameplay.getInstance().chosePlayerName();
-                    }
-                    if ("n".equalsIgnoreCase(input)) {
-                        System.out.println("Thank you for playing");
-                        System.exit(0);
-                    }
-
-                }
-            }
-
-        } else if ("d".equalsIgnoreCase(input)) {
-            while (playerShip >= 0 || enemyShip >= 0) {
-                int attackEnemy = new Random().nextInt(100);
-                int enemyAttack = new Random().nextInt(100);
-                int playerDefence = new Random().nextInt(20);
-
-                if (enemyShip > 0 && playerShip > 0) {
-                    System.out.println("Enemy attacked you " + enemyAttack + " You defended " + playerDefence);
-                    System.out.println("Total damage " + ((playerShip + playerDefence) - enemyAttack));
-                    Thread.sleep(1000);
-                    int remainingPlayerShealth = playerShip - enemyAttack;
-                    playerShip = remainingPlayerShealth;
-                    System.out.println("Player Health " + playerShip);
-                }
-
-                if (enemyShip > 0 && playerShip > 0) {
-                    System.out.println("You attacked enemy for " + attackEnemy);
-                    Thread.sleep(1000);
-                    int remainingEnemyShealth = enemyShip - attackEnemy;
-                    enemyShip = remainingEnemyShealth;
-                    System.out.println("Enemy health " + enemyShip);
-                }
-                if (enemyShip <= 0) {
-                    Thread.sleep(1000);
-                    System.out.println("You killed the enemy ");
-                    Thread.sleep(1000);
-
-                    break;
-                } else if (playerShip <= 0) {
-                    System.out.println("You Died");
-                    player.playerDeathArt();
-
-                    System.out.println("Would you like to play again? Y/N");
-                    input = scanner.nextLine();
-
-                    if ("y".equalsIgnoreCase(input)) {
-                        player.haveIslandItem = false;
-                        TreasureIslandGameplay.getInstance().chosePlayerName();
-                    }
-                    if ("n".equalsIgnoreCase(input)) {
-                        System.out.println("Thank you for playing");
-                        System.exit(0);
-                    }
-
-
-                    player.playerDeathOptions();
-
-
-                }
-            }
-        }
-
-    }
 
     public void welcomeToTreasureIsland() {
         System.out.println("\n" + Color.ANSI_RED.getValue() +

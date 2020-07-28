@@ -7,7 +7,7 @@ import java.io.ObjectOutputStream;
 import java.util.Arrays;
 
 public class SaveLoadGame {
-    static TreasureIslandGameplay treasureIslandGameplay;
+    static TreasureIslandGameplay treasureIslandGameplay = TreasureIslandGameplay.getInstance();
 
     public static void saveGame(){
         try {
