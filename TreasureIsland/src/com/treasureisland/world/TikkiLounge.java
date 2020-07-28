@@ -31,6 +31,9 @@ public class TikkiLounge implements Location{
     public void investigateArea()  {
         System.out.println("Investigating Tikki lounge, I ran into Sam.");
         game.storylineProgression("TI.txt", getLocationName(), "SAMStart", "SAMStop");
+        System.out.println("You got one of the keys needed for the Treasure Island");
+        player.haveIslandItem = true;
+
 
     }
 

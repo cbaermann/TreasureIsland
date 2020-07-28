@@ -186,7 +186,7 @@ Port Royal
 		c) Open the box by the dock.
 			-- This box looked old and worn down.
 			-- Exploring the box I found
-				-- coins +22
+				-- coins
 	BBDStop
 		d)
 
@@ -204,7 +204,7 @@ Port Royal
 			-- I found out that they had a special lounge for meetings and such.
 			-- I booked it under the pretence to have a meeting with few friends.
 			-- Searching it revealed a paper underneath the sofa.
-			-- It had a list of 4 things. Two keys with a drawing  of them, a jewel drawing with a description and fourth one mentioned a map for II!
+			-- It had a list of 5 things. Three keys with a drawing of them, a jewel drawing with a description and fourth one mentioned a map for II!
 	SLStop
 	TFTStart
 
@@ -395,12 +395,12 @@ Isla c
 				-- Nothing happened of course!
 				-- But father Joseph was sitting behind me by the time I was done praying.
 	AStop
-	JStart
+	FJStart
 		c) Talk with father Joseph.
 			-- Father Joseph is considered a local historian of a sort. He told me about lot of interesting details about the island and also about the praying alter at this church and  . . .
 			--  . . . about the big goblet with a big green emerald. So I got . .
 					--  . . .the goblet! Well, I kind of stole it!!
-	JStop
+	FJStop
 	MStart
 		d) Talk with sister Mary.
 			-- Sister Mary was a very charming to talk to and she informed me that . . .

@@ -26,7 +26,6 @@ public class DuskTillDawnSaloon implements Location {
     public void lookAroundLocation(){
         game.storylineProgression("TI.txt", getLocationName(), "WCStart", "WCStop");
 
-
     }
 
     @Override
@@ -34,8 +33,8 @@ public class DuskTillDawnSaloon implements Location {
         System.out.println(" Searching the saloon, I found out that John has a key I may need.");
         game.storylineProgression("TI.txt", getLocationName(), "KJStart", "KJStop");
         player.setPlayerHealth(player.getPlayerHealth() - 20);
-
-
+        System.out.println(" But you also got the key needed for the Treasure Island");
+        player.haveIslandItem = true;
 
     }
 

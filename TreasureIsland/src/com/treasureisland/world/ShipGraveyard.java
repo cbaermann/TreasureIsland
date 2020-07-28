@@ -31,7 +31,7 @@ public class ShipGraveyard implements Location{
     public void investigateArea(){
         System.out.println("Investigating ship graveyard");
         game.storylineProgression("TI.txt", getLocationName(), "BBDtart", "BBDStop");
-
+        player.playerCoinGenerator();
     }
 
     @Override
