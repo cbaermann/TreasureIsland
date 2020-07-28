@@ -94,8 +94,14 @@ public class TreasureIslandGameplay implements java.io.Serializable{
         islaDeMuerta();
     }
 
-    public void islaDeMuerta(){
+    public void islaDeMuerta() throws InterruptedException {
         System.out.println("At Isla de Muerta");
+        player.processMovement("islademuerta");
+        System.out.println("Leaving Isla de Muerta \n \n");
+        leavingIslandShipPrint();
+        Thread.sleep(5000);
+        player.haveIslandItem = false;
+        islaDeMuerta();
     }
 
 
@@ -104,37 +110,7 @@ public class TreasureIslandGameplay implements java.io.Serializable{
 
     //USER NEEDS TO INPUT THEIR SPECIFIC FILE PATH TO THE TEXT FOLDER
     //STILL WORKING ON HOW TO GET A CONSISTENT PATH FOR EVERY USER
-    //File reads txt file that it's passed and prints to terminal.
-    public void storylineProgression(String fileName, String location, String start, String stop) {
-        try {
-            File myObj = new File("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + fileName);
-            System.out.println(location);
-            Scanner myReader = new Scanner(myObj);
-            boolean tokenFound = false;
 
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine().trim();
-                if (data.equals(start)) //tag in the txt to locate starting position
-                {
-                    //System.out.println(start);
-                    tokenFound = true;
-                } else if (data.equals(stop)) { //tag to end reading the file.
-                    tokenFound = false;
-                }
-
-                if ((tokenFound) && (!data.equals(start))) {
-
-                    System.out.println(data);
-                    Thread.sleep(1000);
-
-
-                }
-            }
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     // Need to add exception handling - Guru
     public void shipBattle() throws InterruptedException {
@@ -170,16 +146,7 @@ public class TreasureIslandGameplay implements java.io.Serializable{
                 } else if (playerShip <= 0) {
                     System.out.println("You Died");
                     player.playerDeathArt();
-                    System.out.println("Would you like to play again? Y/N");
-                    input = scanner.nextLine();
-
-                    if("y".equalsIgnoreCase(input)){
-                        TreasureIslandGameplay.getInstance().chosePlayerName();            }
-                    if("n".equalsIgnoreCase(input)){
-                        System.out.println("Thank you for playing");
-                        System.exit(0);
-                    }
-
+                    player.playerDeathOptions();
                 }
             }
 
@@ -294,7 +261,37 @@ public class TreasureIslandGameplay implements java.io.Serializable{
 
     }
 
+    //File reads txt file that it's passed and prints to terminal.
+    public void storylineProgression(String fileName, String location, String start, String stop) {
+        try {
+            File myObj = new File("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + fileName);
+            System.out.println(location);
+            Scanner myReader = new Scanner(myObj);
+            boolean tokenFound = false;
 
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine().trim();
+                if (data.equals(start)) //tag in the txt to locate starting position
+                {
+                    //System.out.println(start);
+                    tokenFound = true;
+                } else if (data.equals(stop)) { //tag to end reading the file.
+                    tokenFound = false;
+                }
+
+                if ((tokenFound) && (!data.equals(start))) {
+
+                    System.out.println(data);
+                    Thread.sleep(1000);
+
+
+                }
+            }
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 
 }
