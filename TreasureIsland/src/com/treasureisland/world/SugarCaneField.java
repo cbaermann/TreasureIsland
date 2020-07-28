@@ -28,7 +28,6 @@ public class SugarCaneField implements Location{
             player.haveIslandItem = true;
 
         }
-
         else {
             System.out.println("Go away");
         }

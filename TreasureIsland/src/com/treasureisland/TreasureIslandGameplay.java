@@ -7,14 +7,12 @@ import com.treasureisland.ship.ShipBattleSequence;
 
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
 
 
 public class TreasureIslandGameplay implements java.io.Serializable {
     private final Player player = Player.getInstance();
-    private ShipBattleSequence shipBattleSequence = ShipBattleSequence.getInstance();
+    private final ShipBattleSequence shipBattleSequence = ShipBattleSequence.getInstance();
     private IslandSelector island;
     private final Scanner scanner = new Scanner(System.in);
     String input;
@@ -57,7 +55,6 @@ public class TreasureIslandGameplay implements java.io.Serializable {
             System.out.println("Leaving Rum Runners Isle \n \n");
             leavingIslandShipPrint();
             Thread.sleep(5000);
-//            TreasureIslandGameplay.getInstance().shipBattle();
             player.haveIslandItem = false;
             ShipBattleSequence.getInstance().shipBattleafterLeavingIsland();
             portRoyal();
