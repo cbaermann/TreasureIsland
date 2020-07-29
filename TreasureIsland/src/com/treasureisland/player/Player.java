@@ -3,7 +3,6 @@ package com.treasureisland.player;
 import com.treasureisland.IsleFactory;
 import com.treasureisland.SaveLoadGame;
 import com.treasureisland.TreasureIslandGameplay;
-import com.treasureisland.island.IslandSelector;
 import com.treasureisland.items.Vendor;
 import com.treasureisland.world.Location;
 
@@ -21,15 +20,13 @@ public class Player {
             Color.ANSI_GREEN.getValue()+"West"+Color.ANSI_RESET.getValue(), "Go " +
             Color.ANSI_BLUE.getValue()+"East"+Color.ANSI_RESET.getValue()};
     public Location location;
+    private SaveLoadGame saveLoadGame;
     public boolean haveIslandItem = false;
     Scanner scanner = new Scanner(System.in);
     String input;
 
-
-    private SaveLoadGame saveLoadGame;
     private static final Player player = new Player();
     private final Vendor vendorItems = Vendor.getInstance();
-    private IslandSelector island;
 
     private Player() {
 
@@ -63,12 +60,6 @@ public class Player {
 
     //Helper methods below
     public void iterateThroughPlayerClues() {
-//        if (playerClues.size() == 0) {
-//            System.out.println("You have found no clues");
-//        }
-//        for (String clue : playerClues) {
-//            System.out.println(clue);
-//        }
 
         if (player.location.getLocationName().equals("Rum Distillery")) {
 
@@ -82,12 +73,10 @@ public class Player {
         }
         else if (player.location.getLocationName().equals("Crimson Beach Bar")) {
             System.out.println(Color.ANSI_YELLOW.getValue() + "Clue#1" + Color.ANSI_RESET.getValue()+" How's th' cabin number Jojo said t' look aft?");
-//                System.out.println(clues[1]);
 
         }
         else if (player.location.getLocationName().equals("Abandoned distillery")) {
             System.out.println(Color.ANSI_BLUE.getValue() + "Clue#2" + Color.ANSI_RESET.getValue() +" How many Antique coins are thar?");
-//            System.out.println(clues[0]);
 
         } else if (player.location.getLocationName().equals("Sugar cane field")) {
             System.out.println(Color.ANSI_RED.getValue()+"\nSecret Code: "+Color.ANSI_GREEN.getValue()+"Clue#3"+Color.ANSI_RESET.getValue()+" - lastOneDigitOff"+Color.ANSI_RESET.getValue());

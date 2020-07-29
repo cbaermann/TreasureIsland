@@ -25,7 +25,6 @@ public class TikkiLounge implements Location{
             System.out.println(Color.ANSI_BOLD.getValue()+"DING DING DING"+Color.ANSI_RESET.getValue()+
                             "\n You have unlocked your second treasure piece.");
             player.haveIslandItem = true;
-//        game.storylineProgression("TI.txt", getLocationName(), "SOStart", "SOStop");
         }
         else {
             System.out.println("To get the code, you must do side quest talk to npc in \"Ship Graveyard\"");
