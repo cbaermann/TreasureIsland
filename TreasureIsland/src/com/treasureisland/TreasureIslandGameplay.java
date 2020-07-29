@@ -170,7 +170,7 @@ public class TreasureIslandGameplay implements java.io.Serializable {
                 Color.ANSI_RESET.getValue());
     }
 
-    public void leavingIslandShipPrint() {
+    public void leavingIslandShipPrint() throws InterruptedException {
 
         System.out.println(" " +
                 "               __|__ |___| |\\\n" +
@@ -180,6 +180,27 @@ public class TreasureIslandGameplay implements java.io.Serializable {
                 "              /...\\_____|___|____\\_/\n" +
                 "              \\   o * o * * o o  /\n" +
                 "            ~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        Thread.sleep(1000);
+        System.out.println(System.lineSeparator().repeat(50));
+        System.out.println(" " +
+                "                                                __|__ |___| |\\\n" +
+                "                                                |o__| |___| | \\\n" +
+                "                                                |___| |___| |o \\\n" +
+                "                                               _|___| |___| |__o\\\n" +
+                "                                            /...\\_____|___|____\\_/\n" +
+                "                                            \\   o * o * * o o  /\n" +
+                "                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        Thread.sleep(1000);
+        System.out.println(System.lineSeparator().repeat(50));
+        System.out.println(" " +
+                "                                                                                __|__ |___| |\\\n" +
+                "                                                                                |o__| |___| | \\\n" +
+                "                                                                                |___| |___| |o \\\n" +
+                "                                                                               _|___| |___| |__o\\\n" +
+                "                                                                            /...\\_____|___|____\\_/\n" +
+                "                                                                            \\   o * o * * o o  /\n" +
+                "                                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
 
     }
 
