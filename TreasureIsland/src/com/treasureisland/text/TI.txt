@@ -485,9 +485,9 @@ Isla c
         -- How can treasure be on this island? It is supposed to be the biggest treasure in the world.
         -- This is confusing, I have to figure out a way to make some sense of this situation.
         -- Or else all this situation will be for nothing.
-    TIStop
 
-    ETIStaRT
+
+
         -- After revisiting the clues, I think I figured it out.
         -- I need to get to this hidden monastery and I will find more info there.
 
@@ -505,4 +505,4 @@ Isla c
 
 
 
-    ETIStop
+    TIStop
