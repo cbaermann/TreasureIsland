@@ -77,7 +77,7 @@ public class IsleFactory {
 
                 default:
                     System.out.println("Error, please select correct input");
-                    playerGoesTo.rumRunnerIsle();
+                    playerGoesTo.portRoyal();
                     break;
             }
         }
@@ -101,7 +101,7 @@ public class IsleFactory {
 
                 default:
                     System.out.println("Error, please select correct input");
-                    playerGoesTo.portRoyal();
+                    playerGoesTo.islaCruces();
                     break;
             }
         }
@@ -124,7 +124,7 @@ public class IsleFactory {
 
                 default:
                     System.out.println("Error, please select correct input");
-                    playerGoesTo.portRoyal();
+                    playerGoesTo.islaDeMuerta();
                     break;
             }
         }
