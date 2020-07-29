@@ -96,10 +96,23 @@ public class TreasureIslandGameplay implements java.io.Serializable {
         System.out.println("Leaving Isla De Muerta \n \n");
         leavingIslandShipPrint();
         Thread.sleep(5000);
+        treasureIsland();
     }
 
     public void treasureIsland(){
         System.out.println("hey you made it");
+        TreasureIslandGameplay.getInstance().storylineProgression("TI.txt", "", "TIStart", "TIEnd");
+        Scanner scanner = new Scanner(System.in);
+//        System.out.println(" Would you like to check your clues/Information  Yes(y)   No(o) \n");
+        System.out.println(" Press (e) to exit");
+        String input = scanner.nextLine();
+        if (input.equalsIgnoreCase("e")) {
+            System.exit(0);
+        }
+
+
+
+
     }
 
 
@@ -111,8 +124,7 @@ public class TreasureIslandGameplay implements java.io.Serializable {
     //File reads txt file that it's passed and prints to terminal.
     public void storylineProgression(String fileName, String location, String start, String stop) {
         try {
-            File myObj = new File("/Users/codybaermann/Documents/Capstone/TreasureIsland/src/com/treasureisland/text/" + fileName);
-            System.out.println(location);
+            File myObj = new File(".\\TreasureIsland\\src\\com\\treasureisland\\text\\" + fileName);            System.out.println(location);
             Scanner myReader = new Scanner(myObj);
             boolean tokenFound = false;
 
