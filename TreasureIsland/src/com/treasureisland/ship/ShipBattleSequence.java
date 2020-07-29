@@ -39,6 +39,8 @@ public class ShipBattleSequence {
 
         }
         System.out.println("You defeated " + enemyShip.getEnemyShipName() + "\n\n");
+        playerShip.setPlayerShipHealth(100);
+        enemyShip.setEnemyShipHealth(100);
     }
 
 

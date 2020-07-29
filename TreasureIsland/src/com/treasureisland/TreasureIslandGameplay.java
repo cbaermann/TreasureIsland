@@ -100,7 +100,6 @@ public class TreasureIslandGameplay implements java.io.Serializable {
     }
 
     public void treasureIsland(){
-        System.out.println("hey you made it");
         TreasureIslandGameplay.getInstance().storylineProgression("TI.txt", "", "TIStart", "TIEnd");
         Scanner scanner = new Scanner(System.in);
 //        System.out.println(" Would you like to check your clues/Information  Yes(y)   No(o) \n");
@@ -109,9 +108,6 @@ public class TreasureIslandGameplay implements java.io.Serializable {
         if (input.equalsIgnoreCase("e")) {
             System.exit(0);
         }
-
-
-
 
     }
 
@@ -183,7 +179,7 @@ public class TreasureIslandGameplay implements java.io.Serializable {
         Thread.sleep(1000);
         System.out.println(System.lineSeparator().repeat(50));
         System.out.println(" " +
-                "                                                __|__ |___| |\\\n" +
+                "                                               __|__ |___| |\\\n" +
                 "                                                |o__| |___| | \\\n" +
                 "                                                |___| |___| |o \\\n" +
                 "                                               _|___| |___| |__o\\\n" +
@@ -193,7 +189,7 @@ public class TreasureIslandGameplay implements java.io.Serializable {
         Thread.sleep(1000);
         System.out.println(System.lineSeparator().repeat(50));
         System.out.println(" " +
-                "                                                                                __|__ |___| |\\\n" +
+                "                                                                               __|__ |___| |\\\n" +
                 "                                                                                |o__| |___| | \\\n" +
                 "                                                                                |___| |___| |o \\\n" +
                 "                                                                               _|___| |___| |__o\\\n" +
@@ -208,7 +204,7 @@ public class TreasureIslandGameplay implements java.io.Serializable {
         System.out.println("Would you like to Load existing game, play the full game, or play on a sample island? L/F/S");
         input = scanner.nextLine();
         if ("l".equalsIgnoreCase(input)) {
-            saveLoadGame.loadGame();
+            SaveLoadGame.loadGame();
         }
         if ("f".equalsIgnoreCase(input)) {
             chosePlayerName();
