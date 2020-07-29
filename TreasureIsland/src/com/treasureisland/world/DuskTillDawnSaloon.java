@@ -36,6 +36,7 @@ public class DuskTillDawnSaloon implements Location {
         System.out.println(" But you also got the key needed for the Treasure Island");
         player.haveIslandItem = true;
 
+
     }
 
     @Override
